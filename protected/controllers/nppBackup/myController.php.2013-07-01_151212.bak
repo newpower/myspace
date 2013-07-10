@@ -1,0 +1,13 @@
+<?php
+class MyController extends Controller
+{
+	public dunction actionOne()
+	{
+
+	}	
+	
+}
+
+
+?>
+

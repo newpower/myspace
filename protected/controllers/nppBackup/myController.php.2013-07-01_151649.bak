@@ -1,0 +1,17 @@
+<?php
+class MyController extends Controller
+{
+	public function actionOne()
+	{
+		$this->one();
+	}	
+	public function one()
+	{
+		return 'one';
+	}
+	
+}
+
+
+?>
+

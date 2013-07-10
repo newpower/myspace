@@ -1,0 +1,17 @@
+<?php
+class BookController extends Controller
+{
+	public function actionIndex()
+	{
+		echo $this->one();
+	}	
+	public function one()
+	{
+		return 'one';
+	}
+	
+}
+
+
+?>
+
