@@ -1,0 +1,20 @@
+!SESSION 2013-07-02 08:41:14.172 -----------------------------------------------
+eclipse.buildId=3.4.1.201306062137
+java.version=1.6.0_24
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=ru_RU
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.ui 4 0 2013-07-02 08:49:39.308
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.jruby.exceptions.RaiseException: (Errno::EINVAL) =::
+	at org.jruby.RubyHash.replace(org/jruby/RubyHash.java:1623)
+
+!ENTRY org.eclipse.ui.ide 4 4 2013-07-02 08:51:00.748
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2013-07-02 08:51:00.756
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2013-07-02 08:51:00.756
+!MESSAGE The project description file (.project) for 'otest' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
