@@ -1,0 +1,5 @@
+#комментарий к файлу .gitignore
+
+.metadata/*
+.settings/*
+.project
