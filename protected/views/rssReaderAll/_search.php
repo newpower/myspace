@@ -26,11 +26,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'guid'); ?>
-		<?php echo $form->textField($model,'guid',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'category'); ?>
 		<?php echo $form->textField($model,'category',array('size'=>60,'maxlength'=>255)); ?>
 	</div>

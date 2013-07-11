@@ -63,7 +63,7 @@ class RssReaderAll extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'sources' =>  array(self::BELONGS_TO , 'rssReaderSources','id_sources'),
+			'sources' =>  array(self::BELONGS_TO , 'RssReaderSources','id_sources'),
 		);
 	}
 
@@ -74,9 +74,9 @@ class RssReaderAll extends CActiveRecord
 	{
 		return array(
 			'link' => 'Link',
-			'title' => 'Title',
-			'description' => 'Description',
-			'pubDate' => 'Pub Date',
+			'title' => 'Заголовок',
+			'description' => 'Описание',
+			'pubDate' => 'Дата публикации',
 			'guid' => 'Guid',
 			'category' => 'Category',
 			'author' => 'Author',
@@ -119,6 +119,49 @@ class RssReaderAll extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+                'defaultOrder'=>'pubDate DESC',),
 		));
+	}
+	
+	
+	
+	public function search_smal_seach()
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+	
+		
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+			'sort'=>array(
+                'defaultOrder'=>'pubDate DESC',
+            ),
+		));
+		
+		
+		
+		  $criteria = new CDbCriteria;
+ 
+	$criteria->compare('link',$this->link,true);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('description',$this->description,true);
+		$criteria->compare('pubDate',$this->pubDate,true);
+		
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+            'sort'=>array(
+                'defaultOrder'=>'t.id DESC',
+            ),
+
+        ));
+		
+		
+		
+		
 	}
 }

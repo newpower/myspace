@@ -5,9 +5,10 @@
 
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
+
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Personal первый фрэйм',
+	'name'=>'agro2b front',
 	'language'=> 'ru',
 
 	// preloading 'log' component
@@ -97,10 +98,10 @@ return array(
 		
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=nawww_main',
+			'connectionString' => 'mysql:host=93.171.202.18;dbname=user2324_main',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '280286',
+			'username' => 'user2324_nawww',
+			'password' => '1234567aA',
 			'charset' => 'utf8',
 			'tablePrefix'=> 'agro2b',
 		),

@@ -63,8 +63,8 @@ class RssReaderSources extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		'sources_news' =>  array(self::HAS_MANY , 'rssReaderAll','id_sources'),
-		'manttl' =>  array(self::BELONGS_TO , 'rssManTtl','ttl_time'),
+		'sources_news' =>  array(self::HAS_MANY , 'RssReaderAll','id_sources'),
+		'manttl' =>  array(self::BELONGS_TO , 'RssManTtl','ttl_time'),
 		);
 	}
 

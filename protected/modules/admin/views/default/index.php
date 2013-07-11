@@ -19,7 +19,7 @@ You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
 	
 	<?php echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
 echo "<br />";
-echo CHtml::link('Парсер новостей/Новости',array('/RssReaderAll')); 
+echo CHtml::link('Парсер новостей/Новости',array('/RssReaderAll/admin')); 
 
 echo "<br />";
 echo CHtml::link('Страницы сайта',array('/admin/page')); 

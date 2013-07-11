@@ -133,8 +133,19 @@ class RssReaderAllController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new RssReaderAll('search');
-		$model->unsetAttributes();  // clear any default values
+		if (isset($_POST['set_user']))
+		{
+			$model=new RssReaderAll('search_smal_seach');
+			$model->unsetAttributes();  // clear any default values
+			
+		}
+		else {
+			$model=new RssReaderAll('search');
+			$model->unsetAttributes();  // clear any default values
+		}
+		
+		
+
 		if(isset($_GET['RssReaderAll']))
 			$model->attributes=$_GET['RssReaderAll'];
 
