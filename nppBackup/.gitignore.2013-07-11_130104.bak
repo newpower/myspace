@@ -3,7 +3,4 @@
 .metadata/*
 .settings/*
 assets/*
-!assets/.yii
-protected/runtime/*
-!protected/runtime/.yii
 .project
