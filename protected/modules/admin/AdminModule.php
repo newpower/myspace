@@ -1,5 +1,5 @@
 <?php
-//sdf
+//sdfcfgdfg
 class AdminModule extends CWebModule
 {
 	public function init()
