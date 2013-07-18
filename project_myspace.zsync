@@ -1,6 +1,6 @@
 // LastGravity=Warning;
-// LastRefresh=11.7.2013 12:58:45:915;
-// LastUpdate=11.7.2013 12:59:32:112;
+// LastRefresh=12.7.2013 15:28:17:871;
+// LastUpdate=12.7.2013 15:29:31:540;
    
 'Пункт1':HostLocal{
   .Path:='C:\razr\apache\htdocs\tools\myspace\';
@@ -9,12 +9,13 @@
   .Host:='ftp://agro2b.nawww.ru';
   .UserName:='user2324_agro2b';
   .Password:='1234567aA';
+  .Path:='myspace\';
 };
 .NameDiv:={
   'все':All;
   'актив':Other(Out,Out);
   'игнор':Filter;
-  .Filter:={'.git':2,'.metadata':2,'.project':2,'assets':2};
+  .Filter:={'.git':2,'.metadata':2,'.project':2,'assets':2,'framework':2};
   .Index:=0;
 };
 
