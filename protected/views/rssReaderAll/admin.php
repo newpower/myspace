@@ -107,7 +107,7 @@ echo CHtml::submitButton('Быстрый поиск',array('name'=>'smal_seach')
 		/*		'pubDate',
 
 		'author',
-		'yandex_ful_text',
+		'yandex_full_text',
 		'text_news',
 		'language',
 		'date_add',

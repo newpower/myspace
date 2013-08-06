@@ -11,7 +11,7 @@
  * @property string $guid
  * @property string $category
  * @property string $author
- * @property string $yandex_ful_text
+ * @property string $yandex_full_text
  * @property string $text_news
  * @property string $language
  * @property string $date_add
@@ -47,11 +47,12 @@ class RssReaderAll extends CActiveRecord
 		return array(
 			array('link, title', 'required'),
 			array('link, title, guid, category, author, enclosure', 'length', 'max'=>255),
+			array('text_news', 'length', 'max'=>2255),
 			array('language', 'length', 'max'=>4),
-			array('description, pubDate, yandex_ful_text, text_news, date_add, date_edit', 'safe'),
+			array('description, pubDate, yandex_full_text, text_news, date_add, date_edit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('link, title, description, pubDate, guid, category, author, yandex_ful_text, text_news, language, date_add, date_edit, enclosure', 'safe', 'on'=>'search'),
+			array('link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -76,11 +77,12 @@ class RssReaderAll extends CActiveRecord
 			'link' => 'Link',
 			'title' => 'Заголовок',
 			'description' => 'Описание',
+			'text_news' => 'Текст новости с официального сайта',
 			'pubDate' => 'Дата публикации',
 			'guid' => 'Guid',
 			'category' => 'Category',
 			'author' => 'Author',
-			'yandex_ful_text' => 'Yandex Ful Text',
+			'yandex_full_text' => 'Yandex Ful Text',
 			'text_news' => 'Text News',
 			'language' => 'Language',
 			'date_add' => 'Date Add',
@@ -110,7 +112,7 @@ class RssReaderAll extends CActiveRecord
 		$criteria->compare('guid',$this->guid,true);
 		$criteria->compare('category',$this->category,true);
 		$criteria->compare('author',$this->author,true);
-		$criteria->compare('yandex_ful_text',$this->yandex_ful_text,true);
+		$criteria->compare('yandex_full_text',$this->yandex_full_text,true);
 		$criteria->compare('text_news',$this->text_news,true);
 		$criteria->compare('language',$this->language,true);
 		$criteria->compare('date_add',$this->date_add,true);

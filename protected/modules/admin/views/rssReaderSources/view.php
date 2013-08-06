@@ -32,6 +32,7 @@ $this->menu=array(
 		'date_edit',
 		'date_rss_read',
 		'ttl_time',
+		'parse_active',
 	),
 )); ?>
 

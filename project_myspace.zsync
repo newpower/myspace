@@ -1,6 +1,6 @@
-// LastGravity=Warning;
-// LastRefresh=12.7.2013 15:28:17:871;
-// LastUpdate=12.7.2013 15:29:31:540;
+// LastGravity=Error;
+// LastRefresh=6.8.2013 0:11:36:646;
+// LastUpdate=6.8.2013 2:10:17:534;
    
 'Пункт1':HostLocal{
   .Path:='C:\razr\apache\htdocs\tools\myspace\';

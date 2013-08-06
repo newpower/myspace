@@ -1,5 +1,9 @@
 <?php
 
+
+Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
+
+
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
 
@@ -7,6 +11,8 @@
 // CWebApplication properties can be configured here.
 
 return array(
+	'theme'=>'bootstrap', // requires you to copy the theme under your themes directory
+
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'agro2b front',
 	'language'=> 'ru',
@@ -25,6 +31,9 @@ return array(
 		// uncomment the following to enable the Gii tool
 		 'admin',
 		'gii'=>array(
+		   	'generatorPaths'=>array(
+	     	'bootstrap.gii',
+	         ),
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1234567aA',
 		 	// If removed, Gii defaults to localhost only. Edit carefully to taste.
@@ -35,6 +44,9 @@ return array(
 
 	// application components
 	'components'=>array(
+		'bootstrap'=>array(
+	    'class'=>'bootstrap.components.Bootstrap',
+	        ),
 		'authManager' => array(
     	// Будем использовать свой менеджер авторизации
    		 'class' => 'PhpAuthManager',

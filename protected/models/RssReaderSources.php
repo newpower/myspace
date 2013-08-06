@@ -17,6 +17,13 @@
  * @property string $date_edit
  * @property string $date_rss_read
  * @property integer $ttl_time
+ * @property integer $link_news
+ * @property integer $parse_method
+ * @property integer $parse_per_begin
+ * @property integer $parse_per_end
+ * @property integer $parse_active
+ * @property integer $parse_per_argument
+ * 
  */
 class RssReaderSources extends CActiveRecord
 {
@@ -45,13 +52,13 @@ class RssReaderSources extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ttl_time', 'numerical', 'integerOnly'=>true),
-			array('name, link_main, link_rss, link_image, managing_editor_name, managing_editor_mail', 'length', 'max'=>255),
+			array('ttl_time, parse_active, parse_per_argument', 'numerical', 'integerOnly'=>true),
+			array('name, link_main, link_rss, link_image, managing_editor_name, managing_editor_mail, link_news, parse_method, parse_per_begin, parse_per_end', 'length', 'max'=>255),
 			array('lang', 'length', 'max'=>45),
 			array('descrition, date_add, date_edit, date_rss_read', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time', 'safe', 'on'=>'search'),
+			array('id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time, parse_active', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,6 +95,12 @@ class RssReaderSources extends CActiveRecord
 			'date_rss_read' => 'Date Rss Read',
 			'ttl_time' => 'Интервал обновление (мин)',
 			'sources_news' => 'Источник новостей',
+			'link_news'=> 'Ссылка на список новостей',
+			'parse_method'=> 'Метод парсера',
+			'parse_per_begin'=> 'parse_per_begin',
+			'parse_per_end'=> 'parse_per_end',
+			'parse_active'=> 'parse_active',
+			'parse_per_argument'=> 'parse_per_argument',
 		);
 	}
 
@@ -139,6 +152,7 @@ class RssReaderSources extends CActiveRecord
 		$criteria->compare('date_edit',$this->date_edit,true);
 		$criteria->compare('date_rss_read',$this->date_rss_read,true);
 		$criteria->compare('ttl_time',$this->ttl_time);
+		
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

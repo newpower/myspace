@@ -36,8 +36,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'yandex_ful_text'); ?>
-		<?php echo $form->textArea($model,'yandex_ful_text',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->label($model,'yandex_full_text'); ?>
+		<?php echo $form->textArea($model,'yandex_full_text',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
 	<div class="row">

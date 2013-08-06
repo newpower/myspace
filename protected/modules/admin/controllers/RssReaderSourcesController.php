@@ -27,7 +27,7 @@ class RssReaderSourcesController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create','update','admin','delete'),
+				'actions'=>array('index','view','create','update','updateParse','admin','delete'),
 				'users'=>array('*'),
 				'roles'=>array('2'),
 			),
@@ -92,6 +92,33 @@ class RssReaderSourcesController extends Controller
 		}
 
 		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+		/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	public function actionUpdateParse($id)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['RssReaderSources']))
+		{
+			$model->attributes=$_POST['RssReaderSources'];
+			if($model->save())
+			{
+				Yii::app()->user->setFlash('success', '<strong>Well done!</strong> Ваши изменения применены');
+				$this->refresh();
+			
+			}
+		}
+
+		$this->render('updateParse',array(
 			'model'=>$model,
 		));
 	}

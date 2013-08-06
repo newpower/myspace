@@ -52,9 +52,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'yandex_ful_text'); ?>
-		<?php echo $form->textArea($model,'yandex_ful_text',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'yandex_ful_text'); ?>
+		<?php echo $form->labelEx($model,'yandex_full_text'); ?>
+		<?php echo $form->textArea($model,'yandex_full_text',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'yandex_full_text'); ?>
 	</div>
 
 	<div class="row">

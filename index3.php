@@ -98,7 +98,7 @@
 		    return 0;
 		}
 		
-		
+		echo "Процент сходимости по методу similar: ".similar_text($first,$second)."<br />";
 		for ($i=1;$i<5;$i++) {
 		    $first_shingles = array_unique(get_shingle($first,$i));
 

@@ -16,4 +16,17 @@ $this->menu=array(
 
 <h1>Update RssReaderSources <?php echo $model->id; ?></h1>
 
+<?php $this->widget('bootstrap.widgets.TbMenu', array(
+    'type'=>'tabs', // '', 'tabs', 'pills' (or 'list')
+    'stacked'=>false, // whether this is a stacked menu
+    'items'=>array(
+        array('label'=>'Основное', 'url'=>'#', 'active'=>true),
+        array('label'=>'Парсинг', 'url'=>array('updateParse', 'id'=>$model->id)),
+        array('label'=>'прочее', 'url'=>'#'),
+    ),
+)); ?>
+
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+
+	
+
