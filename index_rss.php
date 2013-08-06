@@ -197,7 +197,7 @@ function set_news_text()
 		
 
 		set_news($arr_fields,array("id"=> "link","value"=>$line["link"]));
-		echo "<meta http-equiv=\"refresh\" content=\"2\">";
+		echo "<meta http-equiv=\"refresh\" content=\"1\">";
 		echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
 	exit;
 	}
@@ -328,7 +328,8 @@ function get_news_text_from_site($model_parse)
 			{
 				$prmat='# (.*)'.$per_end.'#isU';
 				preg_match($prmat, $text, $b);
-				$text = trim($b["0"]);
+				$text = (isset($b["0"])) ? trim($b["0"]) : "" ;
+				//$text = trim($b["0"]);
 			}
 			
 			

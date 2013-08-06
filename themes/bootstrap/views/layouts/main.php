@@ -20,11 +20,13 @@
             'class'=>'bootstrap.widgets.TbMenu',
             'items'=>array(
                 array('label'=>'Home', 'url'=>array('/site/index')),
-                array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-                array('label'=>'Contact', 'url'=>array('/site/contact')),
-                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-            ),
+                 array('label'=>'Новости источников', 'url'=>array('/site/contact')),
+                array('label'=>'О сервисе', 'url'=>array('/site/page', 'view'=>'about')),
+                array('label'=>'Связаться', 'url'=>array('/site/contact')),
+                array('label'=>'Залогинется', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Разлогинется ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+            ), 
+           'items'=>PageCategory::menu('top'),
         ),
     ),
 )); ?>
@@ -42,9 +44,9 @@
 	<div class="clear"></div>
 
 	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
+		Copyright &copy; <?php echo date('Y'); ?> ООО "Агро2б".<br/>
+		Все права защищены.<br/>
+	
 	</div><!-- footer -->
 
 </div><!-- page -->

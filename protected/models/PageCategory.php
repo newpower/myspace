@@ -104,7 +104,7 @@ class PageCategory extends CActiveRecord
 		$array = array();
 		foreach ($models as $one) 
 		{
-			$array[]=array('label'=>$one->title, 'url'=>array('/page/index/id/'.$one->id),);
+			//$array[]=array('label'=>$one->title, 'url'=>array('/page/index/id/'.$one->id),);
 		}
 		if ($position == 'top')
 		{
@@ -113,6 +113,8 @@ class PageCategory extends CActiveRecord
 		}
 		if ($position == 'top')
 		{
+			$array[]=array('label'=>'Новости ', 'url'=>array('/RssReaderAll/admin'),);
+			
 			$array[]=array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest);
 			$array[]=array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest);
 			$array[]=array('label'=>'Регистрация', 'url'=>array('/site/registration'), 'visible'=>Yii::app()->user->isGuest);
