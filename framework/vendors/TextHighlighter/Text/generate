@@ -1,5 +1,7 @@
-#!@php_bin@
 <?php
+//#!@php_bin@
+
+
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4: */
 /**
  * Console highlighter class generator
@@ -168,4 +170,3 @@ MSG;
     exit($code);
 }
 ?>
-

@@ -122,7 +122,6 @@ class PageCategory extends CActiveRecord
 			
 			if((Yii::app()->user->checkAccess('2')) or (Yii::app()->user->checkAccess('3'))){
     			$array[]=array('label'=>'Панель администратора', 'url'=>array('/admin'),);
-
 			}
 		}
 		return $array;

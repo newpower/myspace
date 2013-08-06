@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 
 
 
-Доступные справочники <tt> <br />
+Доступные справочники и разделы <tt> <br />
 	
 	
 	<?php echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
@@ -29,7 +29,10 @@ echo "<br />";
 	echo CHtml::link('Настройки',array('/admin/setting')); 
 	echo "<br />";
 	
-	
+	if (Yii::app()->user->checkAccess('3')){
+		echo CHtml::link('PhpMy_admin','http://agro2b.nawww.ru/phpMyAdmin/index.php',array('target'=>'_blank')); 
+		echo "AAAA<br />";
+	}
 	
 	 ?> |<br />
 	

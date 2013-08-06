@@ -6301,3 +6301,12 @@ REQUEST_URI=/tools/myspace/index.php?r=site/login
 in D:\web\tools\myspace\protected\models\Users.php (34)
 in D:\web\tools\myspace\protected\components\UserIdentity.php (10)
 in D:\web\tools\myspace\protected\models\LoginForm.php (52)
+2013/08/06 12:07:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Невозможно обработать запрос "admin/http://agro2b.nawww.ru/phpMyAdmin/index.php".' in D:\web\tools\myspace\framework\web\CWebApplication.php:286
+Stack trace:
+#0 D:\web\tools\myspace\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/http://ag...')
+#1 D:\web\tools\myspace\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 D:\web\tools\myspace\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/tools/myspace/index.php?r=admin/http://agro2b.nawww.ru/phpMyAdmin/index.php
+HTTP_REFERER=http://127.0.0.1/tools/myspace/index.php?r=admin
+---

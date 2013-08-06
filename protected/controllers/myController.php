@@ -4,8 +4,8 @@ class MyController extends Controller
 	public function actionOne()
 	{
 		$model = new Book();
-		$model->sa
-		echo $this->one();
+	
+	//	echo $this->one();
 	}	
 	public function one()
 	{
