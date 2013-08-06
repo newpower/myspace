@@ -9,9 +9,9 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Login</h1>
+<h1>Вход в систему</h1>
 
-<p>Please fill out the following form with your login credentials:</p>
+<p>Пожалуйста заполните форм для входа на сайт:</p> 
 
 <div class="form">
 
@@ -24,21 +24,21 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">Поля отмеченные <span class="required">*</span> обязательны к заполнению.</p>
 
 	<?php echo $form->textFieldRow($model,'username'); ?>
 
 	<?php echo $form->passwordFieldRow($model,'password',array(
-        'hint'=>'Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>',
+        'hint'=>'Hint: Вы можете зарегистрироваться, см ссылку регистрация',
     )); ?>
 
-	<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
+	<?php echo $form->checkBoxRow($model,'Запомнить меня'); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
             'buttonType'=>'submit',
             'type'=>'primary',
-            'label'=>'Login',
+            'label'=>'Залогинется',
         )); ?>
 	</div>
 

@@ -308,7 +308,7 @@ function get_news_text_from_site($model_parse)
 			include_once 'my_lib/simple_html_dom.php';
 			
 			$html = str_get_html(to_utf8(get_page($url)));
-				
+				echo $per_begin;  
 			$per_begin=$arr_arg["per_begin"];
 			$per_argument=$arr_arg["per_argument"];
 			$per_end=$arr_arg["per_end"];	
