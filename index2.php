@@ -371,7 +371,7 @@ function get_hh_api_vacansy_element_read()
 		$data_arr["dictionaries_employment_id"]=my_get_id($arrayName["employment"],'id');
 
 		$data_arr["url"]=$arrayName["alternate_url"];
-		$data_arr["response_json"]=addslashes($resp);
+		//$data_arr["response_json"]=addslashes($resp);
 		f_hh_save_model_vac_list($data_arr,array('id'=>'id','value'=>$line["id"]));
 	//echo $data_arr["description"];
 		//exit;

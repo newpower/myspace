@@ -6273,3 +6273,31 @@ Stack trace:
 REQUEST_URI=/tools/myspace/index.php?r=RssReaderAll/admin
 HTTP_REFERER=http://127.0.0.1/tools/myspace/index.php?r=admin
 ---
+2013/08/06 06:06:48 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] ѕопытка установить соединение была безуспешной, т.к. от другого компьютера за требуемое врем€ не получен нужный отклик, или было (trying to connect via tcp://93.171.202.18:3306) (D:\web\tools\myspace\framework\db\CDbConnection.php:423)
+Stack trace:
+#0 D:\web\tools\myspace\framework\db\CDbConnection.php(330): CDbConnection->open()
+#1 D:\web\tools\myspace\framework\db\CDbConnection.php(308): CDbConnection->setActive()
+#2 D:\web\tools\myspace\framework\base\CModule.php(387): CDbConnection->init()
+#3 D:\web\tools\myspace\framework\base\CApplication.php(438): CWebApplication->getComponent()
+#4 D:\web\tools\myspace\framework\db\ar\CActiveRecord.php(623): CWebApplication->getDb()
+#5 D:\web\tools\myspace\framework\db\ar\CActiveRecord.php(2309): Users->getDbConnection()
+#6 D:\web\tools\myspace\framework\db\ar\CActiveRecord.php(387): CActiveRecordMetaData->__construct()
+#7 D:\web\tools\myspace\protected\models\Users.php(34): model()
+#8 D:\web\tools\myspace\protected\components\UserIdentity.php(10): model()
+#9 D:\web\tools\myspace\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#10 D:\web\tools\myspace\framework\validators\CInlineValidator.php(42): LoginForm->authenticate()
+#11 D:\web\tools\myspace\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute()
+#12 D:\web\tools\myspace\framework\base\CModel.php(159): CInlineValidator->validate()
+#13 D:\web\tools\myspace\protected\controllers\SiteController.php(128): LoginForm->validate()
+#14 D:\web\tools\myspace\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#15 D:\web\tools\myspace\framework\web\CController.php(308): CInlineAction->runWithParams()
+#16 D:\web\tools\myspace\framework\web\CController.php(286): SiteController->runAction()
+#17 D:\web\tools\myspace\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#18 D:\web\tools\myspace\framework\web\CWebApplication.php(282): SiteController->run()
+#19 D:\web\tools\myspace\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 D:\web\tools\myspace\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 D:\web\tools\myspace\index.php(13): CWebApplication->run()
+REQUEST_URI=/tools/myspace/index.php?r=site/login
+in D:\web\tools\myspace\protected\models\Users.php (34)
+in D:\web\tools\myspace\protected\components\UserIdentity.php (10)
+in D:\web\tools\myspace\protected\models\LoginForm.php (52)
