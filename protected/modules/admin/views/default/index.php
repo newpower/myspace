@@ -10,7 +10,10 @@ $this->breadcrumbs=array(
 Доступные справочники и разделы <tt> <br />
 	
 	
-	<?php echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
+	<?php 
+	
+	echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
+
 echo "<br />";
 echo CHtml::link('Парсер новостей/Новости',array('/RssReaderAll/admin')); 
 
@@ -31,7 +34,9 @@ echo "<br />";
 	
 	if (Yii::app()->user->checkAccess('3')){
 		echo CHtml::link('PhpMy_admin','http://agro2b.nawww.ru/phpMyAdmin/index.php',array('target'=>'_blank')); 
-		echo "AAAA<br />";
+		echo "<br />";
+		echo CHtml::link('Парсер страниц, обработки',array('/admin/rssReaderParseText')); 
+		echo "<br />";
 	}
 	
 	 ?> |<br />

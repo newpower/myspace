@@ -1,6 +1,6 @@
 <?php
 return array (
-  'template' => 'default',
+  'template' => 'mymodelsavedate',
   'connectionId' => 'db',
   'tablePrefix' => 'agro2b',
   'modelPath' => 'application.models',

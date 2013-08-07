@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
         'hint'=>'Hint: Вы можете зарегистрироваться, см ссылку регистрация',
     )); ?>
 
-	<?php echo $form->checkBoxRow($model,'Запомнить меня'); ?>
+	<?php echo $form->checkBoxRow($model,'rememberMe'); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

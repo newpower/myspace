@@ -188,7 +188,6 @@ function set_news_text()
 	$query = "SELECT * FROM `agro2b_rss_reader_all` `all` left join `agro2b_rss_reader_sources` `sources` on `all`.`id_sources`= `sources`.`id` where `text_news` is null limit 0,100;";
 	
 	$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
-	
   	while ($line = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
 	{
 		echo "Страница новости:".$line["link"]."<br />";
@@ -197,7 +196,7 @@ function set_news_text()
 		
 
 		set_news($arr_fields,array("id"=> "link","value"=>$line["link"]));
-		echo "<meta http-equiv=\"refresh\" content=\"1\">";
+		//echo "<meta http-equiv=\"refresh\" content=\"1\">";
 		echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
 	exit;
 	}
@@ -209,8 +208,9 @@ function get_news_text_from_site($model_parse)
 {
 	$url=$model_parse["link"];
 	$arr_arg=array("active"=>"0");
+	
 
-	if ($model_parse["parse_active"])
+	/*if ($model_parse["parse_active"])
 	{
 		$arr_arg=array(
 			"active"=>"1",
@@ -221,80 +221,22 @@ function get_news_text_from_site($model_parse)
 			);
 		//echo $model_parse["parse_per_begin"];
 	}
+*/
 
-	/*if (strpos("HH".$url, "zol.ru/z-news/") > 0)
-	{
-		$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class=news_content]",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			);
-
-	}
-	elseif (strpos("HH".$url, "agronews.ru/news") > 0)
-		{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class=text-block]",
-			"per_argument"=>"0",
-			"per_end"=>"Количество просмотров материала",
-			);
-	}
-	elseif (strpos("HH".$url, "regnum.ru/") > 0)
-	{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class=newsbody]",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			);
+		$cl = new RestClient();
+		$r=$cl->split_url($url);
 		
-	}
-	elseif (strpos("HH".$url, "admlr.lipetsk.ru/rus/news/") > 0)
-	{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class=nbody]",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			);
-	}
-		elseif (strpos("HH".$url, "fsvps.ru/fsvps/news/") > 0)
-	{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class='newsitem']",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			); //newsitem
-	}
-	elseif (strpos("HH".$url, "komitet2-20.km.duma.gov.ru/") > 0)
-	{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class='st']",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			);
-	}
-	elseif (strpos("HH".$url, "dairynews.ru/news/") > 0)
-	{
-			$arr_arg=array(
-			"active"=>"1",
-			"method"=>"div_and",
-			"per_begin"=>"div[class='nnew-detail']",
-			"per_argument"=>"0",
-			"per_end"=>"",
-			);
-	}
-	else*/
+		$query = " 	SELECT * FROM `agro2b_rss_reader_parse_text` WHERE `domain` LIKE '".$r["host"]."' LIMIT 0 , 30	";
+		$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
+  		if (sizeof($result_all) > 0)
+		{
+			while ($data_parse = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
+			{
+				
+				$arr_arg=$data_parse;
+			}
+			
+		}
 	
 	if (strpos("HH".$url, "yandex.ru/") > 0)
 	{
@@ -302,25 +244,32 @@ function get_news_text_from_site($model_parse)
 			return $arr_param;
 		
 	}
-
-		if ($arr_arg["active"])
+		$text='';
+		// Полные тексты 	id 	domain 	 	 	 	 	 	pa
+		if ($arr_arg["parse_text_active"])
 		{
 			include_once 'my_lib/simple_html_dom.php';
 			
 			$html = str_get_html(to_utf8(get_page($url)));
-				echo $per_begin;  
-			$per_begin=$arr_arg["per_begin"];
-			$per_argument=$arr_arg["per_argument"];
-			$per_end=$arr_arg["per_end"];	
 				
-			if ($arr_arg["method"] == "div_and")
+			$per_begin=$arr_arg["parse_text_per_begin"];
+			$per_argument=$arr_arg["parse_text_per_argument"];
+			$per_end=$arr_arg["parse_text_per_end"];	
+			
+			
+			if ($arr_arg["parse_method"] == "div_and")
 			{
 				$ret = $html->find($per_begin);
-				$text= $ret["$per_argument"];	
-				
-				
-				
-				
+				if (sizeof($ret) > 0)
+				{
+					$text= $ret["$per_argument"];	
+				}
+				else
+					{
+						echo "Ошибка нет массива ".$per_begin." аргумента".$per_argument." <br>";
+						echo $cl->json_encode_cyr($arr_arg)."<br>";
+						exit;
+					}
 			}
 			
 			
@@ -328,22 +277,39 @@ function get_news_text_from_site($model_parse)
 			{
 				$prmat='# (.*)'.$per_end.'#isU';
 				preg_match($prmat, $text, $b);
-				$text = (isset($b["0"])) ? trim($b["0"]) : "" ;
+				$text = (isset($b["0"])) ? trim($b["0"]) : $text ;
 				//$text = trim($b["0"]);
 			}
 			
-			
-			$html = str_get_html($text);
-			$arr_img_url=array();
-			
-			$cl = new RestClient();
-			foreach($html->find('img') as $div)
+			//Получение картинок если есть размеченная область
+			//получаем html с картинкой
+			if ($arr_arg["parse_img_per_begin"])
 			{
-				echo $cl->url_to_absolute($url, $div->src)."<br>";
-				
-				array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div->src),"alt"=>$div->alt,"title"=>$div->title));
+				$ret = $html->find($arr_arg["parse_img_per_begin"]);
+				if (sizeof($ret) > 0)
+				{
+					$per_argument_img=$arr_arg["parse_img_per_argument"];
+					$text_img= $ret["$per_argument_img"];	
+				}
 			}
- 
+			else
+			{
+				$text_img=$text;
+				
+			}
+		
+			$arr_img_url=array();
+			$html = str_get_html($text_img);	
+				
+			foreach($html->find('img') as $div2)
+			{
+				$cl = new RestClient();
+				//array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
+			
+				echo $cl->url_to_absolute($url, $div2->src)."<br>";
+				echo $div2->src."55555555555555555555555555555";
+			}
+ 			echo "66666666666666666666";
 
 			
 			$text=delete_adv_list($text);
@@ -351,7 +317,7 @@ function get_news_text_from_site($model_parse)
 			
 			$text=strip_tags($text);
 			$text=preg_replace("'\n'isu", "<br />\n", $text);
-			echo $url."<br>uu"."$text";
+		
 			//echo "<br />";
 			// preg_replace("'\n'isu", "<br />", $text);
 		
@@ -477,7 +443,7 @@ function reader_rss_my($arraydata)
 		
 		
 	}
-return $count_new;
+	return $count_new;
 	//exit;
 	
 }
@@ -568,5 +534,5 @@ function get_connect_db($id=1)
 	
     $query = "SET NAMES utf8";
     $result = mysql_query($query) or die("Query failed : " . mysql_error());
-}	
+}
 ?>
