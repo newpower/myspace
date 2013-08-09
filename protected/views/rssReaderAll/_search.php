@@ -64,7 +64,17 @@
 		<?php echo $form->label($model,'enclosure'); ?>
 		<?php echo $form->textField($model,'enclosure',array('size'=>60,'maxlength'=>255)); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->label($model,'id_sources'); ?>
 
+
+	<?php 	echo $form->dropDownList(
+            $model,
+            'id_sources',
+          CHtml::listData(RssReaderSources::model()->findAllByAttributes(array()),'id','name'), array('multiple' => "multiple")); ?>
+           
+	</div>
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

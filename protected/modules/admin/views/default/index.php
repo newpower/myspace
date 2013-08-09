@@ -35,6 +35,8 @@ echo "<br />";
 	if (Yii::app()->user->checkAccess('3')){
 		echo CHtml::link('PhpMy_admin','http://agro2b.nawww.ru/phpMyAdmin/index.php',array('target'=>'_blank')); 
 		echo "<br />";
+		echo CHtml::link('Хостинг MIRAHUB','https://shared2.mirahub.com/manager/ispmgr',array('target'=>'_blank')); 
+		echo "<br />";
 		echo CHtml::link('Парсер страниц, обработки',array('/admin/rssReaderParseText')); 
 		echo "<br />";
 	}

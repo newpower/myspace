@@ -52,7 +52,7 @@ class RssReaderAll extends CActiveRecord
 			array('description, pubDate, yandex_full_text, text_news, date_add, date_edit', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news', 'safe', 'on'=>'search'),
+			array('link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news,id_sources', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -88,7 +88,7 @@ class RssReaderAll extends CActiveRecord
 			'date_add' => 'Date Add',
 			'date_edit' => 'Date Edit',
 			'enclosure' => 'Enclosure',
-			'id_sources' => 'id_sources',
+			'id_sources' => 'Источник',
 			'sources' => 'Источник новостей',
 		);
 	}
@@ -118,7 +118,11 @@ class RssReaderAll extends CActiveRecord
 		$criteria->compare('date_add',$this->date_add,true);
 		$criteria->compare('date_edit',$this->date_edit,true);
 		$criteria->compare('enclosure',$this->enclosure,true);
-
+		$criteria->compare('id_sources',$this->id_sources,true);
+echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDD view".$this->text_news;
+//foreach ($this->id_sources as $key => $value) {
+	//echo "$key => $value <br>";
+//}
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'sort'=>array(
@@ -127,43 +131,5 @@ class RssReaderAll extends CActiveRecord
 	}
 	
 	
-	
-	public function search_smal_seach()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
 
-		$criteria=new CDbCriteria;
-
-	
-		
-
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-			'sort'=>array(
-                'defaultOrder'=>'pubDate DESC',
-            ),
-		));
-		
-		
-		
-		  $criteria = new CDbCriteria;
- 
-	$criteria->compare('link',$this->link,true);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('pubDate',$this->pubDate,true);
-		
-        return new CActiveDataProvider($this, array(
-            'criteria' => $criteria,
-            'sort'=>array(
-                'defaultOrder'=>'t.id DESC',
-            ),
-
-        ));
-		
-		
-		
-		
-	}
 }

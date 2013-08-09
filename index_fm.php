@@ -1,7 +1,7 @@
 <?php
 //a:9:{s:4:"lang";s:2:"en";s:9:"auth_pass";s:32:"a2d789dd8085cc95a6d4834b88462077";s:8:"quota_mb";i:0;s:17:"upload_ext_filter";a:0:{}s:19:"download_ext_filter";a:0:{}s:15:"error_reporting";s:0:"";s:7:"fm_root";s:0:"";s:17:"cookie_cache_time";i:2592000;s:7:"version";s:5:"0.9.7";}
 /*--------------------------------------------------
- | PHP FILE MANAGER
+ | PHP FILE MANAGER 
  +--------------------------------------------------
  | phpFileManager 0.9.7
  | By Fabricio Seger Kolling

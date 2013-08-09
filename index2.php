@@ -442,7 +442,7 @@ function put_data_to_agro2b($url="http://agro2b.ru/admin/api/offer")
 	}
 	
 	
-	$query = "SELECT * FROM agro2b_api_hh_vacancies where `url` is NOT NULL and  `need_resive` = '1' limit 0,10000";
+	$query = "SELECT * FROM agro2b_api_hh_vacancies where `url` is NOT NULL and  `need_resive` = '1' ORDER BY `created_at` DESC limit 0,100000";
 	$result = mysql_query($query) or die("Query failed : " . mysql_error().$query);
   	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
   	{
@@ -459,7 +459,9 @@ function put_data_to_agro2b($url="http://agro2b.ru/admin/api/offer")
 				$url2=$url."/".$line["agro2b_id"];
 				$resp=$cl->delete($url2);
 				$arrayName = json_decode($resp,TRUE);
-				$data_arr["need_resive"]=($arrayName["status"] == 'succcess')?'0':'1';
+				echo $arrayName.$arrayName["status"].$arrayName["message"]."++".$resp."++";
+	
+				$data_arr["need_resive"]=(($arrayName["status"] == 'succcess') or ($arrayName["message"] == 'not found'))?'0':'1';
 			}
 			else
 			{

@@ -54,7 +54,7 @@ class RestClient {
 
 	public function post($url, $data = array(), $http_options = array()) 
 	{
-
+  			echo "POST_BASE_URL[ $url ]<br />";	
 		$ch = curl_init();
 		curl_setopt($ch,CURLOPT_URL,$url);
 		curl_setopt($ch, CURLOPT_POST, true);
@@ -135,8 +135,11 @@ class RestClient {
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			curl_setopt($ch, CURLOPT_COOKIEJAR, dirname(__FILE__).'/cookie.txt'); // сохранять куки в файл
 			curl_setopt($ch, CURLOPT_COOKIEFILE,  dirname(__FILE__).'/cookie.txt');
-			
+			curl_setopt($ch, CURLOPT_USERPWD, "agro2b_admin:r9305NDF");
 			$resp = curl_exec($ch);
+			
+			
+				
 			curl_close($ch);
 	  	   	return $resp;
 		}
@@ -209,7 +212,7 @@ class RestClient {
 	    {
 	        if ( !empty( $r['path'] ) )
 	            $r['path'] = $this->url_remove_dot_segments( $r['path'] );
-	        return join_url( $r );
+	        return $this->join_url( $r );
 	    }
 	    unset( $r['port'] );
 	    unset( $r['user'] );
@@ -228,7 +231,7 @@ class RestClient {
 	            $r['path'] = $b['path'];
 	        if ( !isset( $r['query'] ) && isset( $b['query'] ) )
 	            $r['query'] = $b['query'];
-	        return join_url( $r );
+	        return $this->join_url( $r );
 	    }
 	 
 	    // If relative URL path doesn't start with /, merge with base path
@@ -419,7 +422,7 @@ class RestClient {
 		if ( !empty($parts['fragment']) )
 			$parts['fragment'] = rawurldecode( $parts['fragment'] );
 		return $parts;
-	}
+	} 
 
 	function url_remove_dot_segments( $path )
 	{

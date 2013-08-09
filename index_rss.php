@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title>Обработка получения данных </title>
+	<title><?php echo date("H:i:s"); ?>Обработка получения данных </title>
 
 </head>
 <body style="font-family: Tahoma;">
@@ -18,21 +18,85 @@ function get_page($target_url='https://api.hh.ru/specializations')
 	
 	$userAgent='API BOT/2.1 (600541@mail.ru)';
 	
-	$ch = curl_init($target_url);
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $target_url);
 	if (strtolower((substr($target_url,0,5))=='https'))
 	{
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 		
 	}
-	   
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
+	  
 
+	  curl_setopt($ch, CURLOPT_HEADER, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	//curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
+
+	curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 	curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
-	return curl_exec($ch); 
+	
+	//curl_setopt($ch, CURLOPT_PROXY, "ipp-proxy.yugrusiagro.ru:3128");
+	//curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'feofanov_ei:Iethae7z');
+
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	//$page = curl_redir_exec($ch);
+	$html=curl_exec($ch); 
+	  list($header, $html) = explode("\n\n", $html, 2);
+	  
+ 	 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	echo "MMM".$header."MMMM".$http_code;
+	    $matches = array();
+    preg_match('/Location:(.*?)\n/', $header, $matches);
+    $url = @parse_url(trim(array_pop($matches)));
+	echo $url["host"]."UURRLL";
+	return $html;
 
 }
+
+function curl_redir_exec($ch)
+  {
+  static $curl_loops = 0;
+  static $curl_max_loops = 20;
+  if ($curl_loops >= $curl_max_loops)
+    {
+    $curl_loops = 0;
+    return false;
+    }
+  curl_setopt($ch, CURLOPT_HEADER, true);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  $data = curl_exec($ch);
+  list($header, $data) = explode("\n\n", $data, 2);
+  $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+ 
+  if ($http_code == 301 || $http_code == 302)
+    {
+    $matches = array();
+    preg_match('/Location:(.*?)\n/', $header, $matches);
+    $url = @parse_url(trim(array_pop($matches)));
+    if (!$url)
+      {
+      $curl_loops = 0;
+      return $data;
+      }
+    $last_url = parse_url(curl_getinfo($ch, CURLINFO_EFFECTIVE_URL));
+   
+    if (!$url['scheme'])
+      $url['scheme'] = $last_url['scheme'];
+    if (!$url['host'])
+      $url['host'] = $last_url['host'];
+    if (!$url['path'])
+      $url['path'] = $last_url['path'];
+    $new_url = $url['scheme'] . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:'');
+    echo $new_url.' --- '.$http_code.'<br>';
+    curl_setopt($ch, CURLOPT_URL, $new_url);
+    return curl_redir_exec($ch);
+    }
+  else
+    {
+    $curl_loops = 0;
+    return $data;
+    }
+  }
 
 	include 'my_lib/rest_client.php';
 	
@@ -196,8 +260,8 @@ function set_news_text()
 		
 
 		set_news($arr_fields,array("id"=> "link","value"=>$line["link"]));
-		//echo "<meta http-equiv=\"refresh\" content=\"1\">";
-		echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
+		echo "<meta http-equiv=\"refresh\" content=\"1\">";
+		//echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
 	exit;
 	}
 }
@@ -208,7 +272,7 @@ function get_news_text_from_site($model_parse)
 {
 	$url=$model_parse["link"];
 	$arr_arg=array("active"=>"0");
-	
+	$per_debug=0;
 
 	/*if ($model_parse["parse_active"])
 	{
@@ -225,24 +289,21 @@ function get_news_text_from_site($model_parse)
 
 		$cl = new RestClient();
 		$r=$cl->split_url($url);
-		
+		echo "HOST".$r["host"]."HOST<br>";
 		$query = " 	SELECT * FROM `agro2b_rss_reader_parse_text` WHERE `domain` LIKE '".$r["host"]."' LIMIT 0 , 30	";
 		$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
   		if (sizeof($result_all) > 0)
 		{
 			while ($data_parse = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
 			{
-				
 				$arr_arg=$data_parse;
 			}
-			
 		}
 	
 	if (strpos("HH".$url, "yandex.ru/") > 0)
 	{
 		$arr_param = array("text_news" => "yandex_text",);
 			return $arr_param;
-		
 	}
 		$text='';
 		// Полные тексты 	id 	domain 	 	 	 	 	 	pa
@@ -251,36 +312,42 @@ function get_news_text_from_site($model_parse)
 			include_once 'my_lib/simple_html_dom.php';
 			
 			$html = str_get_html(to_utf8(get_page($url)));
-				
 			$per_begin=$arr_arg["parse_text_per_begin"];
 			$per_argument=$arr_arg["parse_text_per_argument"];
 			$per_end=$arr_arg["parse_text_per_end"];	
+			if ($per_debug) {echo "Подключили формы обработки ".$per_begin." <br>";}
 			
-			
-			if ($arr_arg["parse_method"] == "div_and")
+			if ($arr_arg["parse_method"] == "div_and") 
 			{
 				$ret = $html->find($per_begin);
+				if ($per_debug) {echo "Метод получен отрабатываеv<br>";}
 				if (sizeof($ret) > 0)
 				{
 					$text= $ret["$per_argument"];	
+					if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
 				}
 				else
 					{
 						echo "Ошибка нет массива ".$per_begin." аргумента".$per_argument." <br>";
 						echo $cl->json_encode_cyr($arr_arg)."<br>";
-						exit;
+						$text="problem_parse";
+						echo $html;
+						exit;   
 					}
 			}
-			
-			
+
 			if ($per_end)
 			{
+				if ($per_debug) {echo "Обрезаем концовку<br>";}
 				$prmat='# (.*)'.$per_end.'#isU';
 				preg_match($prmat, $text, $b);
 				$text = (isset($b["0"])) ? trim($b["0"]) : $text ;
+				if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
 				//$text = trim($b["0"]);
 			}
-			
+
+			$text_img=$text;
+
 			//Получение картинок если есть размеченная область
 			//получаем html с картинкой
 			if ($arr_arg["parse_img_per_begin"])
@@ -292,36 +359,26 @@ function get_news_text_from_site($model_parse)
 					$text_img= $ret["$per_argument_img"];	
 				}
 			}
-			else
-			{
-				$text_img=$text;
-				
-			}
-		
+
 			$arr_img_url=array();
 			$html = str_get_html($text_img);	
-				
+
 			foreach($html->find('img') as $div2)
 			{
 				$cl = new RestClient();
-				//array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
-			
-				echo $cl->url_to_absolute($url, $div2->src)."<br>";
-				echo $div2->src."55555555555555555555555555555";
-			}
- 			echo "66666666666666666666";
+				array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
 
-			
+				if ($per_debug) { echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";}
+				 echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";
+			}
 			$text=delete_adv_list($text);
-			
-			
 			$text=strip_tags($text);
 			$text=preg_replace("'\n'isu", "<br />\n", $text);
-		
+
 			//echo "<br />";
 			// preg_replace("'\n'isu", "<br />", $text);
 		
-			
+			echo $url." TEKST: ".$text;
 			$newparam = (sizeof($arr_img_url) > 0) ? $cl->json_encode_cyr($arr_img_url) : "" ;
 			//$newparam="";
 			$arr_param = array("text_news" => $text,"url_link_json"=>$newparam);
@@ -356,6 +413,7 @@ function delete_adv_list($document)
 	"\n",
 	"\n",
 	"\n",
+
 	 );
 	
 	return preg_replace($search, $replace, $document);
