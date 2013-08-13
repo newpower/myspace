@@ -20,6 +20,9 @@
  */
 class RssReaderAll extends CActiveRecord
 {
+	//use for model seach
+	public $pubDateot;
+	public $pubDatedo;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return RssReaderAll the static model class
@@ -39,7 +42,7 @@ class RssReaderAll extends CActiveRecord
 
 	/**
 	 * @return array validation rules for model attributes.
-	 */
+	 */ 
 	public function rules()
 	{
 		// NOTE: you should only define rules for those attributes that
@@ -47,12 +50,12 @@ class RssReaderAll extends CActiveRecord
 		return array(
 			array('link, title', 'required'),
 			array('link, title, guid, category, author, enclosure', 'length', 'max'=>255),
-			array('text_news', 'length', 'max'=>2255),
+			array('text_news, pubDateot, pubDatedo', 'length', 'max'=>2255),
 			array('language', 'length', 'max'=>4),
-			array('description, pubDate, yandex_full_text, text_news, date_add, date_edit', 'safe'),
+			array('description, pubDate, yandex_full_text, text_news, date_add, date_edit, pubDateot, pubDatedo', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news,id_sources', 'safe', 'on'=>'search'),
+			array('link, title, description, pubDate, pubDateot, pubDatedo, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news,id_sources', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,6 +82,8 @@ class RssReaderAll extends CActiveRecord
 			'description' => 'Описание',
 			'text_news' => 'Текст новости с официального сайта',
 			'pubDate' => 'Дата публикации',
+			'pubDateOt' => 'Дата публикации с',
+			'pubDateDo' => 'Дата публикации до',
 			'guid' => 'Guid',
 			'category' => 'Category',
 			'author' => 'Author',
@@ -108,7 +113,22 @@ class RssReaderAll extends CActiveRecord
 		$criteria->compare('link',$this->link,true);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('pubDate',$this->pubDate,true);
+	//	$criteria->compare('pubDate',$this->pubDateOt,true);
+		if (!isset($this->pubDateot))
+		{
+			$this->pubDateot=date('Y-m-j',mktime(0, 0, 0, date("m"),   date("d")-7,   date("Y")));
+		}
+		if (!isset($this->pubDatedo))
+		{
+			$this->pubDatedo=date('Y-m-j',mktime(0, 0, 0, date("m"),   date("d"),   date("Y")));
+		}
+			
+			$criteria->addBetweenCondition("pubDate", $this->pubDateot." 00:00", $this->pubDatedo." 23:59");
+			//compare('pubDate',$this->pubDateot,true);
+		//}
+		
+
+		
 		$criteria->compare('guid',$this->guid,true);
 		$criteria->compare('category',$this->category,true);
 		$criteria->compare('author',$this->author,true);

@@ -5,65 +5,46 @@
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'link'); ?>
-		<?php echo $form->textField($model,'link',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
+	
+		<?php 
 
-	<div class="row">
-		<?php echo $form->label($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
+		echo $form->labelEx($model,'pubDateot'); 
+		
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array
+	        (
+	            'name'=>'RssReaderAll[pubDateot]', // the name of the field
+	            'language'=>'ru',
+				'value'=>(date('Y-m-j',mktime(0, 0, 0, date("m"),   date("d")-7,   date("Y")))),  // pre-fill the value  
+	            'options'=>array
+	            (
+	                'showAnim'=>'fold',
+	                'debug'=>false,
+	                'dateFormat' => 'yy-mm-dd',
+	            ),
+	            'htmlOptions'=>array(
+	            'style'=>'height:20px;'),
+	        ));
 
-	<div class="row">
-		<?php echo $form->label($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
+		echo " До "; 
+		
+			$this->widget('zii.widgets.jui.CJuiDatePicker', array
+	        (
+	            'name'=>'RssReaderAll[pubDatedo]', // the name of the field
+	            'language'=>'ru',
+				'value'=>(date('Y-m-j',mktime(0, 0, 0, date("m"),   date("d"),   date("Y")))),  // pre-fill the value  
+	            'options'=>array
+	            (
+	                'showAnim'=>'fold',
+	                'debug'=>false,
+	                'dateFormat' => 'yy-mm-dd',
+	            ),
+	            'htmlOptions'=>array(
+	            'style'=>'height:20px;'),
+	        ));
 
-	<div class="row">
-		<?php echo $form->label($model,'pubDate'); ?>
-		<?php echo $form->textField($model,'pubDate'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'category'); ?>
-		<?php echo $form->textField($model,'category',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'author'); ?>
-		<?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'yandex_full_text'); ?>
-		<?php echo $form->textArea($model,'yandex_full_text',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'text_news'); ?>
-		<?php echo $form->textArea($model,'text_news',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'language'); ?>
-		<?php echo $form->textField($model,'language',array('size'=>4,'maxlength'=>4)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'date_add'); ?>
-		<?php echo $form->textField($model,'date_add'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'date_edit'); ?>
-		<?php echo $form->textField($model,'date_edit'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'enclosure'); ?>
-		<?php echo $form->textField($model,'enclosure',array('size'=>60,'maxlength'=>255)); ?>
-	</div>
+ ?>
+		
 	<div class="row">
 		<?php echo $form->label($model,'id_sources'); ?>
 
@@ -71,7 +52,7 @@
 	<?php 	echo $form->dropDownList(
             $model,
             'id_sources',
-          CHtml::listData(RssReaderSources::model()->findAllByAttributes(array()),'id','name'), array('multiple' => "multiple")); ?>
+          CHtml::listData(RssReaderSources::model()->findAllByAttributes(array()),'id','name'), array('multiple' => "multiple","size"=>"10")); ?>
            
 	</div>
 	

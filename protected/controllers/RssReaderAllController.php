@@ -6,7 +6,7 @@ class RssReaderAllController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/columnnews2';
 
 	/**
 	 * @return array action filters
@@ -133,21 +133,25 @@ class RssReaderAllController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		if (isset($_POST['set_user']))
-		{
-			$model=new RssReaderAll('search_smal_seach');
-			$model->unsetAttributes();  // clear any default values
-			
-		}
-		else {
+		//if (isset($_POST['set_user']))
+		//{
+		//	$model=new RssReaderAll('search_smal_seach');
+		//	$model->unsetAttributes();  // clear any default values
+		//	
+		//}
+		//else {
 			$model=new RssReaderAll('search');
 			$model->unsetAttributes();  // clear any default values
-		}
+		//}
 		
 		
 
 		if(isset($_GET['RssReaderAll']))
 			$model->attributes=$_GET['RssReaderAll'];
+	if (isset($_GET['RssReaderAll']))
+	{
+		echo $_GET['RssReaderAll'];
+	}
 
 		$this->render('admin',array(
 			'model'=>$model,

@@ -12,10 +12,13 @@
 	<p>
 <?php
 
+ini_set('display_errors',1);
+error_reporting(E_ALL);
+
 function get_page($target_url='https://api.hh.ru/specializations')
 {
 	//$target_url='http://agro2b.ru/ru/news/rss?source=7';
-	
+
 	$userAgent='API BOT/2.1 (600541@mail.ru)';
 	
 	$ch = curl_init();
@@ -28,7 +31,7 @@ function get_page($target_url='https://api.hh.ru/specializations')
 	}
 	  
 
-	  curl_setopt($ch, CURLOPT_HEADER, true);
+	// curl_setopt($ch, CURLOPT_HEADER, true);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	//curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
 
@@ -38,58 +41,56 @@ function get_page($target_url='https://api.hh.ru/specializations')
 	//curl_setopt($ch, CURLOPT_PROXY, "ipp-proxy.yugrusiagro.ru:3128");
 	//curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'feofanov_ei:Iethae7z');
 
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	//$page = curl_redir_exec($ch);
-	$html=curl_exec($ch); 
-	  list($header, $html) = explode("\n\n", $html, 2);
-	  
- 	 $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-	echo "MMM".$header."MMMM".$http_code;
-	    $matches = array();
-    preg_match('/Location:(.*?)\n/', $header, $matches);
-    $url = @parse_url(trim(array_pop($matches)));
-	echo $url["host"]."UURRLL";
-	return $html;
+	//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 
+	$html=curl_exec($ch); 
+	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	
+	if ($http_code == 301 || $http_code == 302)
+	{
+		$html = curl_redir_exec($ch);
+	}
+	return $html;
 }
 
 function curl_redir_exec($ch)
   {
-  static $curl_loops = 0;
-  static $curl_max_loops = 20;
-  if ($curl_loops >= $curl_max_loops)
+	static $curl_loops = 0;
+	static $curl_max_loops = 5;
+	if ($curl_loops >= $curl_max_loops)
     {
-    $curl_loops = 0;
-    return false;
+    	$curl_loops = 0;
+    	return false;
     }
-  curl_setopt($ch, CURLOPT_HEADER, true);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  $data = curl_exec($ch);
-  list($header, $data) = explode("\n\n", $data, 2);
-  $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	curl_setopt($ch, CURLOPT_HEADER, true);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$data = curl_exec($ch);
+	list($header, $data) = explode("\n\n", $data, 2);
+	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
  
-  if ($http_code == 301 || $http_code == 302)
+	if ($http_code == 301 || $http_code == 302)
     {
-    $matches = array();
-    preg_match('/Location:(.*?)\n/', $header, $matches);
-    $url = @parse_url(trim(array_pop($matches)));
-    if (!$url)
-      {
-      $curl_loops = 0;
-      return $data;
-      }
-    $last_url = parse_url(curl_getinfo($ch, CURLINFO_EFFECTIVE_URL));
-   
-    if (!$url['scheme'])
-      $url['scheme'] = $last_url['scheme'];
-    if (!$url['host'])
-      $url['host'] = $last_url['host'];
-    if (!$url['path'])
-      $url['path'] = $last_url['path'];
-    $new_url = $url['scheme'] . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:'');
-    echo $new_url.' --- '.$http_code.'<br>';
-    curl_setopt($ch, CURLOPT_URL, $new_url);
-    return curl_redir_exec($ch);
+	    $matches = array();
+	    preg_match('/Location:(.*?)\n/', $header, $matches);
+	    $url = @parse_url(trim(array_pop($matches)));
+	    if (!$url)
+	    {
+	      $curl_loops = 0;
+	      return $data;
+	    }
+	    $last_url = parse_url(curl_getinfo($ch, CURLINFO_EFFECTIVE_URL));
+	   
+	    if (!$url['scheme'])
+	      $url['scheme'] = $last_url['scheme'];
+	    if (!$url['host'])
+	      $url['host'] = $last_url['host'];
+	    if (!$url['path'])
+	      $url['path'] = $last_url['path'];
+	    $new_url = $url['scheme'] . '://' . $url['host'] . $url['path'] . ($url['query']?'?'.$url['query']:'');
+	    echo $new_url.' --+- '.$http_code.'<br>';
+		return get_page($new_url);
+	  //  curl_setopt($ch, CURLOPT_URL, $new_url);
+	   // return curl_redir_exec($ch);
     }
   else
     {
@@ -260,9 +261,9 @@ function set_news_text()
 		
 
 		set_news($arr_fields,array("id"=> "link","value"=>$line["link"]));
-		echo "<meta http-equiv=\"refresh\" content=\"1\">";
+		echo "<meta http-equiv=\"refresh\" content=\"601\">";
 		//echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
-	exit;
+	//exit;
 	}
 }
 set_news_text();
@@ -307,18 +308,30 @@ function get_news_text_from_site($model_parse)
 	}
 		$text='';
 		// Полные тексты 	id 	domain 	 	 	 	 	 	pa
+
 		if ($arr_arg["parse_text_active"])
 		{
 			include_once 'my_lib/simple_html_dom.php';
+			$html = new simple_html_dom;
+			$html->load(to_utf8(get_page($url)));
+			//= str_get_html(to_utf8(get_page($url)));
 			
-			$html = str_get_html(to_utf8(get_page($url)));
+				if (is_object($html))
+				{
+					echo "OBJECTTTTTTTTTTTTTTTTT";
+				}
+			
 			$per_begin=$arr_arg["parse_text_per_begin"];
 			$per_argument=$arr_arg["parse_text_per_argument"];
 			$per_end=$arr_arg["parse_text_per_end"];	
 			if ($per_debug) {echo "Подключили формы обработки ".$per_begin." <br>";}
+
+			//echo $html->__toString()."EEEEEEEEEEEEEEEEEEEEE IIIII ";
 			
 			if ($arr_arg["parse_method"] == "div_and") 
 			{
+
+				
 				$ret = $html->find($per_begin);
 				if ($per_debug) {echo "Метод получен отрабатываеv<br>";}
 				if (sizeof($ret) > 0)
@@ -330,9 +343,9 @@ function get_news_text_from_site($model_parse)
 					{
 						echo "Ошибка нет массива ".$per_begin." аргумента".$per_argument." <br>";
 						echo $cl->json_encode_cyr($arr_arg)."<br>";
-						$text="problem_parse";
+						$text="no_parse_problem_parse^^".$cl->json_encode_cyr($arr_arg);
 						echo $html;
-						exit;   
+						//exit;   
 					}
 			}
 
@@ -382,6 +395,7 @@ function get_news_text_from_site($model_parse)
 			$newparam = (sizeof($arr_img_url) > 0) ? $cl->json_encode_cyr($arr_img_url) : "" ;
 			//$newparam="";
 			$arr_param = array("text_news" => $text,"url_link_json"=>$newparam);
+			$html->clear();
 			return $arr_param;
 		}
 	
