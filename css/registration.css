@@ -1,0 +1,171 @@
+#registration form {
+  position: relative; }
+
+#registration form .captcha a {
+    margin-left: 10px;
+    display: inline-block;
+    position: relative;
+	border-bottom: 1px dashed #282;
+	text-decoration: none;
+    top: -20px;
+}
+#registration form .captcha a:hover, #registration form .captcha a:focus {
+	color: #282;
+}
+
+#registration form label { margin: 0; position: relative;}
+
+  #registration form input[name="User[fio]"] {
+    width: 390px; }
+  #registration form input[name="User[name]"] {
+    width: 390px; }
+  #registration form input.password {
+    width: 100px; }
+  #registration form .login {
+    width: 290px;
+    margin-right: 0; }
+  #registration form .type_selector{
+	  font-size: 13px;}
+  #registration form .type_selector.person div {
+     }
+  #registration form .type_selector.person .person {
+    display: inline; }
+  #registration form .type_selector.person .company {
+    display: none; }
+  #registration form .type_selector.person input[name="User[name]"] {
+    display: none; }
+  #registration form .type_selector.person input[name="User[inn]"] {
+    display: none; }
+  #registration form .type_selector.person .company-only {
+    display: none; }
+  #registration form .type_selector.company .person {
+    display: none; }
+  #registration form .type_selector.company .company {
+    display: inline; }
+  #registration form .type_selector.company input[name="User[name]"] {
+    display: block; }
+  #registration form .type_selector.company .company-only {
+    display: block; }
+  #registration form .show-password {
+    position: relative;
+    margin-bottom: 10px;
+    top: 2px; }
+
+    #registration form .show-password input {
+      position: relative;
+      top: 3px; }
+
+  #registration form select {
+	  font-size: 13px;
+	  margin: 4px 10px 10px 0;
+  }
+  #registration form .opf-list select {
+	  width: 220px;
+  }
+  #registration form .required {
+	  color: red;
+	  line-height: 5px;
+	  position: absolute;
+	  top: 11px;
+	  right: 15px;
+  }
+  #registration form .login .required {
+	  right: auto;
+	  left: 180px;
+  }
+  #registration form .captcha .required {
+	  right: auto;
+	  left: 180px;
+  }
+  #registration form .info-check {
+	  font-size: 14px;
+	  padding-top: 6px;
+	  /*margin-top: 15px;*/
+	  /*margin-bottom: 30px;*/
+	  /*border-top: 1px solid #ddd;*/
+	  display: block !important;
+	  clear: left;
+  }
+  #registration form .terms label {
+	  display: block;
+	  padding-left: 24px;
+	  text-indent: -22px;
+	  margin-bottom: 3px;
+  }
+  #registration form .terms input {
+	  width: 18px;
+	  margin: 0;
+  }
+  #registration form .error-state {
+	  background: #FEE;
+	  border-color: #C00;
+  }
+
+#registration hr {
+	clear: left;
+}
+
+#registration .person hr {
+	display: none;
+}
+
+#registration .request-company-membership {
+	display: none;
+	font-size: 13px;
+	overflow: hidden;
+	margin-bottom: 0px;
+}
+
+#registration .type_selector.person .request-company-membership {
+	display: none !important;
+}
+
+#registration #company-place {
+	display: block;
+	font-size: 18px;
+	padding-top: 8px;
+	padding-bottom: 6px;
+	overflow: hidden;
+	clear: left;
+}
+
+#registration #company-place span {
+	font-size: 13px;
+	display: block;
+}
+#registration #company-place .img {
+	float: left;
+	margin-right: 7px;
+	border:  1px solid silver;
+}
+#registration #company-place .txt {
+	overflow: hidden;
+}
+
+#registration .company-fields {
+	display: none;
+}
+
+#registration .inn-inf {
+	font-size: 14px;
+	margin-bottom: 6px;
+}
+
+#registration .opf-list, #registration .company-name {
+	display: none;
+}
+
+#registration #Company_inn{
+	width: 90px;
+}
+
+#registration .type_selector {
+	border: 1px solid #DDD;
+	padding: 10px;
+	border-radius: 3px;
+	margin-bottom: 30px;
+}
+
+#registration .company_membership_request_inf {
+	display: none;
+}

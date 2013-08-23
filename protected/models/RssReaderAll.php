@@ -23,6 +23,7 @@ class RssReaderAll extends CActiveRecord
 	//use for model seach
 	public $pubDateot;
 	public $pubDatedo;
+	public $s_text;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return RssReaderAll the static model class
@@ -50,12 +51,12 @@ class RssReaderAll extends CActiveRecord
 		return array(
 			array('link, title', 'required'),
 			array('link, title, guid, category, author, enclosure', 'length', 'max'=>255),
-			array('text_news, pubDateot, pubDatedo', 'length', 'max'=>2255),
+			array('text_news, pubDateot, pubDatedo,s_text', 'length', 'max'=>2255),
 			array('language', 'length', 'max'=>4),
 			array('description, pubDate, yandex_full_text, text_news, date_add, date_edit, pubDateot, pubDatedo', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('link, title, description, pubDate, pubDateot, pubDatedo, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news,id_sources', 'safe', 'on'=>'search'),
+			array('link,s_text, title, description, pubDate, pubDateot, pubDatedo, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure,text_news,id_sources', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -139,6 +140,8 @@ class RssReaderAll extends CActiveRecord
 		$criteria->compare('date_edit',$this->date_edit,true);
 		$criteria->compare('enclosure',$this->enclosure,true);
 		$criteria->compare('id_sources',$this->id_sources,true);
+		$criteria->compare('text_news',$this->s_text,true);
+		
 echo "DDDDDDDDDDDDDDDDDDDDDDDDDDDD view".$this->text_news;
 //foreach ($this->id_sources as $key => $value) {
 	//echo "$key => $value <br>";

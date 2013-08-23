@@ -1,0 +1,196 @@
+.companySearch form {
+  margin-bottom: 30px; }
+  .companySearch form label {
+    float: left;
+    width: auto !important;
+    margin: 0 20px 0 0; }
+  .companySearch form input[type=submit] {
+    float: left;
+    margin-top: 12px; }
+
+.companyOffers .d {
+  margin: 0;
+  position: relative;
+  min-height: 400px; }
+.companyOffers .d.s {
+  background: url(/img/loader32.gif) center center no-repeat; }
+.companyOffers h3 {
+  display: none; }
+.companyOffers td {
+  font-size: 12px; }
+
+.companyOffers h3, .companySearch h3 {
+  margin-bottom: 20px; }
+.companyOffers select, .companyOffers input, .companySearch select, .companySearch input {
+  margin-left: 0;
+  width: 100%;
+  display: block; }
+.companyOffers .form fieldset, .companySearch .form fieldset {
+  padding: 0;
+  border: none; }
+.companyOffers .form label, .companySearch .form label {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%; }
+  .companyOffers .form label span, .companySearch .form label span {
+    display: block;
+    font-size: 12px; }
+.companyOffers .form .cat, .companySearch .form .cat {
+  margin: 5px 0 0 0;
+  position: relative;
+  min-height: 65px;
+  font-size: 13px; }
+  .companyOffers .form .cat .up, .companySearch .form .cat .up {
+    position: absolute;
+    display: none;
+    right: 0;
+    margin-top: -1.4em;
+    color: white;
+    font-size: 12px;
+    padding: 0 1px 0 2px; }
+  .companyOffers .form .cat ul, .companySearch .form .cat ul {
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 4px 0 5px;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #888888;
+    background: #eeeeee;
+    z-index: 10; }
+    .companyOffers .form .cat ul.l1 > li, .companySearch .form .cat ul.l1 > li {
+      float: left; }
+  .companyOffers .form .cat li, .companySearch .form .cat li {
+    position: relative;
+    padding: 0 0 0 10px; }
+    .companyOffers .form .cat li > ul, .companySearch .form .cat li > ul {
+      margin: -4px 0 0 100%; }
+    .companyOffers .form .cat li > div, .companySearch .form .cat li > div {
+      padding: 1px 5px;
+      margin: 0 0 0 -10px;
+      white-space: nowrap; }
+      .companyOffers .form .cat li > div:hover, .companySearch .form .cat li > div:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: white;
+        cursor: pointer; }
+    .companyOffers .form .cat li li, .companySearch .form .cat li li {
+      display: none; }
+    .companyOffers .form .cat li.current, .companySearch .form .cat li.current {
+      display: block; }
+
+.offer .head h2 {
+  margin-bottom: 0; }
+.offer form {
+  padding: 0; }
+.offer .conc, .offer .avg, .offer .seller_info, .offer .buyer_info {
+  width: 40%;
+  background: #e1e1e0;
+  border-radius: 3px;
+  float: right;
+  padding: 20px;
+  margin: -5px 0px 0 0; }
+  .offer .conc .title, .offer .avg .title, .offer .seller_info .title, .offer .buyer_info .title {
+    font-size: 18px;
+    line-height: 18px; }
+    .offer .conc .title.sub, .offer .avg .title.sub, .offer .seller_info .title.sub, .offer .buyer_info .title.sub {
+      font-size: 14px;
+      line-height: 14px;
+      font-style: italic;
+      margin: 14px 0 -5px; }
+  .offer .conc .all, .offer .avg .all, .offer .seller_info .all, .offer .buyer_info .all {
+    display: inline-block;
+    margin: 7px 0 3px;
+    font-style: italic; }
+.offer .avg {
+  margin-top: 20px; }
+.offer .seller_info, .offer .buyer_info {
+  margin: 0;
+  box-sizing: border-box;
+  float: left;
+  width: 41%; }
+  .offer .seller_info .logo, .offer .buyer_info .logo {
+    margin: 3px 0 10px 0;
+    max-width: 160px;
+    padding: 20px;
+    border: 1px solid silver;
+    background: white;
+    clear: both; }
+  .offer .seller_info h2, .offer .buyer_info h2 {
+    font-size: 25px;
+    margin: 20px 11px 10px 0; }
+  .offer .seller_info .rep, .offer .buyer_info .rep {
+    font-size: 12px;
+    position: relative;
+    top: 0;
+    float: right;
+    margin: 0px -10px 0 0px;
+    font-style: italic; }
+    .offer .seller_info .rep span, .offer .buyer_info .rep span {
+      padding: 4px 6px 5px 5px;
+      font-size: 16px;
+      position: relative;
+      top: 2px; }
+  .offer .seller_info .history .response .head, .offer .buyer_info .history .response .head, .offer .seller_info .history .offer, .offer .buyer_info .history .offer {
+    color: #959a95; }
+  .offer .seller_info .history .response, .offer .buyer_info .history .response {
+    margin: 20px 0 0px 0;
+    clear: both; }
+    .offer .seller_info .history .response .item, .offer .buyer_info .history .response .item {
+      margin: 2px 0 10px 0; }
+    .offer .seller_info .history .response .result, .offer .buyer_info .history .response .result {
+      color: white;
+      padding: 2px 5px;
+      margin: 0 0 0 5px; }
+    .offer .seller_info .history .response .good, .offer .buyer_info .history .response .good {
+      background: green; }
+    .offer .seller_info .history .response .normal, .offer .buyer_info .history .response .normal {
+      background: #999999; }
+.offer .conc .item, .offer .avg .item, .offer .seller_info .item, .offer .buyer_info .item {
+  margin: 10px 0 0px 0; }
+.offer .info {
+  float: left;
+  margin: 40px 0 0 0; }
+  .offer .info > div {
+    float: left;
+    margin: 0 40px 20px 0; }
+    .offer .info > div div:nth-child(1) {
+      color: #333333; }
+    .offer .info > div div:nth-child(2) {
+      font-size: 18px; }
+  .offer .info .name div:nth-child(2) {
+    font-size: 30px; }
+  .offer .info .value div:nth-child(2) {
+    font-size: 25px; }
+  .offer .info .price div:nth-child(2) {
+    font-size: 25px; }
+.offer fieldset {
+  clear: both; }
+.offer .editable .item {
+  margin: 0 0 20px 0; }
+.offer .editable h5 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 10px 0 10px 0; }
+.offer .editable button.add {
+  margin-top: 30px; }
+.offer form {
+  margin: 20px 0 0 0; }
+.offer .comment .time {
+  color: #959a95; }
+.offer .editable {
+  float: right;
+  clear: none;
+  width: 59%;
+  padding-left: 20px;
+  box-sizing: border-box; }
+  .offer .editable div.complete {
+    margin: 20px 0 0 0;
+    padding: 20px;
+    background: #e1e1e0; }
+  .offer .editable button.complete {
+    float: right;
+    margin-top: -55px;
+    margin-bottom: 33px; }
+    .offer .editable button.complete textarea {
+      width: 300px; }

@@ -1,0 +1,318 @@
+h1.page-title
+	margin-top: -22px
+#friend-news-list33
+	> ul
+		position: relative
+		margin-left: 0
+		padding-left: 0
+		> li
+			&.item
+				display: block
+				margin-bottom: 40px
+				width: 100%
+				float: left
+				clear: both
+			.userpic
+				display: block
+				float: left
+				margin-right: 20px
+			.message .event
+				margin-top: 10px
+				.image
+					padding: 6px
+					background: white
+					border: 1px solid silver
+					display: block
+					float: left
+					margin-right: 20px
+				.text
+					float: left
+					clear: right
+				&:after
+					display: block
+					content: "."
+					font-size: 1px
+					visibility: hidden
+					clear: both
+					float: none
+					width: 100%
+			a
+				cursor: pointer
+				text-decoration: none
+				color: black
+				display: block
+			.comment, .message
+				margin-left: 80px
+			.datetime
+				margin: 5px 0 10px 80px
+				color: gray
+			.comment input[type=text]
+				width: 100%
+			
+
+.news-list
+	> .list
+		width: 700px
+		> .item
+			//width: 100%
+			-moz-box-shadow: 0 0px 10px rgba(0,0,0,0.1)
+			-webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.1)
+			-o-box-shadow: 0 0px 10px rgba(0,0,0,0.1)
+			box-shadow: 0 0px 10px rgba(0,0,0,0.1)
+			margin-bottom: 10px
+			background: white
+			min-height: 50px
+			//padding: 10px
+			-o-border-radius: 2px
+			-moz-border-radius: 2px
+			-webkit-border-radius: 2px
+			border-radius: 2px
+			position: relative
+			padding: 10px 10px 10px 75px
+
+			&:hover
+				.content
+					.b-add-comment
+						.startcomments
+							display: inline-block
+			.user
+				.img
+					width: 50px
+					height: 50px
+					background:  silver
+					float: left
+					margin: 0 10px 0px 0
+					text-align: center
+					overflow: hidden
+					border: 1px solid #ddd
+					position: absolute
+					left: 10px
+						
+				.name
+					font-weight: bold
+					color: black
+					
+					
+				&:after
+					content: "."
+					display: block
+					height: 1px
+					clear: both
+					visibility: hidden
+
+				.b-user
+					._pic
+						display: none
+
+					&._status-online
+						._status
+							display: inline-block
+							width: 8px
+							height: 8px
+							text-indent: -9999px
+							padding: 0
+							clear: none
+							margin-left: 0
+							border-radius: 5px
+							position: absolute
+							left: -25px
+							top: 37px
+							border: 1px solid white
+							background: #090
+			.datetime
+				color: #999
+				margin-bottom: 5px
+				display: inline-block
+				padding-left: 2px
+			
+			
+			.content
+				//margin-left: 60px
+				//margin-top: 5px
+				//padding-bottom: 20px
+				.b-comment
+
+					input
+						width: 554px
+				div.b-usertext.editable
+					display: block
+					cursor: pointer
+
+				div.b-usertext
+					display: block
+					font-size: 14px
+					padding: 0px
+				div.tags
+					padding-top: 10px
+
+				&.hasImage
+					input[type=text]
+						//width:430px
+					.b-usertext
+						min-height: 82px
+
+					form.editNewsItem
+						float: left
+						width: 440px
+						min-height: 82px
+
+						textarea
+							width: 430px
+
+				.post-content
+					//padding-bottom: 20px
+					padding-right: 125px
+
+				.image
+					float: left
+					width: 80px
+					height: 80px
+					overflow: hidden
+					margin-right: 15px
+					border: 1px solid #999
+
+					img
+
+						margin: 0px 10px 0px 0
+			
+			.edit
+				position: absolute
+				right: 40px
+				text-decoration: none
+				background: darkGreen
+				padding: 3px 8px
+				color: white
+				
+			.b-comment
+				//min-height: 10px
+				//margin-top: 10px
+				.item:first-child
+					margin-top: 5px
+				div.count-comments
+					width: 100%
+					float: left
+					padding: 0px 0px 10px 0px
+
+					span.lastComments
+						float: left
+					div.show-all
+						float: right
+
+						
+
+				.b-add-comment
+
+					margin-top: 0px
+					.startcomments
+						position: absolute
+						right: 10px
+						bottom: 5px
+						display: none
+						margin-bottom: 5px
+						//padding-top: 5px
+						background: white
+						//float: right
+			.b-comment.no-comments
+				form.add-comment
+					margin-top: 5px
+					display: none
+
+
+			.content.underedit
+				div.post-content
+					overflow: auto
+					div.b-usertext
+						display: none
+			form
+				width: 100%
+				display: inline-block
+				position: relative
+
+				textarea
+					width: 505px
+					resize: vertical
+					font-size: 14px
+					padding: 2px
+					color: #555
+					font-family: "Helvetica Neue", Arial, Helvetica, sans-serif
+					margin-top: 0
+				select
+					padding: 0 0 0 0
+					font-size: 12px
+				
+				.row.publicity
+					font-size: 12px
+					position: absolute
+					right: 0px
+					top: -25px
+					z-index: 15
+					label
+						z-index: 15
+						position: relative
+
+			span.complaint
+				//float: right
+				white-space: nowrap
+				display: none
+				//margin-right: 5px
+				position: absolute
+				padding: 4px
+				right: 4px
+				top: 0px
+				background: white
+			&:hover
+				.complaint
+					display: block
+
+	.next-page-ajax
+		display: none
+				
+			
+				
+				
+#news-newitem
+	position: relative
+
+	p
+		margin-bottom: 0.75em
+
+	div.row.one_media
+		width: 80%
+		float: right
+		margin: 0px
+		.b-checkbox
+			float: right
+		input.showPhoto
+			display: inline-block
+		label
+			display: inline-block
+		fieldset
+			float: left
+			width: 350px
+		div.fileupload
+			float: left
+			width: 350px
+			display: none
+
+	div.row.publicity
+		float: right
+		width: 20%
+		text-align: right
+		margin: 0px
+	div.row.text
+		margin-top: 0px
+		margin-bottom: 0px
+	form
+		padding: 0px 20px 5px 0px
+		border: none
+		overflow: auto
+		line-height: 1
+
+#newsItemEditTemplate
+	display: none
+
+.no-auth
+	.b-add-comment
+		display: none !important
+	.complaint
+		display: none !important

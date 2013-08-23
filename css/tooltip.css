@@ -1,0 +1,18 @@
+.js-tooltip {
+  z-index: 1000;
+  width: 250px;
+  position: absolute;
+  background: #f3f0d4;
+  color: #706e63;
+  padding: 10px 15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 18px #999999;
+  -moz-box-shadow: 0px 0px 18px #999999;
+  box-shadow: 0px 0px 18px #999999; }
+  .js-tooltip.error {
+    background: #e0183d;
+    color: white; }

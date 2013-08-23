@@ -1,0 +1,350 @@
+.catalog.job
+	width: 720px
+
+	&.left-context-menu
+		width: 145px
+
+		select
+			width: 143px
+
+		.items
+			padding-top: 0
+			.select-items
+				padding-top: 0
+		.offer-type
+			position: relative
+			top: inherit
+			left: inherit
+
+			.l
+				font-size: 13px
+			select
+				padding: 2px
+		.form
+			.price_range
+				input
+					width: 40px
+
+	.create-button
+		display: none
+
+	&.create
+		.create-button
+			display: inline
+		.edit-button
+			display: none
+
+	.salary
+		label
+			span
+				width: 125px
+
+	&.edit, &.copy
+		.bidtype
+			display: none
+		.catalog_subtl
+			display: none
+		.search_divisions
+			display: none
+
+	.complex_field
+		height: auto
+		margin-bottom: 30px
+		float: none
+		.fields-place
+			float: left
+			width: 100%
+			margin-right: -30px
+			.fields-set
+				position: relative
+				clear: left
+				width: 100%
+				float: left
+
+				hr
+					margin: 5px 0px 15px
+				.del-set
+					position: absolute
+					top: 20px
+					right: 6px
+					//width: 16px
+					//height: 16px
+					margin: 0
+					//background: url(/img/icons/delete.png)
+					//cursor: pointer
+					display: none
+				&:hover
+					.del-set
+						display: block
+				&:first-child
+					.del-set
+						display: none !important
+					hr
+						display: none
+				div
+					float: left
+					margin: 0 20px 10px 0
+
+					&.person
+						margin: 0
+
+
+				.work_date
+					width: 100%
+					padding-top: 5px
+					label
+						display: inline-block
+						margin-right: 15px
+						span
+							width: 25px
+							padding-top: 5px
+							float: left
+						input
+							float: left
+
+
+				#company, #company_region, #post 
+					width: 240px
+
+				#comment
+					width: 395px
+
+
+
+			label
+				display: block
+				.l
+					height: auto
+				&.graduation_date
+					.l
+						width: auto
+		.date
+			input[type="text"]
+				width: 8em
+			.l
+				width: auto
+		.u
+			clear: both
+			display: block
+	.education
+		#institution
+			width: 325px
+		#graduation_date
+			width: 50px
+
+	.job_exp
+		input[type="text"]
+			width: 205px
+		#job_description
+			width: 435px
+		.fields-set
+			margin-bottom: 20px
+		.fields-place
+			margin-bottom: -20px
+		.del-set
+			right: 33px !important
+
+	.general
+		padding-top: 30px
+
+		.job-description
+			margin-bottom: 10px
+
+		div
+			height: auto
+
+		.req_edu
+			span.l
+				width: 150px
+				display: block
+
+		.vacancy
+			width: 100%
+			label, span
+				width: 100%
+			input
+				padding: 5px
+				width: 250px
+				font-size: 14px
+
+		.contact
+			position: relative
+			width: 100%
+			margin: 0
+			.hidden-contacts
+				display: none
+
+			button.insert-my-contacts
+				color: #369
+				text-decoration: none
+				border: none
+				border-bottom: 1px dashed #369
+				cursor: pointer
+				background: none
+				padding: 0
+
+
+			.person
+				float: right
+				width: 100%
+				margin-bottom: 0
+
+				textarea
+					max-width: 99%
+					width: 99%
+					height: 120px
+
+				.contact-person-place
+					margin: 0
+					width: 100%
+
+	.search_divisions
+
+		.prompt_place
+
+
+	.region
+		margin-bottom: 20px
+
+	.price_range
+		input
+			width: 60px
+
+	fieldset
+		margin-bottom: 20px
+		.checkbox
+			height: auto
+			padding-top: 15px
+			.u
+				display: none
+		.region
+			margin-bottom: 0px
+
+	.publish-status
+		label
+			span
+				display: inline
+				color: inherit
+				vertical-align: top
+
+	.select-items
+		label
+			display: block
+			padding-bottom: 2px
+			color: #999
+
+	.bidtype
+		//width: 290px
+		//margin-right: 50px
+		clear: both
+		&.type-2
+			margin-right: 0
+
+		ul
+			li
+
+			ul
+
+				li
+
+
+.vacancy
+	.vacancy-only
+	.resume-only
+		display: none !important
+.resume
+	.vacancy-only
+		display: none !important
+	.resume-only
+
+table.data
+	.position
+		font-size: 16px
+
+.contact-data
+	padding-bottom: 10px
+
+#offer-view.job
+	width: 727px
+
+	.complex_field_readonly
+		margin-bottom: 20px
+		.item
+			margin-bottom: 10px
+		h4
+			margin-bottom: 0.2em
+	.exp_readonly
+		.item
+	.education_readonly
+		.item
+			margin-bottom: 4px
+
+	.conc
+		width: 200px
+		margin-left: 10px
+		margin-bottom: 10px
+		.user-pic
+			margin-bottom: 10px
+		.user-name
+			font-size: 18px
+			margin-bottom: 7px
+
+		.contact-person
+			padding-top: 20px
+
+		.region-val
+			padding-bottom: 15px
+
+		.img
+			width: 200px
+			height: 150px
+			text-align: center
+			border: 1px solid silver
+			margin: 4px -1px 4px 0px
+		.info
+			.company
+				span
+					display: block
+					opacity: 0.4
+					font-size: 0.7em
+	.job_description
+		clear: left
+		margin-bottom: 10px
+		font-size: 14px
+		.field
+			.v
+				font-size: 14px
+				
+	.job-description
+		margin-bottom: 20px
+		h4
+			margin-bottom: 0.2em
+	.contact-data
+		float: left
+		margin-bottom: 20px
+		h4
+			margin-bottom: 0.2em
+
+	.field
+		.l
+			width: 165px
+
+	.messages
+		.insert
+			float: left
+			padding-left: 77px
+			select
+				display: none
+				width: 305px
+
+	.photos
+		padding-top: 15px
+
+.offerlist-menu
+	.job-menu-header
+		margin-bottom: 8px
+
+	&.mainmenu
+		ul
+			margin-bottom: 18px
+

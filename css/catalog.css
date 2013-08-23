@@ -1,0 +1,734 @@
+/*************************/
+.catalog {
+	/*float:left;*/
+	width: 100%;
+}
+
+
+.catalog.edit .type, .catalog.edit .help,
+.catalog.search .type, .catalog.search .help
+{
+
+    display: none
+
+}
+
+.catalog .help {
+    padding: 0px 0 0 0;
+    clear: both;
+}
+
+.catalog .form
+{
+
+    padding-bottom: 30px ;
+}
+
+.catalog .form fieldset {
+	clear: left;
+	border-radius: 3px;
+}
+
+.catalog .form fieldset > div {
+	float: left;
+	margin: 0 20px 10px 0;
+}
+
+.catalog .origin_region {
+	width: 100%;
+	float: none;
+}
+.catalog .origin_region label span {
+	width: 100%;
+	height: auto;
+}
+.catalog .origin_region select {
+	margin: 3px;
+}
+.catalog .basis select {
+	width: 370px;
+}
+.catalog .help p {
+    margin-bottom: 1em;
+    line-height: 1.4;
+    width: 45em;
+}
+.catalog .type button {
+    font-size: 18px;
+    margin-right: 20px;
+	display: none;
+}
+.catalog .type button em {
+    display: block;
+    color: #ddd;
+    font-style: normal;
+
+    font-size: 14px;
+
+}
+
+.catalog .items {
+    /*height: 30px;*/
+    /*position: absolute;*/
+    /*position: relative;*/
+    z-index: 10;
+}
+
+.catalog .items:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.catalog .block {
+    float: left;
+    margin: 0 10px 20px 0;
+
+    border: 0;
+
+    z-index: 10;
+    display: block;
+    height: 18px;
+}
+
+
+
+
+.catalog .block > div {
+
+    padding: 4px 0 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #888888;
+    background: #EEE;
+    z-index: 20;
+
+
+}
+
+.catalog .block.disabled {
+    margin-right:  0;
+}
+
+.catalog .block.disabled > div {
+    background: none;
+    box-shadow: none;
+}
+
+.catalog .block.disabled .item:hover {
+    background: none;
+    color: #000000;
+}
+
+.catalog .block.disabled a {
+    cursor: default;
+}
+
+.catalog .block.disabled a:after {
+    content: '/';
+    display: inline-block;
+    margin-left: 25px;
+    /*position: absolute;*/
+}
+
+
+.catalog .block.hidden { display: none}
+
+.catalog .block.closed .item { display: none; }
+.catalog .block.closed .item.selected { display: block; }
+
+.catalog .item {
+    /*display: block;*/
+    /*padding: 1px 5px 1px 15px;*/
+    /*margin: 0 0 0 -10px;*/
+    /*text-indent: -10px;*/
+    /*text-decoration: none;*/
+    /*color: black;*/
+    /*white-space: nowrap;*/
+}
+
+/*.catalog .item:hover {*/
+    /*background: rgba(0, 0, 0, 0.1);*/
+    /*color: white;*/
+    /*cursor: pointer;*/
+/*}*/
+
+.catalog form {
+    /*margin-top: 27px;*/
+}
+
+
+.catalog form h3 {
+    padding-top: 20px;
+}
+
+.catalog form input[type=text],
+.catalog form input[type=password],
+.catalog form select
+
+{
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    font-size: 12px;
+    padding: 2px    ;
+    font-family: sans-serif;
+}
+
+.catalog form label span {
+    color: #999;
+    float: none;
+    display: table-cell;
+    height: 4em;
+    vertical-align: bottom;
+    width: 129px;
+
+}
+
+.catalog .general label span.l {
+	height: auto;
+	width: 122px;
+}
+
+.catalog form > div {
+    float: left;
+    margin: 0 20px 20px 0;
+    height: 60px;
+}
+
+.catalog form .general > div {
+    float: left;
+    margin: 0 20px 10px 0;
+    height: 60px;
+}
+
+.catalog form .general > div.clear {
+	margin: 0;
+}
+
+.catalog form span.required {
+	display: inline;
+	width: auto;
+}
+.catalog form div.required-input input{
+	background: url(../img/required.gif) no-repeat center;
+}
+.catalog form > div.media {
+    clear: both;
+    padding-bottom: 0px;
+    margin-bottom: 30px;
+	height: auto;
+}
+.catalog form > div.media fieldset {
+    float: left;
+    margin-right: 20px;
+	border: 1px solid #DDDDDD;
+    border-radius: 7px 7px 7px 7px;
+	padding: 10px;
+
+}
+.catalog form > div.media fieldset {
+    margin-top: 7px;
+}
+
+.catalog form > div.delivery {
+    clear: left;
+}
+
+.catalog form .general div.delivery {
+    /*clear: left;*/
+	height: auto;
+
+}
+
+.catalog form .general div.delivery select {
+	width: 245px;
+}
+
+.catalog form > div.text label,
+.catalog form > div.date label,
+.catalog form > div.select label
+{
+    display:  block;
+}
+
+.catalog form .general div.text label,
+.catalog form .general div.date label,
+.catalog form .general div.select label
+{
+    display:  block;
+}
+
+.catalog form > div.checkbox {
+    margin: 20px 20px 0px 0;
+}
+
+.catalog form > div.checkbox label {
+    position: relative;
+    top: 1.1em;
+}
+
+.catalog form > div.checkbox input {
+	
+}
+
+.catalog form > div.checkbox .u {
+	display: none;
+}
+
+.catalog form > div.multiselect {
+    height: auto;
+}
+
+.catalog form > div.multiselect label {
+  display: block;
+}
+
+.catalog form > div.price {
+    clear: left;
+}
+
+.catalog form .general > div.price {
+    clear: left;
+	height: auto;
+}
+
+.catalog form .general > div.tax {
+	height: auto;
+}
+
+.catalog form .general > div.tax select {
+	width: 90px;
+}
+
+.catalog form > div.text_range.price .c,
+.catalog.demand form > div.text_range.price .to {
+    display: none;
+}
+.catalog.offer form > div.text_range.price .from {
+    display: none;
+}
+
+
+.catalog form > div.s input {
+    width: 4em; /* 3 digits */
+    text-align: center;
+}
+
+
+.catalog form > div.int    input,
+.catalog form > div.int_range    input {
+    width: 40px; /* 3 digits */
+    text-align: center;
+}
+
+
+.catalog form > div.string    input,
+.catalog form > div.string_range    input {
+    width: 100px; /* 3 digits */
+
+}
+
+.catalog form > div.price .l {
+
+}
+
+.catalog form > div.price input {
+    width: 73px;
+    font-size: 18px;
+}
+
+.catalog form .general > div.price input {
+    width: 5em;
+    font-size: 16px;
+}
+
+
+.catalog form > div.amount input {
+    font-size: 18px;
+    /*width: 3.5em;*/
+	width: 60px;
+}
+
+.catalog form .general > div.amount input {
+    font-size: 16px;
+    width: 5em;
+}
+
+.catalog form > div.payment_description input {
+    font-size: 18px;
+}
+
+.catalog form .general > div.payment_description input {
+    font-size: 18px;
+    width: 5em;
+}
+
+.catalog form > div.text_range label {
+    display: block;
+}
+
+.catalog form > div.date   input ,
+.catalog form > div.date_range    input {
+    width: 85px;
+	font-size: 18px;
+}
+
+.catalog form .general > div.date   input ,
+.catalog form .general > div.date_range    input {
+    width: 5em;
+	font-size: 16px;
+	text-align: center;
+}
+
+.catalog form > div.region  select:first-child {
+    width: 210px;
+	font-size: 14px;
+}
+
+.catalog form > div.region  select {
+    width: 160px;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.catalog form .general div.region  select:first-child {
+    width: 210px;
+	font-size: 14px;
+}
+
+.catalog form .general div.region  select {
+    width: 160px;
+	margin-right: 5px;
+	font-size: 14px;
+}
+
+.catalog form > div.region {
+    /*clear: left;*/
+	height: auto
+}
+
+.catalog form .general div.region {
+    clear: left;
+	height: auto
+}
+
+.catalog.edit form div.region .address_place {
+	margin-top: 0.2em;
+}
+
+.catalog.create form div.region .address_place {
+	display: block !important;
+}
+
+.catalog.create form div.region .region-show {
+	display: none !important;
+}
+
+.catalog form div.region .region-show {
+	display: none;
+}
+
+.catalog form div.basis .basis-show {
+	display: none;
+}
+
+.catalog form div.basis label {
+	display: block;
+}
+
+.catalog form select[multiple] {
+    /*height: 100px;*/
+    /*min-width: 100px;*/
+    width: 120px;
+}
+
+
+.catalog form input[type=checkbox] {
+    vertical-align: top;
+}
+
+.catalog form input[type=submit] {
+
+}
+
+.catalog form > .textarea {
+	float: none;
+	clear: left;
+	height: auto;
+}
+
+.catalog form > .textarea .l {
+	height: 3em;
+	/*padding-top: 0.5em;*/
+}
+
+.catalog form > .textarea textarea {
+	width: 95%;
+	height: 70px;
+}
+
+.catalog form > .general .textarea {
+	float: none;
+	clear: left;
+	height: auto;
+	margin-right: 0px;
+}
+
+.catalog form > .general .textarea .l {
+	height: auto;
+	width: auto;
+}
+
+.catalog form > .general .textarea textarea {
+    max-width: 99%;
+	width: 99%;
+	height: 70px;
+}
+
+.catalog form > .general #model_general_payment_description {
+	height: 18px;
+	resize: vertical;
+}
+
+.catalog form > div.shipment_after input {
+    font-size: 18px;
+	width: 60px;
+}
+
+.catalog form .general > div.shipment_after input {
+    font-size: 16px;
+    width: 5em;
+}
+
+.catalog form .general > div.shipment_after span.l {
+	width: 125px;
+}
+
+.catalog .select-items {
+	overflow: hidden;
+	padding-top: 20px;
+}
+
+.catalog.create .select-items {
+	display: none;
+}
+
+.catalog.search .select-items {
+	/*display: none;*/
+}
+
+.catalog .item-sel {
+	max-width: 235px;
+	margin: 0px 5px 0 0;
+	display: block;
+	float: left;
+	font-size: 14px;
+}
+
+.catalog option.empty {
+	color: #999;
+}
+
+.catalog .general {
+	height: auto;
+	margin: 0 0 20px 0;
+	padding-top: 40px;
+	float: none;
+}
+
+.catalog .general h3 {
+	margin-bottom: 0.9em;
+}
+
+/*.catalog .general select {*/
+	/*font-size: 16px;*/
+/*}*/
+
+.catalog form > div.clear {
+	margin: 0;
+}
+
+.catalog .non-writable {
+	padding: 10px 0 30px 0;
+}
+
+.catalog .catalog_subtl {}
+.catalog .catalog_subtl .type-tab-switch {
+	font-size: 14px;
+}
+
+.catalog .bidtype {
+	/*float: left;*/
+	/*margin-right: 80px;*/
+	/*padding-top: 10px;*/
+	/*padding: 20px;*/
+	/*background: #eee;*/
+	/*padding: 20px;*/
+	/*border-radius: 5px;*/
+	/*width: 230px;*/
+	padding-top: 15px;
+}
+
+.catalog.edit .bidtype {
+	display: none;
+}
+
+.catalog .bidtype ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.catalog .bidtype ul li {
+	margin-bottom: 10px;
+	font-size: 18px;
+	clear: both;
+}
+
+.catalog .bidtype > ul > li > a {
+	color: #000;
+	text-decoration: none;
+}
+.catalog .bidtype > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+.catalog .bidtype ul li ul {
+	padding-top: 6px;
+	padding-bottom: 1px;
+}
+.catalog .bidtype ul li ul li {
+	font-size: 12px;
+	display: inline-block;
+	vertical-align: top;
+	width: 349px;
+	clear: none;
+	padding-right: 10px;
+	margin-bottom: 6px;
+}
+
+.catalog.search .bidtype .create_ttl {
+	display: none;
+}
+
+.catalog.create .bidtype .search_ttl {
+	display: none;
+}
+
+.catalog .region .colon {
+	display: none;
+}
+
+.catalog .region .region-show {
+	/*display: none;*/
+}
+
+.catalog.search .region .colon {
+	display: inline;
+}
+
+.catalog.search .region .region-show {
+	display: inline;
+}
+
+.catalog.edit .region .v {
+	display: none !important;
+}
+
+.catalog.edit .form {
+	padding-bottom: 0px;
+}
+
+.catalog.edit .catalog_subtl {
+	display: none;
+}
+
+.catalog.edit .search_divisions {
+	display: none;
+}
+
+.catalog .publish-status {
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.catalog form .publish-status label {
+	font-size: 16px;
+}
+
+.catalog .publish-status p.f16 {
+	font-size: 16px;
+	margin-bottom: 1em;
+}
+
+.catalog .publish-status .creation {
+	display: none;
+}
+.catalog.create .publish-status .creation {
+	display: inline;
+}
+.catalog.create .publish-status .editing {
+	display: none;
+}
+
+.catalog.create form .shipment_at {
+	display: none;
+}
+
+.catalog.create .search_divisions {
+	display: none;
+}
+
+.catalog.edit .catalog_tabs_wr {
+	display: none;
+}
+.catalog_tabs_wr {
+	overflow: hidden;
+	padding-left: 2px;
+	margin-left: -2px;
+	padding-top: 20px;
+}
+.catalog_tabs {
+	border-bottom: 1px solid silver;
+	/*margin-bottom: 10px;*/
+	/*overflow: hidden;*/
+	padding: 0px;
+	height: 26px;
+}
+
+.catalog_tabs .type-tab {
+	display: inline-block;
+	position: relative;
+	background: #e6e6e6;
+	color: #888;
+	padding: 5px 20px;
+	font-size: 14px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	z-index: 0;
+	cursor: pointer;
+}
+
+.catalog_tabs .type-tab.active {
+	background: #fff;
+	/*background: -moz-linear-gradient(top, #f4f4f4 0%, #f8f8f8 46%, #ffffff 100%);*/
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4f4f4), color-stop(46%,#f8f8f8), color-stop(100%,#ffffff));*/
+	/*background: -webkit-linear-gradient(top, #f4f4f4 0%,#f8f8f8 46%,#ffffff 100%);*/
+	/*background: -o-linear-gradient(top, #f4f4f4 0%,#f8f8f8 46%,#ffffff 100%);*/
+	/*background: -ms-linear-gradient(top, #f4f4f4 0%,#f8f8f8 46%,#ffffff 100%);*/
+	/*background: linear-gradient(to bottom, #f4f4f4 0%,#f8f8f8 46%,#ffffff 100%);*/
+	padding-bottom: 6px;
+	padding-top: 4px;
+	/*top: 1px;*/
+	box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	color: #000;
+}
+
+.catalog_tabs .type-tab.type-tab-1 {
+	/*margin-left: -20px;*/
+}
+.catalog_tabs .type-tab.type-tab-2 {}
+
+/*************************/
+

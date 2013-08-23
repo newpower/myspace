@@ -55,8 +55,8 @@ div.form fieldset
 
 div.form label
 {
-	font-weight: bold;
-	font-size: 0.9em;
+	/*font-weight: bold;*/
+	/*font-size: 0.9em;*/
 	display: block;
 }
 
@@ -112,7 +112,8 @@ div.form select.success
 }
 
 
-div.form .errorSummary
+div.form .errorSummary,
+form .errorSummary
 {
 	border: 2px solid #C00;
 	padding: 7px 7px 12px 7px;
@@ -121,19 +122,30 @@ div.form .errorSummary
 	font-size: 0.9em;
 }
 
-div.form .errorMessage
+div.form .errorMessage,
+form .errorMessage
 {
 	color: red;
 	font-size: 0.9em;
 }
 
-div.form .errorSummary p
+form .errorMessage {
+    /*float: left; margin: 6px 10px 0 1px;*/
+    position: absolute;
+    white-space: nowrap;
+    margin-top: 32px;
+    left: 2px;
+}
+
+div.form .errorSummary p,
+form .errorSummary p
 {
 	margin: 0;
 	padding: 5px;
 }
 
-div.form .errorSummary ul
+div.form .errorSummary ul,
+form .errorSummary ul
 {
 	margin: 0;
 	padding: 0 0 0 20px;

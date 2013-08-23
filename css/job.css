@@ -1,0 +1,123 @@
+.catalog.job {
+  width: 720px; }
+  .catalog.job .complex_field {
+    height: auto;
+    margin-bottom: 30px;
+    float: none; }
+    .catalog.job .complex_field .fields-place {
+      float: left;
+      width: 100%;
+      margin-right: -30px; }
+      .catalog.job .complex_field .fields-place .fields-set {
+        position: relative;
+        clear: left;
+        width: 100%;
+        float: left; }
+        .catalog.job .complex_field .fields-place .fields-set .del-set {
+          position: absolute;
+          top: 20px;
+          right: 6px;
+          margin: 0;
+          display: none; }
+        .catalog.job .complex_field .fields-place .fields-set:hover .del-set {
+          display: block; }
+        .catalog.job .complex_field .fields-place .fields-set:first-child .del-set {
+          display: none !important; }
+        .catalog.job .complex_field .fields-place .fields-set div {
+          float: left;
+          margin: 0 20px 10px 0; }
+      .catalog.job .complex_field .fields-place label {
+        display: block; }
+        .catalog.job .complex_field .fields-place label .l {
+          height: auto; }
+        .catalog.job .complex_field .fields-place label.graduation_date .l {
+          width: auto; }
+    .catalog.job .complex_field .date input[type="text"] {
+      width: 8em; }
+    .catalog.job .complex_field .date .l {
+      width: auto; }
+    .catalog.job .complex_field .u {
+      clear: both;
+      display: block; }
+  .catalog.job .education #institution {
+    width: 430px; }
+  .catalog.job .education #graduation_date {
+    width: 50px; }
+  .catalog.job .job_exp input[type="text"] {
+    width: 205px; }
+  .catalog.job .job_exp #job_description {
+    width: 435px; }
+  .catalog.job .job_exp .fields-set {
+    margin-bottom: 20px; }
+  .catalog.job .job_exp .fields-place {
+    margin-bottom: -20px; }
+  .catalog.job .job_exp .del-set {
+    right: 33px !important; }
+  .catalog.job .general {
+    padding-top: 30px; }
+  .catalog.job .search_divisions {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: auto;
+    padding-bottom: 10px;
+    display: none !important; }
+  .catalog.job .region {
+    margin-bottom: 20px; }
+  .catalog.job .price_range input {
+    width: 60px; }
+  .catalog.job fieldset {
+    margin-bottom: 20px; }
+    .catalog.job fieldset .checkbox {
+      height: auto;
+      padding-top: 15px; }
+      .catalog.job fieldset .checkbox .u {
+        display: none; }
+    .catalog.job fieldset .region {
+      margin-bottom: 0px; }
+  .catalog.job .publish-status label span {
+    display: inline;
+    color: inherit;
+    vertical-align: top; }
+  .catalog.job .select-items label {
+    display: block;
+    padding-bottom: 2px;
+    color: #999999; }
+  .catalog.job .bidtype {
+    display: none; }
+
+.vacancy .resume-only {
+  display: none !important; }
+
+.resume .vacancy-only {
+  display: none !important; }
+
+table.data .position {
+  font-size: 16px; }
+
+#offer-view.job {
+  width: 700px; }
+  #offer-view.job .complex_field_readonly {
+    margin-bottom: 20px; }
+    #offer-view.job .complex_field_readonly .item {
+      margin-bottom: 10px; }
+  #offer-view.job .education_readonly .item {
+    margin-bottom: 4px; }
+  #offer-view.job .conc {
+    width: 28%;
+    margin-left: 10px;
+    margin-bottom: 10px; }
+    #offer-view.job .conc .user-pic {
+      margin-bottom: 10px; }
+    #offer-view.job .conc .user-name {
+      font-size: 18px;
+      margin-bottom: 3px; }
+    #offer-view.job .conc .contact-person {
+      padding-top: 20px; }
+  #offer-view.job .job_description {
+    clear: left; }
+
+.offerlist-menu .job-menu-header {
+  margin-bottom: 8px; }
+.offerlist-menu.mainmenu ul {
+  margin-bottom: 18px; }

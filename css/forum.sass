@@ -1,0 +1,348 @@
+#communities
+	min-width: 726px
+	ul.communities
+		list-style: none
+		padding: 0
+		> li
+			padding: 20px
+			clear: left
+
+			&.polls
+				margin-bottom: 15px
+				background: #f5f5f5
+				border-radius: 5px
+				-moz-border-radius: 5px
+				-webkit-border-radius: 5px
+				padding-bottom: 0
+
+	&.css-hide
+		.userpic, .username
+			display: none
+		ul.topics
+			li
+				div.info
+					margin-left: 0px
+
+
+	h3
+		margin-top: 20px
+		margin-bottom: 23px
+
+
+
+	.side-block
+		clear: right
+		width: 25%
+		min-height: 23px
+		background: #e1e1e0
+		border-radius: 3px
+		float: right
+		padding: 20px
+		margin: 0px -10px 0 20px
+		h5
+			margin-bottom: 4px
+
+	.community_title
+		overflow: hidden
+		margin-bottom: 10px
+		padding: 3px 0
+		//border-bottom: 1px dotted #030
+		position: relative
+
+		h2
+			margin-bottom: 0
+
+		h1
+			margin-bottom: 5px
+			font-size: 30px
+
+
+		.users
+			float: right
+			margin-left: 15px
+			margin-bottom: 0px
+			//width: 320px
+			white-space: nowrap
+			padding-top: 1px
+			display: none
+		.userpic
+			display: inline-block
+			margin-right: 5px
+			//float: left
+			margin-bottom: 0px
+			width: 24px
+			height: 24px
+			overflow: hidden
+			background: #fff
+			border: 1px solid #DDD
+		.community-desc
+			padding: 0px
+			margin-left: 90px
+
+	.pic
+		float: left
+		margin-right: 10px
+		margin-bottom: 8px
+		width: 80px
+		height: 80px
+		overflow: hidden
+		border: 1px solid #ccc
+
+	ul.divisions
+		list-style: none
+		padding: 0 0 5px 0px
+
+		li
+			margin-bottom: 25px
+			font-size: 23px
+
+			.more
+				font-size: 16px
+				color: gray
+				padding-left: 20px
+				padding-top: 3px
+
+			&.css-hide
+				.userpic, .username
+					display: none
+				ul.topics
+					li	
+						.info
+							margin-left: 0
+
+		ul.topics
+			margin-bottom: 0px
+			padding-top: 0px
+			li
+				padding-left: 20px
+
+		> li
+			> a
+				color: #000
+				text-decoration: none
+				font-size: 20px
+				&:hover
+					text-decoration: underline
+
+	ul.topics
+		list-style: none
+		padding: 0
+		margin-bottom: 35px
+		li
+			margin-bottom: 0px
+			clear: left
+			padding-left: 20px
+			padding-right: 15px
+			padding-top: 15px
+			padding-bottom: 15px
+			position: relative
+			overflow: hidden
+			font-size: 12px
+			&:nth-child(even)
+				background: #eee
+
+
+			.userpic
+				float: left
+				margin-right: 10px
+				margin-top: 3px
+				border: 1px solid #ccc
+				width: 61px
+				height: 61px
+				overflow: hidden
+
+			.info
+				margin-left: 73px
+
+			.title
+				font-size: 18px
+				margin-bottom: 0px
+				a
+					//color: #333
+					//text-decoration: none
+					//&:hover
+					//	text-decoration: underline
+			.comma
+				font-size: 12px
+				position: relative
+				left: -0.4em
+			.username
+				font-size: 15px
+			.date
+				font-size: 12px
+			.last-comment
+				font-size: 14px
+				padding: 0
+				//height: 25px
+				//width: 600px
+				overflow: hidden
+				white-space: nowrap
+				text-overflow: ellipsis
+				//color: gray
+				//display: block
+				//padding-left: 39px
+				//margin-top: 2px
+			.comments-count
+				margin: 7px 0 7px 10px
+			.b-user
+				height: 35px
+				text-indent: 0px
+				._pic
+					margin-top: 0px
+					margin-bottom: 0px
+					position: absolute
+					top: 5px
+					left: -40px
+					display: none
+				._name
+					font-size: 12px
+				._status
+					display: none
+				.u-menu
+					display: none !important
+
+	.topic_title
+		font-size: 14px
+		margin-bottom: 20px
+		color: #000
+
+	#create_forum_topic
+		input[type="text"]
+			display: block
+			//margin-bottom: 3px
+			width: 80%
+			float: none
+		textarea
+			display: block
+			//margin-bottom: 3px
+			width: 80%
+			height: 80px
+			float: none
+			resize: vertical
+		h3
+			margin-bottom: 10px
+
+	.b-comment
+		.list
+			background: #eee
+			//width: 80%
+			border-radius: 3px
+			//padding: 5px
+		.item.forum-comment
+
+
+		.add-comment
+			textarea
+				resize: vertical
+				width: 680px
+
+	.question
+		margin-bottom: 30px
+		margin-right: 80px
+		margin-top: 30px
+		width: 60%
+		background: #EEE
+		padding: 15px
+		border-radius: 5px
+
+		.text
+			font-size: 18px
+			margin-bottom: 0.5em
+			span
+				font-size: 14px
+				color: gray
+				i
+					font-style: normal
+
+		.answer
+			margin-bottom: 6px
+			label
+				input
+					margin-left: 0px
+			.stat
+				width: 200px
+				.in
+					padding-right: 35px
+					position: relative
+					padding-top: 4px
+					padding-bottom: 5px
+				.bar
+					background: #282
+					border: #bbb
+					height: 6px
+				.count
+					position: absolute
+					top: -1px
+					right: 0px
+					font-size: 12px
+					width: 30px
+
+		.total-count
+			padding-top: 10px
+			color: gray
+			i
+				font-style: normal
+
+		&.voted
+			.answer
+				input
+					display: none
+			input[type="submit"]
+				display: none
+
+		&.not-voted
+			.stat
+				display: none
+
+		.finished-msg
+			display: none
+
+		&.finished
+			.finished-msg
+				display: inline
+
+		&.noauth
+			input[type="submit"]
+				display: none
+
+	.complaint
+		float: right
+
+.mainmenu.forum-menu
+	h4
+		margin-bottom: 6px
+		font-size: 16px
+		line-height: 14px
+	ul
+		li
+			ul
+				padding-bottom: 15px
+
+.sticky
+	height: 100%
+	.mainmenu
+		position: fixed
+		top: 0px
+		// left: 0
+		width: 145px
+
+			.mainmenu
+				margin:0 auto
+
+
+
+#page
+	.left.col
+		float: none !important
+		vertical-align: top
+		display: inline-block
+	#layout-content
+		display: inline-block
+		width: 700px
+
+.no-auth
+	.b-comment
+		.quote
+			display: none !important
+		.complaint
+			display: none !important

@@ -1,0 +1,586 @@
+#offer-view #tab-titles {
+  float: left;
+  width: 100%;
+  margin-top: 10px; }
+  #offer-view #tab-titles .tabtitle {
+    display: inline-block;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 4px;
+    border: 1px solid silver; }
+    #offer-view #tab-titles .tabtitle.current {
+      background: #e1e1e0; }
+#offer-view .tab.visible {
+  display: block; }
+#offer-view .tab {
+  float: left;
+  width: 100%; }
+#offer-view > h1 .my {
+  display: none; }
+#offer-view.owner > h1 .my {
+  display: inline; }
+#offer-view .b-grade_seller .grade2, #offer-view .b-grade_seller .grade3 {
+  display: none; }
+#offer-view .b-grade_buyer .grade4 {
+  display: none; }
+#offer-view .b-grade {
+  float: left;
+  padding: 3%;
+  background: #f4f0d3;
+  color: #444444;
+  width: 94%;
+  margin-bottom: 40px; }
+  #offer-view .b-grade .b-right-textbox {
+    font-size: 12px;
+    margin-top: 15px; }
+    #offer-view .b-grade .b-right-textbox p {
+      margin-bottom: 10px; }
+  #offer-view .b-grade form {
+    padding-right: 15px; }
+    #offer-view .b-grade form .row.text {
+      overflow: auto;
+      padding: 6px 0; }
+    #offer-view .b-grade form .row.anon {
+      padding: 0; }
+      #offer-view .b-grade form .row.anon label {
+        float: none;
+        padding: 0;
+        position: relative;
+        top: -1px;
+        width: auto; }
+    #offer-view .b-grade form .row.grade:hover {
+      background: rgba(255, 255, 255, 0.5);
+      padding-left: 10px;
+      margin-left: -10px; }
+    #offer-view .b-grade form .row.grade-first {
+      margin: 0 0 10px -10px;
+      padding-left: 10px;
+      background: rgba(0, 0, 0, 0.05); }
+      #offer-view .b-grade form .row.grade-first label {
+        font-size: 16px; }
+    #offer-view .b-grade form label {
+      float: left;
+      width: 265px;
+      padding-right: 10px;
+      padding-top: 3px;
+      font-size: 14px; }
+    #offer-view .b-grade form select {
+      padding: 0;
+      float: left; }
+    #offer-view .b-grade form textarea {
+      width: 98%;
+      height: 70px;
+      margin-top: 10px;
+      font-size: 14px; }
+    #offer-view .b-grade form span.radiob {
+      overflow: hidden;
+      display: block; }
+      #offer-view .b-grade form span.radiob label {
+        display: inline-block;
+        padding: 0;
+        width: auto;
+        float: none;
+        font-size: 12px;
+        margin-left: -4px;
+        margin-right: 20px; }
+    #offer-view .b-grade form .row.grade1 span.radiob label {
+      font-size: 14px; }
+    #offer-view .b-grade form .user-rate-submit {
+      margin-top: 1em; }
+  #offer-view .b-grade .r {
+    margin-bottom: 5px; }
+  #offer-view .b-grade .r.grade-common span {
+    font-size: 16px; }
+#offer-view div.numberoffer {
+  padding-bottom: 20px;
+  float: left;
+  color: #777777;
+  width: 100%; }
+#offer-view .buttons {
+  position: absolute;
+  right: 40px;
+  top: 15px; }
+  #offer-view .buttons a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0 5px 5px;
+    float: right; }
+    #offer-view .buttons a.edit {
+      background: #228822; }
+    #offer-view .buttons a.archive {
+      background: #870200; }
+    #offer-view .buttons a.delete {
+      background: #870200; }
+    #offer-view .buttons a.open {
+      background: #878485; }
+#offer-view .img {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  border: 1px solid silver;
+  margin: 4px -1px 4px 0px;
+  overflow: hidden;
+  line-height: 150px;
+  float: right; }
+#offer-view .photos {
+  clear: right;
+  width: 150px;
+  float: right;
+  margin: 0 0 20px 0; }
+  #offer-view .photos .item {
+    float: left;
+    border: 1px solid silver;
+    margin: 4px 0 4px 7px;
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    text-align: center; }
+    #offer-view .photos .item:first-child {
+      margin-left: 0; }
+  #offer-view .photos img {
+    vertical-align: middle;
+    display: inline; }
+#offer-view h1 {
+  margin-bottom: 0px; }
+#offer-view .archive-offer, #offer-view .withdraw-offer, #offer-view .other-commit-offer {
+  font-size: 14px;
+  color: white;
+  background: #666666;
+  border-radius: 5px;
+  padding: 6px 8px;
+  display: inline-block;
+  margin-top: -0.3em; }
+#offer-view .failed-offer {
+  font-size: 14px;
+  color: white;
+  background: #666666;
+  border-radius: 5px;
+  padding: 6px 8px;
+  display: inline-block;
+  margin-top: -0.3em; }
+#offer-view .field {
+  margin: 0 20px 20px 0;
+  float: left; }
+  #offer-view .field.empty {
+    display: none; }
+  #offer-view .field .l {
+    font-size: 14px;
+    color: #777777;
+    display: table-cell;
+    height: 4em;
+    vertical-align: bottom;
+    width: 150px; }
+  #offer-view .field .v {
+    display: block;
+    font-size: 20px;
+    color: black;
+    float: left; }
+  #offer-view .field .u {
+    color: black;
+    display: block;
+    float: left;
+    vertical-align: bottom;
+    margin: 0.2em 0 0 5px;
+    font-size: 16px; }
+  #offer-view .field.delivery-basis .delivery_v {
+    font-size: 14px;
+    line-height: 1.9em; }
+#offer-view .general .field .l {
+  height: auto; }
+#offer-view .general .description {
+  clear: left; }
+#offer-view .ware-char {
+  display: none; }
+  #offer-view .ware-char .field {
+    float: none;
+    display: inline-block;
+    vertical-align: top; }
+#offer-view .ware-char-expand {
+  color: black; }
+  #offer-view .ware-char-expand .hide {
+    display: none; }
+#offer-view .ware-char-expand.expanded .show {
+  display: none; }
+#offer-view .ware-char-expand.expanded .hide {
+  display: inline; }
+#offer-view .ware-char-heading {
+  padding-top: 20px;
+  clear: left; }
+#offer-view .req {
+  padding-top: 30px;
+  clear: both; }
+  #offer-view .req .info {
+    padding: 14px;
+    background: #e1e1e0;
+    border-radius: 3px;
+    width: 190px;
+    margin: 0 0 20px 0;
+    float: left; }
+    #offer-view .req .info .company span {
+      display: block;
+      opacity: 0.4;
+      font-size: 0.7em; }
+    #offer-view .req .info .company div.deal_number {
+      padding-top: 10px; }
+    #offer-view .req .info .img {
+      float: none; }
+      #offer-view .req .info .img img {
+        vertical-align: middle;
+        display: inline; }
+#offer-view .req.accepted .commit, #offer-view .req.accepted .commit-links {
+  display: none; }
+#offer-view .messages {
+  float: right;
+  width: 500px; }
+  #offer-view .messages .messages-section {
+    display: none; }
+    #offer-view .messages .messages-section.show {
+      display: block; }
+  #offer-view .messages .show-messages {
+    display: none; }
+    #offer-view .messages .show-messages span {
+      border-bottom: 1px dashed #228822;
+      color: #228822;
+      cursor: pointer; }
+    #offer-view .messages .show-messages i {
+      font-style: normal; }
+    #offer-view .messages .show-messages .cl {
+      display: none; }
+    #offer-view .messages .show-messages .sh {
+      display: inline; }
+    #offer-view .messages .show-messages.opened .cl {
+      display: inline; }
+    #offer-view .messages .show-messages.opened .sh {
+      display: none; }
+  #offer-view .messages .last {
+    clear: both; }
+  #offer-view .messages .item {
+    position: relative;
+    vertical-align: top;
+    color: black;
+    padding: 10px 10px 5px;
+    background: #c9c9cd;
+    background: rgba(225, 225, 224, 0.9);
+    border-radius: 4px;
+    border: 2px solid silver;
+    margin-bottom: 10px;
+    width: 400px;
+    clear: both; }
+    #offer-view .messages .item.from-me {
+      float: right; }
+    #offer-view .messages .item:hover .author {
+      color: #555555; }
+  #offer-view .messages .from {
+    font-weight: bold; }
+  #offer-view .messages .r {
+    text-align: left; }
+  #offer-view .messages .text {
+    clear: both;
+    margin-bottom: 3px;
+    float: left; }
+  #offer-view .messages .author {
+    color: #aaaaaa;
+    float: left;
+    clear: both; }
+  #offer-view .messages .tip {
+    float: left;
+    clear: both;
+    margin: 15px 0 5px;
+    font-size: 14px; }
+    #offer-view .messages .tip > div {
+      margin: 0 0 10px; }
+    #offer-view .messages .tip hr {
+      margin-bottom: 10px; }
+    #offer-view .messages .tip .remainder_link {
+      margin-bottom: 5px; }
+      #offer-view .messages .tip .remainder_link p {
+        margin-bottom: 10px; }
+  #offer-view .messages .item .author:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  #offer-view .messages .item .price, #offer-view .messages .item .status {
+    /* margin-right: 10px */ }
+    #offer-view .messages .item .price > h3, #offer-view .messages .item .status > h3 {
+      margin: 0 0 0; }
+  #offer-view .messages .item .status .commit-links {
+    float: right;
+    margin-bottom: 7px; }
+    #offer-view .messages .item .status .commit-links a {
+      padding-top: 3px;
+      padding-bottom: 4px;
+      margin-left: 3px; }
+  #offer-view .messages .item .message-link.delete {
+    display: none; }
+  #offer-view .messages .item:hover .message-link.delete {
+    display: block;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    background: url("/img/more.png") no-repeat;
+    background-position: 0px -65px;
+    font-size: 0px; }
+  #offer-view .messages .item.waiting {
+    color: black;
+    background: rgba(225, 225, 224, 0.9);
+    border: 2px dashed silver; }
+  #offer-view .messages .item.accepted .text, #offer-view .messages .item.rejected .text {
+    margin-top: 7px;
+    margin-bottom: 3px; }
+  #offer-view .messages .item.accepted .author, #offer-view .messages .item.rejected .author {
+    color: black; }
+  #offer-view .messages .item.accepted .commit-links {
+    display: none; }
+  #offer-view .messages .item.accepted .tip {
+    background: #eeeeee;
+    border-radius: 5px;
+    padding: 10px; }
+  #offer-view .messages .item.rejected {
+    color: black;
+    background: #e3c3c3;
+    background: rgba(153, 0, 0, 0.2);
+    border: 2px solid transparent; }
+    #offer-view .messages .item.rejected .commit-links {
+      display: none; }
+  #offer-view .messages .item.accepted {
+    color: black;
+    background: #ccddcc;
+    background: rgba(0, 102, 0, 0.2);
+    border: 2px solid transparent; }
+  #offer-view .messages .item.hidden_item {
+    display: none; }
+  #offer-view .messages form {
+    position: relative; }
+    #offer-view .messages form input {
+      float: none !important; }
+    #offer-view .messages form button {
+      top: 0;
+      margin-left: 0px;
+      float: right; }
+    #offer-view .messages form textarea {
+      font-family: sans-serif;
+      padding: 10px 12px 5px;
+      resize: vertical;
+      height: 70px;
+      width: 79.5%;
+      float: right;
+      margin: 17px 0 10px 0; }
+    #offer-view .messages form .statuses > * {
+      display: none; }
+    #offer-view .messages form .archive-offer {
+      float: left;
+      margin: 0.2em 10px 0 76px;
+      background: #f4f0d3;
+      color: #444444;
+      box-shadow: #cccccc 3px 3px 3px;
+      width: 60%; }
+    #offer-view .messages form .failed-offer, #offer-view .messages form .withdraw-offer, #offer-view .messages form .other-commit-offer {
+      float: left;
+      margin: 0.2em 10px 0 76px;
+      background: #f4f0d3;
+      color: #444444;
+      box-shadow: #cccccc 3px 3px 3px;
+      width: 60%; }
+    #offer-view .messages form .other-commit-offer, #offer-view .messages form .withdraw-offer {
+      background: #990000;
+      color: white; }
+    #offer-view .messages form .val {
+      cursor: pointer;
+      color: #228822;
+      border-bottom: 1px dashed #228822; }
+    #offer-view .messages form label.is_commit_request {
+      position: relative;
+      left: 72px;
+      margin-bottom: 0px;
+      margin-top: 5px; }
+  #offer-view .messages .commit label {
+    display: block;
+    float: none;
+    text-align: right; }
+    #offer-view .messages .commit label.show {
+      text-align: left; }
+  #offer-view .messages .commit div select {
+    font-size: 12px;
+    display: inline-block;
+    max-width: 180px; }
+  #offer-view .messages .commit div.address_place {
+    display: inline-block;
+    max-width: 180px;
+    vertical-align: top; }
+    #offer-view .messages .commit div.address_place select {
+      margin-bottom: 2px; }
+  #offer-view .messages .fields_switch {
+    float: right;
+    font-size: 12px;
+    margin-top: 5px; }
+    #offer-view .messages .fields_switch span {
+      color: green;
+      border-bottom: 1px dashed green;
+      cursor: pointer;
+      margin: 0 10px 0 0; }
+      #offer-view .messages .fields_switch span.selected {
+        background: green;
+        color: white;
+        cursor: default;
+        padding: 1px 5px; }
+  #offer-view .messages h3 {
+    font-size: 18px; }
+  #offer-view .messages .request-bid {
+    margin: 0 0 20px 0;
+    clear: right; }
+    #offer-view .messages .request-bid.disabled {
+      display: none; }
+    #offer-view .messages .request-bid.enabled {
+      display: block; }
+    #offer-view .messages .request-bid .has_changed {
+      font-weight: bold; }
+    #offer-view .messages .request-bid label {
+      display: inline-block;
+      margin: 0; }
+      #offer-view .messages .request-bid label span {
+        display: inline-block;
+        margin: 0;
+        height: auto; }
+    #offer-view .messages .request-bid.show_all .field, #offer-view .messages .request-bid .field.changed_all_time {
+      display: block; }
+    #offer-view .messages .request-bid.show_all .field.changed, #offer-view .messages .request-bid.show_all .field.changed_all_time {
+      font-weight: bold; }
+    #offer-view .messages .request-bid .field {
+      display: none;
+      float: none;
+      margin: 0 0 10px 0; }
+      #offer-view .messages .request-bid .field.region span.v {
+        display: none; }
+      #offer-view .messages .request-bid .field.int input[type=text] {
+        width: 100px;
+        text-align: center; }
+      #offer-view .messages .request-bid .field.price input[type=text] {
+        width: 100px;
+        text-align: right; }
+      #offer-view .messages .request-bid .field.date {
+        position: relative; }
+        #offer-view .messages .request-bid .field.date input {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+          padding: 0;
+          position: absolute;
+          top: 1em;
+          left: 163px;
+          display: block !important; }
+      #offer-view .messages .request-bid .field label, #offer-view .messages .request-bid .field span {
+        text-align: left;
+        margin: 0;
+        vertical-align: middle;
+        font-size: 12px; }
+      #offer-view .messages .request-bid .field label {
+        margin: 0 10px 0 0; }
+        #offer-view .messages .request-bid .field label input {
+          display: inline-block;
+          margin-top: -5px; }
+      #offer-view .messages .request-bid .field span {
+        display: inline-block;
+        height: auto; }
+        #offer-view .messages .request-bid .field span.val {
+          margin-left: 5px; }
+      #offer-view .messages .request-bid .field .t {
+        float: right;
+        display: none; }
+      #offer-view .messages .request-bid .field .u {
+        display: inline-block;
+        float: none; }
+#offer-view .conc {
+  float: right;
+  width: 25%;
+  background: #e1e1e0;
+  border-radius: 3px;
+  float: right;
+  padding: 20px;
+  margin: -5px 0px 0 0; }
+#offer-view .avg, #offer-view .req_info, #offer-view .buyer_info {
+  width: 25%;
+  background: #e1e1e0;
+  border-radius: 3px;
+  float: right;
+  padding: 20px;
+  margin: -5px 0px 0 0; }
+#offer-view .conc .title, #offer-view .avg .title, #offer-view .req_info .title, #offer-view .buyer_info .title {
+  font-size: 18px;
+  line-height: 18px; }
+#offer-view .conc .title.sub, #offer-view .avg .title.sub, #offer-view .req_info .title.sub, #offer-view .buyer_info .title.sub {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: bold;
+  margin: 14px 0 -5px; }
+#offer-view .conc .all, #offer-view .avg .all, #offer-view .req_info .all, #offer-view .buyer_info .all {
+  display: inline-block;
+  margin: 7px 0 3px;
+  font-style: italic; }
+#offer-view .conc .item, #offer-view .avg .item, #offer-view .req_info .item, #offer-view .buyer_info .item {
+  margin: 10px 0 0px 0; }
+#offer-view form.qreq {
+  padding: 20px 25px 25px 25px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px #888888;
+  background: #eeeeee;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -100px 0 0 -200px;
+  z-index: 40;
+  width: 350px;
+  display: none; }
+  #offer-view form.qreq h4 {
+    font-size: 20px;
+    margin-bottom: 10px; }
+  #offer-view form.qreq .close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background: url("/img/close.png") center no-repeat;
+    float: right; }
+  #offer-view form.qreq .add {
+    cursor: pointer;
+    background: url("/img/add.png") left center no-repeat;
+    background-size: 16px 16px;
+    padding: 0 0 0 23px;
+    height: 20px;
+    line-height: 21px;
+    color: #003300;
+    margin-bottom: 15px; }
+  #offer-view form.qreq .item {
+    margin: 0 0 7px 0; }
+    #offer-view form.qreq .item .delete {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      background: url("/img/close.png") center no-repeat;
+      display: inline-block;
+      opacity: 0;
+      position: relative;
+      top: 4px;
+      margin-left: 10px;
+      margin-top: -10px;
+      -webkit-transition: all linear 0.1s 0.5s; }
+    #offer-view form.qreq .item:hover .delete {
+      opacity: 1; }
+  #offer-view form.qreq input[type=text] {
+    width: 120px; }
+  #offer-view form.qreq input[type=submit] {
+    float: right;
+    margin: 0 0 -5px 0; }
+  #offer-view form.qreq .result {
+    display: none;
+    font-size: 16px;
+    border: 1px solid #003300;
+    color: #003300;
+    background: rgba(0, 102, 0, 0.4);
+    border-radius: 5px;
+    padding: 5px; }
+#offer-view .complaint {
+  float: right; }

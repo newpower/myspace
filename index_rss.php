@@ -18,16 +18,15 @@ error_reporting(E_ALL);
 function get_page($target_url='https://api.hh.ru/specializations')
 {
 	//$target_url='http://agro2b.ru/ru/news/rss?source=7';
-
+	$target_url=trim($target_url);
 	$userAgent='API BOT/2.1 (600541@mail.ru)';
-	
+
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $target_url);
 	if (strtolower((substr($target_url,0,5))=='https'))
 	{
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-		
 	}
 	  
 
@@ -36,21 +35,36 @@ function get_page($target_url='https://api.hh.ru/specializations')
 	//curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
 
 	curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20); 
 	curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+	//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1); 
+	//curl_setopt($ch, CURLOPT_MAXREDIRS, 2); 
 	
-	//curl_setopt($ch, CURLOPT_PROXY, "ipp-proxy.yugrusiagro.ru:3128");
-	//curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'feofanov_ei:Iethae7z');
-
-	//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_PROXY, "ipp-proxy.yugrusiagro.ru:3128");
+	curl_setopt($ch, CURLOPT_PROXYUSERPWD, 'feofanov_ei:Iethae7z');
 
 	$html=curl_exec($ch); 
+
+	$errmsg = curl_error($ch);
+	$header = curl_getinfo($ch); 
+
+	 
 	$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	
+	
+	
+	$return_array=array();
 	if ($http_code == 301 || $http_code == 302)
 	{
-		$html = curl_redir_exec($ch);
+		$return_array = curl_redir_exec($ch);
+		echo "JJJJJJJJJJJJJJJJJJJ";
 	}
-	return $html;
+	else
+	{
+		$return_array=array("html"=>$html,"url"=>$target_url,"http_code"=>$http_code,"err"=>$errmsg,"header"=>$header);
+	}
+	//echo "page_echo".$return_array["url"]."<br><br>";
+	return $return_array;
 }
 
 function curl_redir_exec($ch)
@@ -235,11 +249,9 @@ function main_test()
 		echo "Заголовок:".$arraymodelnews["title"]."текст <hr>";
 		echo $arraymodelnews["description"]." КОНЕЦ ТЕКСТА <br><hr><hr>";
 
-echo $news->link."<br>";
+		echo $news->link."<br>";
 		$text=get_news_text_from_site($news->link);
-		
-
-exit;
+		//exit;
 	}
 }
 
@@ -251,8 +263,9 @@ function set_news_text()
 {
 	get_connect_db(1);
 	$query = "SELECT * FROM `agro2b_rss_reader_all` `all` left join `agro2b_rss_reader_sources` `sources` on `all`.`id_sources`= `sources`.`id` where `text_news` is null limit 0,100;";
-	
+
 	$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
+		echo "<meta http-equiv=\"refresh\" content=\"601\">";
   	while ($line = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
 	{
 		echo "Страница новости:".$line["link"]."<br />";
@@ -260,11 +273,12 @@ function set_news_text()
 		$arr_fields=get_news_text_from_site($line);
 		
 
-		set_news($arr_fields,array("id"=> "link","value"=>$line["link"]));
-		echo "<meta http-equiv=\"refresh\" content=\"601\">";
+		set_news($arr_fields,array("id"=>"link","value"=>$line["link"]));
+		//echo "<meta http-equiv=\"refresh\" content=\"601\">";
 		//echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
 	//exit;
 	}
+
 }
 set_news_text();
 //get_news_text_from_site("http://www.admlr.lipetsk.ru/rus/news/index.php?idxShowNew=71e8f1e0f7ef6381d9b6be671e1b0ac8");
@@ -272,132 +286,167 @@ set_news_text();
 function get_news_text_from_site($model_parse)
 {
 	$url=$model_parse["link"];
-	$arr_arg=array("active"=>"0");
+		
 	$per_debug=0;
 
-	/*if ($model_parse["parse_active"])
-	{
-		$arr_arg=array(
-			"active"=>"1",
-			"method"=>$model_parse["parse_method"],
-			"per_begin"=>$model_parse["parse_per_begin"],
-			"per_argument"=>$model_parse["parse_per_argument"],
-			"per_end"=>$model_parse["parse_per_end"],
-			);
-		//echo $model_parse["parse_per_begin"];
-	}
-*/
-
-		$cl = new RestClient();
-		$r=$cl->split_url($url);
-		echo "HOST".$r["host"]."HOST<br>";
-		$query = " 	SELECT * FROM `agro2b_rss_reader_parse_text` WHERE `domain` LIKE '".$r["host"]."' LIMIT 0 , 30	";
-		$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
-  		if (sizeof($result_all) > 0)
-		{
-			while ($data_parse = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
-			{
-				$arr_arg=$data_parse;
-			}
-		}
+	$array_page=array();
 	
 	if (strpos("HH".$url, "yandex.ru/") > 0)
 	{
+		$array_page["http_code"]=1000;
 		$arr_param = array("text_news" => "yandex_text",);
-			return $arr_param;
+		return $arr_param;
 	}
-		$text='';
-		// Полные тексты 	id 	domain 	 	 	 	 	 	pa
+	else 
+	{
+		//Скачиваем страницу
+		$array_page=get_page($url);
+	}
 
-		if ($arr_arg["parse_text_active"])
-		{
-			include_once 'my_lib/simple_html_dom.php';
-			$html = new simple_html_dom;
-			$html->load(to_utf8(get_page($url)));
-			//= str_get_html(to_utf8(get_page($url)));
-			
-				if (is_object($html))
-				{
-					echo "OBJECTTTTTTTTTTTTTTTTT";
-				}
-			
-			$per_begin=$arr_arg["parse_text_per_begin"];
-			$per_argument=$arr_arg["parse_text_per_argument"];
-			$per_end=$arr_arg["parse_text_per_end"];	
-			if ($per_debug) {echo "Подключили формы обработки ".$per_begin." <br>";}
-
-			//echo $html->__toString()."EEEEEEEEEEEEEEEEEEEEE IIIII ";
-			
-			if ($arr_arg["parse_method"] == "div_and") 
-			{
-
-				
-				$ret = $html->find($per_begin);
-				if ($per_debug) {echo "Метод получен отрабатываеv<br>";}
-				if (sizeof($ret) > 0)
-				{
-					$text= $ret["$per_argument"];	
-					if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
-				}
-				else
-					{
-						echo "Ошибка нет массива ".$per_begin." аргумента".$per_argument." <br>";
-						echo $cl->json_encode_cyr($arr_arg)."<br>";
-						$text="no_parse_problem_parse^^".$cl->json_encode_cyr($arr_arg);
-						echo $html;
-						//exit;   
-					}
-			}
-
-			if ($per_end)
-			{
-				if ($per_debug) {echo "Обрезаем концовку<br>";}
-				$prmat='# (.*)'.$per_end.'#isU';
-				preg_match($prmat, $text, $b);
-				$text = (isset($b["0"])) ? trim($b["0"]) : $text ;
-				if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
-				//$text = trim($b["0"]);
-			}
-
-			$text_img=$text;
-
-			//Получение картинок если есть размеченная область
-			//получаем html с картинкой
-			if ($arr_arg["parse_img_per_begin"])
-			{
-				$ret = $html->find($arr_arg["parse_img_per_begin"]);
-				if (sizeof($ret) > 0)
-				{
-					$per_argument_img=$arr_arg["parse_img_per_argument"];
-					$text_img= $ret["$per_argument_img"];	
-				}
-			}
-
-			$arr_img_url=array();
-			$html = str_get_html($text_img);	
-
-			foreach($html->find('img') as $div2)
-			{
-				$cl = new RestClient();
-				array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
-
-				if ($per_debug) { echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";}
-				 echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";
-			}
-			$text=delete_adv_list($text);
-			$text=strip_tags($text);
-			$text=preg_replace("'\n'isu", "<br />\n", $text);
-
-			//echo "<br />";
-			// preg_replace("'\n'isu", "<br />", $text);
+	$array_page=get_page($url);
 		
-			echo $url." TEKST: ".$text;
-			$newparam = (sizeof($arr_img_url) > 0) ? $cl->json_encode_cyr($arr_img_url) : "" ;
-			//$newparam="";
-			$arr_param = array("text_news" => $text,"url_link_json"=>$newparam);
-			$html->clear();
-			return $arr_param;
+	$url=$array_page["url"];
+	$cl = new RestClient();
+	//	$r=$cl->split_url($url);
+		
+
+    $url2 = @parse_url(trim($url));
+		
+	echo $array_page["http_code"]."HOST".$url2["host"]."HOST<br>";
+
+	
+	$text='';
+		$arr_img_url=array();
+		// Полные тексты 	id 	domain 	 	 	 	 	 	pa
+		
+
+	if ($array_page["http_code"] == '200')
+	{
+		include_once 'my_lib/simple_html_dom.php';
+		
+		//"html"=>$html,"target_url"=>$target_url,"http_code"=>$http_code);
+		if ($per_debug) {echo "Текст содердит: ".strlen($array_page["html"])." <br>";}
+		
+		$html = new simple_html_dom;
+		$html->load(to_utf8($array_page["html"]));
+		//= str_get_html(to_utf8(get_page($url)));
+		
+		if (is_object($html))
+		{
+			echo "OBJECTTTTTTTTTTTTTTTTT";
 		}
+		
+		$error_line='';
+		$error_active=1;
+		
+		$query = "SELECT * FROM `agro2b_rss_reader_parse_text` WHERE `domain` LIKE '".$url2["host"]."' LIMIT 0 , 30";
+		$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
+		if (sizeof($result_all) > 0)
+		{
+			while ($arr_arg = mysql_fetch_array($result_all, MYSQL_ASSOC)) 
+			{
+				//Отсеиваем парсинг если новостья является от яндекс
+
+	
+				//$per_begin=$arr_arg["parse_text_per_begin"];
+				$per_argument=$arr_arg["parse_text_per_argument"];
+				$per_end=$arr_arg["parse_text_per_end"];	
+				
+				if ($per_debug) {echo "Подключили формы обработки ".$arr_arg["parse_text_per_begin"]." <br>";}
+				
+				if ($arr_arg["parse_method"] == "div_and") 
+				{
+					$ret = $html->find($arr_arg["parse_text_per_begin"]);
+					if ($per_debug) {echo "Метод получен отрабатываеv<br>";}
+					if (sizeof($ret) > 0)
+					{
+						$text= $ret["$per_argument"];	
+						if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
+						if ($arr_arg["parse_text_per_end"])
+						{
+							if ($per_debug) {echo "Обрезаем концовку-".$arr_arg["parse_text_per_end"]."-<br>";}
+							$prmat='# (.*)'.$arr_arg["parse_text_per_end"].'#isU';
+							preg_match($prmat, $text, $b);
+							$text = (isset($b["0"])) ? trim($b["0"]) : $text ;
+							if ($per_debug) {echo "Текст получен".str_word_count($text)." слов<br>";}
+							//$text = trim($b["0"]);
+						}
+						
+						$error_active=0;
+
+						
+						
+						$text_img=$text;
+
+						//Получение картинок если есть размеченная область
+						//получаем html с картинкой
+						if ($arr_arg["parse_img_per_begin"])
+						{
+							$ret = $html->find($arr_arg["parse_img_per_begin"]);
+							if (sizeof($ret) > 0)
+							{
+								$per_argument_img=$arr_arg["parse_img_per_argument"];
+								$text_img= $ret["$per_argument_img"];
+							}
+						}
+
+
+						$html = str_get_html($text_img);
+
+						foreach($html->find('img') as $div2)
+						{
+							$cl = new RestClient();
+							array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
+							if ($per_debug) { echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";}
+							 echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";
+						}
+		
+						
+						break;
+					}
+					else
+						{
+							$error_line=$error_line."no_parse_problem_parse  elemts no found".$arr_arg["parse_text_per_begin"]." ".$cl->json_encode_cyr($arr_arg)."<br>";
+							if ($per_debug) {echo "Ошибка нет массива ".$error_line.$arr_arg["parse_text_per_begin"]." аргумента".$arr_arg["parse_text_per_argument"]." <br>";}
+						//	echo $cl->json_encode_cyr($arr_arg)."<br>";
+						//	$text="no_parse_problem_parse^^".$cl->json_encode_cyr($arr_arg);
+							//echo $array_page["html"];
+						//	exit;   
+					}
+				}
+		
+				
+			}
+		}
+		if ($error_active)
+		{
+			$text=$error_line;
+			//echo $array_page["html"];
+			echo $text."ОШИБКИ";
+		//	exit;   
+		}
+
+
+
+		$text=delete_adv_list($text);
+		$text=strip_tags($text);
+		$text=preg_replace("'\n'isu", "<br />\n", $text);
+		//echo "<br />";
+		// preg_replace("'\n'isu", "<br />", $text);
+	
+		//echo $url." TEKST: ".$text;
+		$newparam = (sizeof($arr_img_url) > 0) ? $cl->json_encode_cyr($arr_img_url) : "" ;
+		//$newparam="";
+		$arr_param = array("text_news" => $text,"url_link_json"=>$newparam);
+		$html->clear();
+		echo $text;
+		return $arr_param;
+	}
+	elseif ($array_page["http_code"] == '404')
+	{
+		$arr_param = array("text_news" => 'no_parse error 404',"url_link_json"=>$newparam);
+		return $arr_param;
+	}
 	
 }
 function delete_adv_list($document)
@@ -445,7 +494,7 @@ function to_utf8($text_html)
 function downloads_and_parse()
 {
 	get_connect_db(1);
-	$query = "SELECT *,DATE_ADD(`date_rss_read`, INTERVAL `ttl_time` minute) as `date_new_read` from `agro2b_rss_reader_sources` where DATE_ADD(`date_rss_read`, INTERVAL `ttl_time` minute) < CURRENT_TIMESTAMP limit 0,1000;";
+	$query = "SELECT *,DATE_ADD(`date_rss_read`, INTERVAL `ttl_time` minute) as `date_new_read` from `agro2b_rss_reader_sources` where DATE_ADD(`date_rss_read`, INTERVAL `ttl_time` minute) < CURRENT_TIMESTAMP and `parse_active`='1' limit 0,1000;";
 	
 	$result_all = mysql_query($query) or die("Query failed : " . mysql_error().$query);
 	
@@ -474,46 +523,50 @@ function reader_rss_my($arraydata)
 {
 	$arraymodelnews=array();
 		//id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time
-	$bodytag = str_replace("yandex:full-text", "yandex_full_text", get_page($arraydata["link_rss"]));
-	
-	$xml= simplexml_load_string($bodytag);
+	$array_page=get_page($arraydata["link_rss"]);
 	$count_new=0;
-	 
-	//foreach ($xml->channel as $news)
-	//{
-	//	echo '<B><u>'.$news->title.'</u></b> ';
-		//echo '('.$sort->lastBuildDate.')<BR><BR>';
-	//}
-
-	foreach ($xml->channel->item as $news)
+	
+	//Запускаем скачивание если астановлен флаг активности
+	if ($arraydata["parse_active"])
 	{
-		//link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure, id_sources, comments
+		$bodytag = str_replace("yandex:full-text", "yandex_full_text", $array_page["html"]);
+		$xml= simplexml_load_string($bodytag);
 		
-		$arraymodelnews["pubDate"]=Rfc2822ToTimestamp($news->pubDate);
-		$arraymodelnews["yandex_full_text"]=$news->yandex_full_text;
-		$arraymodelnews["description"]=$news->description;
-		$arraymodelnews["title"]=$news->title;
-		$arraymodelnews["link"]=$news->link;
-		$arraymodelnews["guid"]=$news->guid;
-		$arraymodelnews["category"]=$news->category;
-		$arraymodelnews["author"]=$news->author;
-		$arraymodelnews["language"]=$arraydata["lang"];
-		$arraymodelnews["id_sources"]=$arraydata["id"];
-		$arraymodelnews["date_add"]=date("Y-m-d H:i:s");
-		$arraymodelnews["date_edit"]=date("Y-m-d H:i:s");
-		
-
-
-		//echo $news->title.' - '.Rfc2822ToTimestamp($news->pubDate).$arraydata["link_rss"].'<BR><hr>';
-
-		//foreach ($news as $key=>$value)
-		//foreach ($arraymodelnews as $key=>$value)
-		//{ 
-			//	echo $key.' - '.$value.'<BR><BR>';
+		//foreach ($xml->channel as $news)
+		//{
+		//	echo '<B><u>'.$news->title.'</u></b> ';
+			//echo '('.$sort->lastBuildDate.')<BR><BR>';
 		//}
-		$count_new=$count_new+set_news($arraymodelnews);
-		
-		
+		foreach ($xml->channel->item as $news)
+		{
+			//link, title, description, pubDate, guid, category, author, yandex_full_text, text_news, language, date_add, date_edit, enclosure, id_sources, comments
+			
+			$arraymodelnews["pubDate"]=Rfc2822ToTimestamp($news->pubDate);
+			$arraymodelnews["yandex_full_text"]=$news->yandex_full_text;
+			$arraymodelnews["description"]=$news->description;
+			$arraymodelnews["title"]=$news->title;
+			$arraymodelnews["link"]=$news->link;
+			$arraymodelnews["guid"]=$news->guid;
+			$arraymodelnews["category"]=$news->category;
+			$arraymodelnews["author"]=$news->author;
+			$arraymodelnews["language"]=$arraydata["lang"];
+			$arraymodelnews["id_sources"]=$arraydata["id"];
+			$arraymodelnews["date_add"]=date("Y-m-d H:i:s");
+			$arraymodelnews["date_edit"]=date("Y-m-d H:i:s");
+			
+	
+	
+			//echo $news->title.' - '.Rfc2822ToTimestamp($news->pubDate).$arraydata["link_rss"].'<BR><hr>';
+	
+			//foreach ($news as $key=>$value)
+			//foreach ($arraymodelnews as $key=>$value)
+			//{ 
+				//	echo $key.' - '.$value.'<BR><BR>';
+			//}
+			$count_new=$count_new+set_news($arraymodelnews);
+			
+			
+		}
 	}
 	return $count_new;
 	//exit;
@@ -538,8 +591,7 @@ function set_news($news=array(),$iddata=array())
 				$my_str1=$my_str1.$srparat."`".addslashes($key)."`";
 				$my_str2=$my_str2.$srparat."'".addslashes($value)."'";
 				$my_str3=$my_str3.$srparat."`".addslashes($key)."`='".addslashes($value)."'";
-			}
-			
+			}	
 		if (isset($iddata["id"]) and  isset($iddata["value"]))
 		{
 			

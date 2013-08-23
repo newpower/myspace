@@ -1,0 +1,180 @@
+body #layout-content
+	//width: 900px
+	//display: block
+.companies-search
+	width: 720px
+
+#edit_criteria
+	float: right
+#search_form
+	font-size: 14px
+
+	.activities
+		overflow: hidden
+		padding-top: 15px
+		span.l
+			padding-bottom: 8px
+		label
+			display: inline-block
+			margin-right: 10px
+			margin-bottom: 4px
+
+	>div
+		margin-bottom: 10px
+
+
+	select
+		margin: 0px 5px 4px 0
+		font-size: 14px
+		max-width:300px 
+
+		option.empty
+			color: #999
+
+	span.l
+		display: block
+		color: #999
+		font-size: 13px
+		
+	#criteria
+		
+		.criterion
+			display: inline-block
+			padding: 6px 3px 6px 9px
+			border-radius: 3px
+			
+			a
+				float: right
+				position: relative
+				right: -10px
+				top: -10px
+				display: block
+				width: 16px
+				height: 16px
+				
+			img
+				display: none
+				
+				
+		.criterion:hover
+			background: #E1E1E0
+			
+			img
+				display: block
+
+#search-data
+	margin-top: 10px
+	margin-left: -7px
+	float: left
+	width: 720px
+	position: relative
+
+	table.data
+		width: 100%
+		td
+			white-space: normal
+
+//company_view
+#profile.company
+
+	.photos
+		margin-bottom: 0px
+
+
+	.company_info
+		float: left
+		width: 545px
+
+	.bank_info
+		display: inline-block
+
+		td
+			padding: 5px 0
+		h3
+			margin-bottom: 10px
+
+	.info
+		float: left
+		width: 500px
+		margin-top: 0px
+
+		span.row
+			display: inline-block;
+			width: 100%
+			padding-bottom: 10px
+
+	h1.page-title
+		margin-bottom: 30px
+
+	.description
+		textarea
+			width: 673px
+			height: 80px
+
+	#Company_opf_id
+		width: 88px
+
+	#Company_name
+		width: 438px
+
+	#divOccupations
+		margin-bottom: 20px
+		.selectItem
+			width: 135px
+			display: none
+		.selectDivision
+			width: 300px
+		select
+			margin-right: 10px
+		.divOccupation
+			.selectItemPlace
+				display: inline-block
+				margin-right: 10px
+			.linkDeleteOccupation
+				display: none
+
+			.ui-combobox
+				margin-right: 10px
+
+			.ui-combobox-input
+				padding: 3px
+				display: inline-block
+				vertical-align: middle
+				//height: 16px
+				width: 270px
+
+			.ui-combobox-toggle
+				height: 22px
+				vertical-align: middle
+				position: relative
+				left: -1px
+
+			&:hover
+				.linkDeleteOccupation
+					display: inline-block
+
+	.add-occupation
+		margin-bottom: 30px
+		margin-top: -10px
+
+	.ui-combobox
+		position: relative
+		display: inline-block
+
+	.ui-combobox-toggle
+		position: absolute
+		top: 0
+		bottom: 0
+		margin-left: -1px
+		padding: 0
+
+	.ui-combobox-input
+		margin: 0
+		padding: 0.3em
+		border-radius: 3px
+
+#sync-form
+	.extend
+		display: none
+	input.smtp_port
+		width: 50px

@@ -56,6 +56,11 @@
            
 	</div>
 	
+		Строка поиска, вводите слова которые должны быть в поиске через пробел<br />
+		<?php echo $form->textField($model,'s_text',array('size'=>19,'maxlength'=>1000)); ?>
+		
+		
+	
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

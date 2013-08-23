@@ -1,0 +1,229 @@
+#profile h1 .you {
+  font-size: 22px; }
+#profile .offers {
+  width: 100%;
+  float: left;
+  margin-top: 30px; }
+
+#profile .offers div.col {
+  float: left;
+  width: 50%; }
+  #profile .offers div.col h2 {
+    color: #999999;
+    font-size: 22px; }
+
+#profile .offers h2.block-title {
+  display: block;
+  color: #999999;
+  font-size: 22px; }
+#profile .offers a {
+  text-decoration: none; }
+#profile .offers a:hover {
+  text-decoration: underline;
+  color: #228822; }
+
+#profile .buttons {
+  position: absolute;
+  right: 40px;
+  top: 30px; }
+  #profile .buttons a {
+    padding: 3px 8px 4px;
+    text-decoration: none;
+    color: white;
+    margin: 0 0 5px 5px;
+    float: right;
+    background: #228822; }
+#profile .h-leftcol {
+  float: left;
+  width: 150px;
+  padding-right: 25px; }
+  #profile .h-leftcol div.photos {
+    margin: 0px 0px 5px; }
+#profile .info {
+  margin-top: 0px; }
+  #profile .info div.row {
+    display: block;
+    padding: 5px 5px; }
+    #profile .info div.row.category {
+      font-size: 18px;
+      font-weight: bold; }
+#profile .b-friendship-status {
+  float: left;
+  width: 150px; }
+  #profile .b-friendship-status > a {
+    border: 0;
+    background: url("/img/alert-overlay.png") repeat-x;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 4px;
+    font-size: 13px;
+    padding: 5px 14px 6px;
+    line-height: 1;
+    background-color: #91bd09; }
+  #profile .b-friendship-status > a:hover {
+    background: #749a02; }
+  #profile .b-friendship-status > a:active {
+    top: 1px; }
+  #profile .b-friendship-status > span {
+    display: inline-block;
+    width: 150px;
+    padding: 5px 0px 6px;
+    text-align: left;
+    line-height: 1;
+    font-size: 13px; }
+#profile .rate {
+  float: right;
+  width: 200px;
+  padding: 10px 20px;
+  background: #f4f0d3;
+  color: #303030;
+  box-shadow: #cccccc 3px 3px 3px;
+  border-radius: 5px; }
+  #profile .rate .none {
+    text-align: center;
+    margin: 17px 0 10px; }
+  #profile .rate .placeholder {
+    color: inherit; }
+  #profile .rate .stars_container {
+    width: 48px;
+    height: 16px;
+    background: url("/img/star-2.png") top left repeat-x;
+    display: inline-block; }
+    #profile .rate .stars_container .stars {
+      height: 16px;
+      width: 0px;
+      background: url("/img/star-2.png") bottom left repeat-x; }
+  #profile .rate h2 {
+    text-align: center;
+    margin-bottom: 4px;
+    font-size: 16px; }
+  #profile .rate .big_sum {
+    float: left;
+    text-align: center;
+    width: 100%;
+    font-size: 38px;
+    margin-bottom: 20px; }
+    #profile .rate .big_sum .stars_container {
+      width: 144px;
+      height: 48px;
+      background: url("/img/star.png") top left repeat-x;
+      display: inline-block; }
+      #profile .rate .big_sum .stars_container .stars {
+        height: 48px;
+        width: 0px;
+        background: url("/img/star.png") bottom left repeat-x; }
+  #profile .rate .done {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    margin-top: 5px;
+    padding-top: 10px;
+    text-align: center;
+    border-top: 1px solid #ddddaa; }
+  #profile .rate .item {
+    float: left;
+    width: 50%;
+    margin: 10px 0; }
+    #profile .rate .item .caption {
+      float: left;
+      padding: 5px 0px 0px 0px;
+      border-radius: 4px;
+      width: 100%;
+      font-size: 11px;
+      text-align: center;
+      position: relative; }
+    #profile .rate .item .value {
+      float: left;
+      width: 100%;
+      text-align: center; }
+      #profile .rate .item .value > span {
+        font-size: 26px; }
+    #profile .rate .item .line {
+      float: right;
+      width: 64px;
+      position: relative; }
+      #profile .rate .item .line > div {
+        height: 7px;
+        width: 30px;
+        border-bottom: 2px solid #dddddd;
+        float: left; }
+        #profile .rate .item .line > div span {
+          position: absolute;
+          bottom: -15px;
+          font-size: 11px; }
+      #profile .rate .item .line div.badside {
+        text-align: left; }
+        #profile .rate .item .line div.badside span {
+          left: 0px; }
+      #profile .rate .item .line div.goodside {
+        text-align: right; }
+        #profile .rate .item .line div.goodside span {
+          right: 0px; }
+      #profile .rate .item .line div.target {
+        position: absolute;
+        border: none;
+        top: 1px; }
+  #profile .rate .grade-comments {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    clear: left; }
+#profile .photo-album {
+  float: left;
+  width: 100%;
+  margin-top: 30px; }
+  #profile .photo-album h2 {
+    color: #999999;
+    font-size: 22px; }
+  #profile .photo-album li.item {
+    float: left;
+    padding: 15px;
+    list-style: none;
+    width: 90px;
+    margin-bottom: 0px; }
+    #profile .photo-album li.item .image {
+      width: 80px;
+      height: 80px;
+      padding: 5px;
+      background: white; }
+    #profile .photo-album li.item .placehold {
+      width: 80px;
+      height: 80px;
+      background: white; }
+    #profile .photo-album li.item span.title {
+      float: left;
+      padding-top: 5px;
+      width: 100%;
+      text-align: center; }
+#profile .news-block {
+  float: left;
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 30px; }
+  #profile .news-block h2 {
+    color: #999999;
+    font-size: 22px; }
+#profile .friends {
+  float: left;
+  width: 100%;
+  margin-top: 30px;
+  margin-bottom: -10px; }
+  #profile .friends h2 {
+    color: #999999;
+    font-size: 22px; }
+  #profile .friends ul {
+    padding-left: 0;
+    margin: 0px; }
+    #profile .friends ul li {
+      display: block;
+      min-height: 45px; }

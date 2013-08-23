@@ -1,0 +1,329 @@
+
+#menu1 .user a 
+	text-shadow: 0 0 3px #fff
+	
+body > 
+	div[class*="-alert"]
+		display: none
+	.footer
+		display: none
+	div.geography
+		display: block
+		position: relative
+		z-index: 20
+		
+#page
+	background: none
+	border: none
+	position: relative
+	// width: 100%
+//	margin: 0
+	padding: 0
+	top: 0
+	
+	
+	
+#map
+	position: fixed
+	width: 100%
+	height: 200%
+	top: -100%
+	margin-top: 230px
+	left: 0
+	z-index: 1
+	//background: red
+
+	.ymaps-copyrights-pane 
+		bottom: 235px
+
+
+$over-padding: 18px
+
+@mixin panel
+	background: url("/img/black-0.6.png") repeat
+	background: rgba(0,0,0,0.6)
+	//border: 1px solid #e3e3e3
+	border-radius: 3px
+	padding: 15px 15px 15px 25px
+	//height: 30px
+	overflow: hidden
+	
+	font-size: 12px
+	line-height: 1.2em
+	font-family: Arial, Helvetica, sans-serif
+	text-shadow: none
+
+	//a
+	//		color: #000	
+	
+	&:hover
+		background: url("/img/black-0.8.png") repeat
+		background: rgba(0,0,0,.8)	
+		
+	color: white
+	a
+		color: white
+		text-decoration: none
+		&:hover
+			text-decoration: underline
+		
+img
+		float: left
+		margin-right: 5px
+
+
+.over
+	position: absolute
+	z-index: 2
+	padding: $over-padding
+	-webkit-transition: all .1s ease-in-out
+	* 
+		-o-user-select: none
+		-webkit-user-select: none
+		-moz-user-select: -moz-none
+		-khtml-user-select: none
+		-ms-user-select: none
+		user-select: none
+	::selection 
+		color: currentColor
+		background: transparent
+
+
+#catalog
+	top: 0
+	left: 0
+	//height: 200px
+	width: 200px
+	
+	
+	padding: 10px 0
+	select
+		width: 100%
+
+#catalog_noscript
+	min-width: 0
+	position: relative
+	z-index: 3
+	
+	.menu_region
+		float: left
+		border-radius: 15px
+		background: white
+		padding: 5px 8px 6px 10px
+		
+		ul
+			float: left
+			padding-left: 0px
+			list-style: none
+			
+			ul
+				padding-left: 20px
+
+#address	
+	top: 0
+	right: 0
+	//height: 220px
+	padding: 0
+	z-index: 4
+	
+	
+	font-size: 14px
+	
+	text-align: right
+		
+	.node
+		display: block
+		padding: 5px 8px 6px 10px
+		border-radius: 15px
+
+		float: right
+
+		margin: 0 20px 10px 0
+		text-decoration: none
+		background: #282
+		color: white
+		cursor: pointer
+		
+		.name
+			white-space: nowrap
+
+		
+		
+		&:before
+			content: "〉"
+			display: block
+			color: black
+			position: absolute
+			margin: 0 0 0 -23px
+			
+			
+			
+		
+		&.root:before, &.selected:before
+			display: none
+			// no arrao
+		
+		&:hover
+			background: white
+			color: #282
+			text-decoration: underline
+		
+		&.selected
+			position: absolute
+			top: 35px
+			right: 0
+			background: white
+			color: black
+			cursor: default
+			text-decoration: none			
+			z-index: 2
+			//min-width: 200px
+			
+			
+			.name
+				font-weight: bold
+			
+			text-align: left
+			
+			&.root
+				top: 0
+			
+			&.with-info
+				//padding-left: 40px
+			
+			.info
+				display: block
+			
+		.toggle
+			color: #282
+			border-bottom: 1px dashed #283
+		
+		.info
+			display: none
+
+			
+		.on-select	
+			display: none
+						
+		.ministry
+			display: none
+			
+			//position: absolute
+			//z-index: -1
+			top: 7px
+			left: 6px
+			//width: 100%
+			
+		img
+			float: right
+			margin: -10px 7px 0 0px
+			
+		p 
+			margin: 10px 0 0px 0
+			
+		.label
+			display: block
+			color: #ccc
+			font-size: 11px
+			margin-top: 5px
+			
+		.data
+			
+			//display: none
+			//padding: 40px 8px 6px 10px
+			//border-radius: 15px		
+			//background: #fff
+			//position: absolute
+			//top: 0
+			//right: 0
+			//margin: -7px 6px 0 0
+			min-width: 300px
+			z-index: -1 
+				
+
+#content
+	top: 250px
+	left: 0
+	right: 0
+	//height: 1000px
+
+	h2
+		color: #fff
+		text-shadow: 1px 1px 1px black
+	
+	.offers
+		overflow: hidden
+		@include panel
+		height: auto	
+		margin: 0 0 30px 0 
+			
+		.col
+			
+		
+			
+			width: 49%
+			float: left
+			padding-bottom: 20px
+			
+			> a
+				display: block
+				clear: both
+		
+		ul
+			margin: 0
+			padding: 0	
+			list-style-type: disc
+			
+	
+			li
+				color: white
+			
+				//overflow: hidden
+				//width: 200px
+				//float: left
+				margin: 0 10px 10px 13px
+			
+		img
+			display: none
+	
+	.news
+		@include panel
+	
+		.item 
+
+			overflow: hidden
+			width: 49%
+			float: left
+			margin: 0 0px 10px 0
+			
+			white-space: nowrap
+			
+			text-overflow: ellipsis
+			//height: 30px
+			
+			.date
+				color: #68D968
+				//display: block
+
+.geography-oldbrowser
+	padding: 10px 20px
+	background: #F4F0D3
+	display: none
+	text-align: center
+	color: black
+	margin-bottom: 20px
+	z-index: 100
+	position: absolute
+	top: 0
+	left: 50%
+	margin-left: -495px
+	width: 950px
+
+	h3
+		margin-bottom: 5px
+		font-size: 22px
+	p
+		margin: 0 0 12px 0
+	button.basic
+		width: 100px
+	

@@ -1,0 +1,246 @@
+
+
+#friend-news-list22 > ul {
+    position: relative;
+}
+
+#friend-news-list22 > ul {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#friend-news-list22 > ul > li.item {
+    display: block;
+    margin-bottom: 40px;
+    width: 100%;
+    float: left;
+    clear: both;
+}
+
+#friend-news-list22 > ul > li .userpic {
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+#friend-news-list22 > ul > li .message .event {
+    margin-top: 10px;
+}
+
+#friend-news-list22 > ul > li .message .event .image {
+    padding: 6px;
+    background: white;
+    border: 1px solid silver;
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+
+#friend-news-list22 > ul > li .message .event .text {
+    float: left;
+    clear: right;
+}
+
+#friend-news-list22 > ul > li .message .event:after {
+    display: block;
+    content: ".";
+    font-size:1px;
+    visibility: hidden;
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+#friend-news-list22 > ul > li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#friend-news-list22 > ul > li .comment,
+#friend-news-list22 > ul > li .message {
+    margin-left: 80px;
+}
+
+#friend-news-list22 > ul > li .datetime {
+    margin: 5px 0 10px 80px;
+    color: gray;
+}
+
+#friend-news-list22 > ul > li .comment input[type=text] {
+    width: 100%;
+}
+
+
+
+
+#friend-news-list22 .comment .list {
+    width: 500px;
+    margin-left: 100px;
+    clear: both;
+    margin-top: 20px;
+    float: left;
+}
+
+#friend-news-list22 .comment .list > div {
+    position: relative;
+
+
+
+    vertical-align: top;
+    color: #000;
+    padding: 10px 10px 5px;
+
+    background: #c9c9cd;
+    background: rgba(225, 225, 224, .9);
+    border-radius: 4px;
+    border: 2px solid silver;
+    margin-bottom: 10px;
+
+    width: 100%;
+
+    clear: both;
+    float: left;
+}
+
+#friend-news-list22 .comment .list > div .text {
+    clear: both;
+    margin-bottom: 3px;
+
+    float: left;
+}
+
+
+#friend-news-list22 .comment .list > div .author {
+    color: #aaa;
+    float: left;
+    clear: both;
+}
+
+#friend-news-list22 .comment .list > div .author:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#friend-news-list22 .add-comment {
+    margin-left: 100px;
+    float: left;
+    clear: both;
+}
+
+#friend-news-list22 .add-comment input[name=text] {
+    width: 400px;
+}
+
+#friend-news-list22 .list > .item > .edit {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: #006400;
+    padding: 3px 8px;
+    color: white;
+}
+
+
+#friend-news-list22 .list > .item > .author {
+    font-weight: bold;
+    color: black;
+}
+
+#friend-news-list22 .list > .item > .author .datetime {
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+#news-newitem form {
+    border: 1px solid silver;
+    padding: 20px;
+    position: relative;
+}
+
+#news-newitem form .row.publicity {
+
+    
+}
+
+#news-newitem form .row.publicity select {
+    padding: 0;
+    font-size: 12px;
+}
+
+#news-newitem form .row.publicity label {
+    display: inline-block;
+}
+
+#news-newitem form .errorMessage {
+    position: static;
+    margin: 0 0 20px 0;
+}
+
+#news-newitem form .errorSummary {
+    margin-top: 40px;
+}
+
+#news-newitem form .row.buttons {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+#news-newitem form .row label {
+    display: block
+}
+
+#news-newitem form .row.text input {
+    width: 100%
+}
+
+#news-newitem form .row.one_media fieldset {
+    display: none;
+}
+
+
+#user-news-item .buttons {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+}
+
+#user-news-item .buttons a {
+    padding: 3px 8px 4px;
+    text-decoration: none;
+    color: #fff;
+    margin: 0 0 5px 5px;
+
+    float: right;
+}
+
+
+#user-news-item .buttons  .edit {
+    background: #228822;
+
+}
+
+#user-news-item .buttons  .archive {
+    clear: both;
+    background: #878485;
+}
+
+#user-news-item .buttons .delete {
+    background: #870200;
+}
+
+#user-news-item .buttons .delete {
+    background: #870200;
+}

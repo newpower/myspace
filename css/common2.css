@@ -1,0 +1,182 @@
+.clearfix:after, .clearafter:after, .clear:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+.clearbefore, .clear {
+  clear: both; }
+
+.hide {
+  display: none; }
+
+nav.main {
+  position: absolute;
+  display: block;
+  width: 180px;
+  margin: 65px 0 0;
+  z-index: 2; }
+  nav.main div {
+    display: block;
+    color: #002200;
+    background: #e1e1e0;
+    padding: 6px 0 6px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    margin-bottom: 20px; }
+    nav.main div.hidden {
+      opacity: 0.01; }
+      nav.main div.hidden:hover {
+        opacity: 1; }
+    nav.main div h4 {
+      margin: 0 0 10px; }
+    nav.main div > a {
+      display: block;
+      margin: 0 0 5px 0px;
+      color: #002200; }
+
+form.basic .type_selector > div {
+  margin: 0 0 12px 0;
+  font-size: 18px; }
+  form.basic .type_selector > div > div {
+    display: inline; }
+form.basic .type_selector .clicky span {
+  cursor: pointer;
+  border-bottom: 1px dashed #00539f;
+  color: #00539f;
+  font-size: 15px; }
+
+.registration form {
+  position: relative; }
+  .registration form input[name=name] {
+    width: 390px; }
+  .registration form input[name=company_name] {
+    width: 390px; }
+  .registration form input.password {
+    width: 100px; }
+  .registration form .login {
+    width: 290px;
+    margin-right: 0; }
+  .registration form .type_selector.person div {
+    margin: 0 0 40px 0; }
+  .registration form .type_selector.person .person {
+    display: inline; }
+  .registration form .type_selector.person .company {
+    display: none; }
+  .registration form .type_selector.person input[name=company_name] {
+    display: none; }
+  .registration form .type_selector.company .person {
+    display: none; }
+  .registration form .type_selector.company .company {
+    display: inline; }
+  .registration form .type_selector.company input[name=company_name] {
+    display: block; }
+  .registration form .show-password {
+    position: relative;
+    top: 2px; }
+    .registration form .show-password input {
+      position: relative;
+      top: 3px; }
+
+.profile_edit form fieldset {
+  clear: both; }
+  .profile_edit form fieldset legend {
+    color: red; }
+  .profile_edit form fieldset:nth-of-type(3) {
+    color: red; }
+
+.about_edit form.basic label.logo {
+  width: 150px;
+  float: left; }
+  .about_edit form.basic label.logo img {
+    display: block;
+    max-width: 150px;
+    max-height: 150px;
+    margin: 5px auto 0; }
+.about_edit form.basic input[type=text], .about_edit form.basic textarea {
+  width: 300px; }
+.about_edit form.basic button.remove {
+  margin: 0 0 0 10px; }
+.about_edit form.basic button.add {
+  background: url(/img/list_add.png) 0 45% no-repeat;
+  padding: 0 0 0 20px;
+  color: #002200;
+  height: 24px;
+  text-shadow: none;
+  box-shadow: none; }
+.about_edit form.basic #YMapsID {
+  margin: 30px 20px 7px 0;
+  background: url(/img/map.png);
+  width: 320px;
+  height: 300px;
+  border: 1px solid silver; }
+.about_edit form.basic .address {
+  margin: 30px 0 0 0;
+  width: 330px; }
+  .about_edit form.basic .address select {
+    min-width: 310px; }
+  .about_edit form.basic .address textarea {
+    height: 80px; }
+.about_edit form.basic label span {
+  color: #999999;
+  float: none;
+  margin: 0 10px 0 0; }
+  .about_edit form.basic label span.set {
+    color: black;
+    font-size: 18px;
+    font-family: georgia, serif;
+    font-style: italic; }
+
+.profile_edit form label span {
+  color: #999999;
+  float: none;
+  display: block; }
+.profile_edit form input[name=inn] {
+  width: 130px; }
+.profile_edit form input[name=inn] {
+  width: 130px; }
+
+.offer_create form label span {
+  color: #999999;
+  float: none;
+  display: block; }
+  .offer_create form label span.set {
+    display: inline; }
+.offer_create form label input + span {
+  color: black;
+  float: left;
+  margin: 3px 0 0 5px; }
+.offer_create form button.add {
+  background: url(/img/list_add.png) 0 center no-repeat;
+  background: none;
+  padding: 0 0 0 20px;
+  color: #002200;
+  height: 24px;
+  text-shadow: none;
+  box-shadow: none; }
+.offer_create form .type_selector.buy .buy {
+  display: inline; }
+.offer_create form .type_selector.buy .sell {
+  display: none; }
+.offer_create form .type_selector.sell .sell {
+  display: inline; }
+.offer_create form .type_selector.sell .buy {
+  display: none; }
+
+.companies_1_staff form input[name=name] {
+  width: 390px; }
+.companies_1_staff form input.password {
+  width: 100px; }
+.companies_1_staff form .show-password {
+  position: relative;
+  top: 2px; }
+  .companies_1_staff form .show-password input {
+    position: relative;
+    top: 3px; }
+
+.companies_1_news form textarea[placeholder] {
+  width: 520px;
+  height: 100px; }
+.companies_1_news form #add_news {
+  margin-top: 30px; }

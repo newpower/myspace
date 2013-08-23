@@ -1,0 +1,67 @@
+#user-search {
+    
+}
+
+#user-search input[name=search] {
+    font-size: 16px;
+    width: 300px;
+}
+
+#user-search .data {
+    padding: 40px 0 0;
+    clear: both;
+}
+
+
+
+#user-search th {
+    white-space: nowrap;
+}
+
+#user-search .toggle-search {
+    padding: 5px 0 20px;
+    clear: both;
+    position: absolute;
+    margin-left: 350px;
+}
+
+#user-search .toggle-search span     {
+    /*text-decoration: underline;*/
+    /*border-bottom: 1px dashed #282;*/
+    /*color: #282;*/
+    /*cursor: pointer;*/
+}
+
+#user-search .toggle-search .basic { display: none}
+
+#user-search form.advanced {
+    clear: both;
+    display: none;
+    padding: 40px 0 0
+}
+
+#user-search form.advanced label {
+    float: left
+}
+
+
+#user-search form.advanced label.email {
+    clear: left
+}
+
+#user-search form.advanced label.name {
+    clear: left
+}
+
+#user-search form.advanced label.region {
+    clear: both;
+    width: 100%;
+}
+
+#user-search .description div {
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}

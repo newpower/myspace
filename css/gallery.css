@@ -1,0 +1,46 @@
+#gallery-list .buttons, #gallery-item .buttons {
+  position: absolute;
+  right: 40px;
+  top: 30px; }
+  #gallery-list .buttons a, #gallery-item .buttons a {
+    padding: 3px 8px 4px;
+    text-decoration: none;
+    color: white;
+    margin: 0 0 5px 5px;
+    float: right; }
+    #gallery-list .buttons a.edit, #gallery-item .buttons a.edit {
+      background: #228822; }
+    #gallery-list .buttons a.archive, #gallery-item .buttons a.archive {
+      background: #878485; }
+    #gallery-list .buttons a.delete, #gallery-item .buttons a.delete {
+      background: #870200; }
+#gallery-list ul, #gallery-item ul {
+  list-style-type: none;
+  padding: 0; }
+#gallery-list .list, #gallery-item .list {
+  margin-bottom: -15px; }
+  #gallery-list .list:after, #gallery-item .list:after {
+    content: "";
+    display: block;
+    clear: both; }
+  #gallery-list .list a, #gallery-item .list a {
+    display: block; }
+  #gallery-list .list .item, #gallery-item .list .item {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 30px 30px 0; }
+  #gallery-list .list .image, #gallery-item .list .image {
+    width: 200px;
+    height: 200px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #cccccc;
+    overflow: hidden;
+    background: white;
+    border-radius: 3px; }
+
+#gallery-item .all {
+  display: inline-block;
+  margin: 10px 0 30px; }

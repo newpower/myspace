@@ -1,0 +1,359 @@
+#layout-content
+	padding-left: 5px !important;
+	padding-right: 0 !important;
+.chart-item
+	//overflow: hidden
+	//width: 941px
+.form.chart-item
+	.leftside
+		float: left
+		width: 600px
+	.rightside
+		float: left
+		width: 290px
+
+	fieldset
+		float: left
+		button
+			padding: 2px 5px
+			font-size: 13px
+	.title
+		display: inline-block
+		font-size: 16px
+		padding-right: 0px
+		width: 94px
+	.field
+		display: inline-block
+		margin-right: 11px
+		zoom: 1
+
+		&.checkbox
+			label
+				display: inline-block
+	select, input[type=text]
+		font-size: 12px
+		max-width: 100px
+		width: 100px
+		zoom: 1
+	label
+		padding-right: 4px
+		//display: inline-block
+	.comment
+		padding-left: 0px
+		width: 640px
+	.period
+		width: 181px
+		margin-right: 10px
+		input
+			width: 65px
+		label
+			display: inline
+		.dates
+			display: block
+			font-size: 11px
+			height: 1em
+			margin-bottom: 4px
+		#chart_type
+			max-width: 85px
+		select
+			max-width: 77px
+
+	.stat
+		float: left
+		width: 705px
+		margin-bottom: 10px
+	.prices
+		float: left
+		width: 705px
+		margin-right: -5px
+		select
+			max-width: 88px
+
+	.region-selects
+		select.level2
+			margin-right: 4px
+
+	.russia-world-field
+		input
+			margin-right: 4px
+
+	.news-wr
+		position: relative
+		clear: both
+		z-index: 3
+		margin-right: -10px
+		top: 10px
+		height: 50px
+		margin-bottom: 10px
+		display: none
+	.news
+		padding: 0
+		list-style: none
+		position: absolute
+		width: 100%
+		display: none
+		li
+			display: inline-block
+			vertical-align: top
+			width: 134px
+			background: #ddd
+			padding: 7px
+			margin-right: 10px
+			margin-bottom: 10px
+			position: relative
+			border-radius: 3px
+			div
+				height: 33px
+				min-height: 33px
+				overflow: hidden
+			&:hover
+				div
+					height: auto
+	ul
+
+	ul.params
+		float: left
+		list-style: none
+
+.normalize
+	position: absolute
+	top: 78px
+	left: 78px
+	display: none
+	z-index: 1
+	&.hidden
+		display: none !important
+
+.chart-container
+	//width: 600px
+	//height: 400px
+	clear: both
+	position: relative
+	display: none
+	&.hidden
+		.close
+			display: none
+
+	.chart_div
+		position: relative
+		top: 0px
+		//left: -50px
+		//width: 1100px
+		height: 400px
+
+
+	.legend-place
+		list-style: none
+		padding: 10px 0 0
+		margin: 0
+		position: relative
+		height: 70px
+		//top: -9px
+		width: 710px
+		z-index: 2
+		li
+			display: inline-block
+			vertical-align: top
+			width: 211px
+			background: transparent
+			//height: 15px
+			padding: 7px
+			margin-right: 10px
+			margin-bottom: 10px
+			position: relative
+			border-radius: 3px
+			//overflow: hidden
+			span
+				line-height: 0px
+				display: block
+				float: left
+				margin-right: 5px
+				width: 12px
+				height: 12px
+				position: relative
+				top: 2px
+			div
+				overflow: hidden
+				min-height: 50px
+			em
+				font-style: normal
+				padding-top: 4px
+				display: block
+				display: none
+			i.no-wrap
+				font-style: normal
+				white-space: nowrap
+			a.close
+				border: 0
+				width: 16px
+				height: 16px
+				text-indent: 9999px
+				background: url('/img/icons/delete3.png') no-repeat
+				position: absolute
+				top: -5px
+				right: -5px
+				display: none
+				overflow: hidden
+
+			.show_on_map
+				display: none
+
+			label
+				display: none
+
+			select
+				margin: 3px 0 0 4px
+
+			.show-map-wr
+				padding-top: 8px
+				margin: 0
+				display: none
+				label
+					display: inline-block
+					margin-right: 10px
+
+			&.hover
+				background: #ddd
+				height: auto
+				//overflow: visible
+				a.close
+					display: block
+				label
+					display: block
+				em
+					display: block
+				.show_on_map
+					display: inline-block
+				.show-map-wr
+					display: block
+					label
+						display: inline-block
+
+			&.no-data
+				background: rgb(255, 223, 223)
+			&.no-data.hover
+				background: rgb(255, 223, 223)
+
+#map
+	height: 400px
+	margin-top: -30px
+
+.map-wr
+	display: none
+	padding-top: 72px
+
+.form
+	.map-switcher
+		text-align: left
+		padding-bottom: 8px
+		position: absolute
+		right: 0px
+		top: 17px
+		z-index: 1
+		display: none
+		width: 230px
+
+		.s
+			display: inline-block
+			vertical-align: top
+
+		label
+			display: inline-block
+			margin-left: 7px
+			vertical-align: top
+			text-align: left
+			input
+				margin-right: 3px
+			span
+				display: inline-block
+				vertical-align: top
+				position: relative
+				z-index: 1
+		#show-map-info
+			//width: 245px
+			//display: inline-block
+			padding: 5px 7px 7px 8px
+			background: white
+			z-index: 0
+			margin-left: -8px
+			margin-top: 0px
+		&.no-data
+			#show-map-info
+				background: rgb(255, 223, 223)
+
+
+.discrete-year
+	.ui-datepicker-calendar
+		display: none
+	.ui-datepicker-month
+		display:none
+	.ui-datepicker-prev
+		display: none
+	.ui-datepicker-next
+		display: none
+	.ui-datepicker
+		width: 85px
+		.ui-datepicker-title
+			margin: 0
+		.ui-datepicker-year
+			width: 92%
+		.ui-datepicker-buttonpane
+			margin-top: 0
+.discrete-month
+	.ui-datepicker-calendar
+		display: none
+	.ui-datepicker-prev
+		display: none
+	.ui-datepicker-next
+		display: none
+	.ui-datepicker
+		width: 140px
+		.ui-datepicker-title
+			margin: 0
+		.ui-datepicker-year
+		.ui-datepicker-buttonpane
+			margin-top: 0
+
+button.ui-datepicker-current
+	display: none
+
+.page-title
+
+.info
+	clear: left
+	padding-top: 20px
+	border: 1px solid #ddd
+	border-radius: 5px
+	padding: 18px
+	position: relative
+	top: 6px
+	margin-right: 5px
+
+	.links
+		list-style: none
+		li
+			padding-bottom: 6px
+			&.separator
+				border-bottom: 1px solid #ddd
+				padding-bottom: 14px
+				margin-bottom: 13px
+
+.rw-not-selected
+	.stat
+		.field
+			display: none
+		.field.russia-world-field
+			display: inline-block
+			label
+				display: inline-block
+				margin-right: 10px
+		button
+			display: none
+
+//.russia
+//	#russia-stat
+//		display: none
+//
+//.world
+//	#world-stat
+//		display: none

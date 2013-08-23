@@ -1,0 +1,520 @@
+.d {
+    margin: 40px 0 0;
+}
+
+#profile > .edit {
+    position: absolute;
+    top: 35px;
+    right: 40px;
+    background: #228822;
+    padding: 3px 8px 4px;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+#profile > .info {
+    margin: 20px 0 10px 0;
+    float: left;
+    width: 210px;
+}
+
+#profile > .info,
+#profile > .bank_info {
+    /*width: 50%;*/
+}
+
+#profile.company > .info {
+	margin-top: 0px;
+}
+
+#profile fieldset {
+    position: relative;
+    border-radius: 3px;
+}
+
+#profile .visibility {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+#profile .visibility select {
+    padding: 0;
+
+    font-size: 12px;
+}
+
+
+#profile > .info th,
+#profile > .bank_info th {
+    width: 115px;
+    background: none;
+
+    color: #959A95;
+
+    padding: 0 10px 0 0;
+    /*font-family: georgia, serif;*/
+    font-style: italic;
+    font-weight: normal;
+    vertical-align: top;
+}
+
+#profile > .info td,
+#profile > .info th,
+#profile > .bank_info td,
+#profile > .bank_info th {
+    padding-top: 5px;
+}
+
+#profile > .info img {
+    width: 70px;
+    height: 40px;
+    background: #eeeeee;
+    float: right;
+}
+
+#profile > .bank_info {
+    border-top: 1px solid #e9e9e8;
+    /*background: #e3e5e2;*/
+    padding: 15px 10px 5px;
+    margin: 20px 0 0 -10px;
+    clear: both;
+}
+
+#profile > .offers {
+    margin: 40px 0 0px 0;
+}
+
+
+
+#profile > .staff .w {
+    float: left;
+    margin: 0 20px 40px 0;
+}
+
+#profile > .staff .w img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: #dddddd;
+    margin: -5px 10px 0 0;
+    border: 1px solid #ddd;
+}
+
+#profile > .staff .c {
+    display: block;
+    height: 1px;
+    clear: both;
+    visibility: hidden;
+}
+
+
+
+#profile .photos .img {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    border: 1px solid silver;
+    margin:  4px -1px 4px 0px;
+
+    overflow: hidden;
+    /*display: inline-block;*/
+    line-height: 150px;
+
+    float: right;
+
+}
+
+#profile .photos {
+    clear: left;
+    width: 150px;
+    float: left;
+    padding-right: 25px;
+    margin: 0 0 20px 0;
+
+}
+
+#profile .photos .item {
+    float: left;
+    border: 1px solid silver;
+    margin:  4px 0 4px 7px;
+
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+
+#profile .photos .item:first-child{
+    margin-left: 0;
+}
+
+
+#profile .photos img {
+    vertical-align: middle;
+    display: inline;
+}
+
+#profile h1 .n2 {
+    display: block;
+    color: #999;
+    font-size: 22px;
+    /*padding-left: 20px;*/
+    /*float: дуае;*/
+}
+
+#profile h3 {
+    margin-bottom: 20px;
+
+}
+
+
+
+#profile .head {
+    padding: 20px 0 0 0;
+
+}
+
+#profile .head h2 {
+    margin: 20px 0 0 ;
+}
+
+#profile .rep {
+    position: relative;
+    top: -1.5em;
+    font-size: 15px;
+    margin: -20px 0 0 10px;
+}
+
+#profile .rep span {
+    color: #ffffff;
+    background: #991808;
+    font-size: 25px;
+    padding:  0px 10px 6px 9px;
+    margin-left: 5px;
+}
+
+#profile .head  nav {
+    display: block;
+    color: white;
+    background: #002200;
+    padding: 6px 0 6px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+#profile  .head  img {
+    width: 100px;
+    margin: 0 30px 30px 0;
+    float: left;
+}
+
+#profile .head nav  {
+    clear: both;
+    
+}
+
+#profile > .head > nav a {
+    display: inline-block;
+    color: white;
+    margin: 0px 10px 0px 0px;
+    text-decoration: none;
+    padding: 0 10px 0 0;
+}
+
+#profile > .head > nav a.current {
+   color: #93957a
+}
+
+#profile > .head > nav a:last-child {
+    border:  none;
+    padding-right: 0;
+}
+
+#profile > .head > nav a em {
+    margin-left: 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#profile > .head > .rating {
+    float: right;
+    clear: right;
+    background: #629b30;
+    color: white;
+    /*padding: 10px 20px 10px;*/
+    border-radius: 5px;
+}
+
+#profile > .head > .rating a {
+    color: white;
+}
+
+#profile > .head > .rating th {
+    color: white;
+    padding: 0;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#profile > .head > .rating h2 {
+    color: white;
+}
+
+#profile > .head > .rating .sum {
+    float: left;
+    text-shadow: 0 2px 3px #555555;
+    font-size: 75px;
+}
+
+#profile > .head > .rating .l {
+    float: right;
+    margin: 0 20px 0;
+}
+
+#profile > .info h1 {
+    margin-bottom: 50px;
+}
+
+
+
+#profile table.data {
+    margin-left: -7px;
+}
+
+#profile .narrow {
+    width: 150px;
+}
+
+#profile .wide {
+    width: 330px;
+}
+
+#profile .region  select:first-child {
+    width: 210px;
+}
+
+#profile .region  select {
+    width: 140px;
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+#profile .photo-album {
+	padding-bottom: 0px !important;
+}
+
+#profile .photo-album ul.list {
+	padding: 0 !important;
+	margin: 0 !important;
+	list-style: none;
+}
+
+#profile .photo-album .item {
+	width: 200px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 30px 30px 0;
+	float: none !important;
+	padding: 0 !important;
+}
+
+#profile .photo-album a {
+	display: block;
+}
+
+#profile .photo-album .image {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #ccc;
+	overflow: hidden;
+	background: #fff;
+	border-radius: 3px;
+}
+
+#profile .photo-album .item span.title {
+	text-align: left !important;
+}
+
+#profile.person-type .company-only {
+	display: none;
+}
+
+#profile.company-type .person-only {
+	display: none;
+}
+
+#profile.company {
+	width: 725px;
+}
+
+#profile.company > .info table {
+	width: 700px;
+}
+
+#profile.company > .info table th {
+	white-space: nowrap;
+}
+
+#profile .company-place {
+	overflow: hidden;
+	clear: left;
+	padding-bottom: 6px;
+    padding-top: 8px;
+}
+#profile .company-place.hidden {
+	display: none;
+}
+
+#profile .company-place .img {
+	border: 1px solid silver;
+    float: left;
+    margin-right: 7px;
+}
+
+#profile .company-place .txt {
+	overflow: hidden;
+	font-size: 18px;
+}
+
+#profile .company-place .txt span {
+	display: block;
+    font-size: 13px;
+}
+
+#profile .request-company-membership {
+	display: none;
+	margin-bottom: 0px;
+	clear: left;
+	position: relative;
+	top: -11px;
+}
+#profile .request-company-membership.visible {
+	display: block;
+	margin-bottom: 20px;
+	top: 0px;
+}
+#profile .request-company-membership label {
+	margin: 0;
+}
+#profile .request-company-membership.visible label {
+	display: none;
+}
+
+#profile .request-company-membership .company_membership_request_inf {
+	display: none;
+}
+
+#profile .request-company-membership #btnCreateMemberRequest {
+	margin-top: 4px;
+}
+
+#profile .company-fields {
+	display: none;
+}
+
+#profile .change-company-tr {
+	display: none;
+}
+
+#profile .request-company-membership.visible .change-company-tr {
+	display: block;
+}
+
+#profile label.company-inn {
+	
+}
+
+#profile #Company_inn {
+    width: 98px;
+}
+
+#profile .opf-list, #profile .company-name {
+	display: none;
+}
+
+#profile .edit-buttons {
+	position: absolute;
+    right: 40px;
+    top: 15px;
+}
+
+#profile .edit-buttons a {
+	color: white;
+    float: right;
+    margin: 0 0 5px 5px;
+    text-decoration: none;
+}
+
+#profile.company form h3 {
+	margin-bottom: 0.5em;
+}
+
+#profile.company .company-members {
+	margin-bottom: 30px;
+	/*float: left;*/
+	/*margin-right: 30px;*/
+	padding: 20px;
+	background: #EEE;
+	border-radius: 5px;
+	/*width: 305px;*/
+}
+#profile.company .company-members.last {
+	margin-right: 0;
+}
+#profile.company .company-members hr {
+	margin-top: 20px;
+}
+#profile.company .company-members .usr {
+	padding: 4px 0;
+	/*margin: 0 -6px;*/
+	height:16px;
+	font-size: 14px;
+	/*border-radius: 4px;*/
+}
+#profile.company .company-members .usr:hover {
+	/*background: #ddd;*/
+}
+#profile.company .company-members .usr a.btn {
+	height: 16px;
+	padding-left: 0px;
+	background-position: top left;
+	background-repeat: no-repeat;
+	display: none;
+	margin: -10px 0 -4px 35px;
+	font-size: 12px;
+	position: relative;
+}
+#profile.company .company-members .usr:hover a.btn {
+	display: inline-block;
+}
+#profile.company .company-members .usr a.btn.accept span {
+	background-image: url("/img/icons/accept3.png");
+}
+#profile.company .company-members .usr a.btn.delete span {
+	background-image: url("/img/icons/delete3.png");
+}
+#profile.company .company-members .usr a.btn span {
+	width: 20px;
+	height: 16px;
+	position: absolute;
+	left: -20px;
+	background-position: top left;
+	background-repeat: no-repeat;
+	display: inline-block;
+}
+
+#profile.company .edit-buttons {
+	position: static;
+	flost: right;
+}
+
+#profile #timeline-filter {
+	float: right;
+	padding-right: 27px;
+}
+

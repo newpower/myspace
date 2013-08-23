@@ -27,7 +27,7 @@ class RssReaderAllController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create','update','admin','delete'),
+				'actions'=>array('index','view','create','update','admin','delete','ReadNews'),
 				'users'=>array('*'),
 				'roles'=>array('1'),
 			),
@@ -154,6 +154,31 @@ class RssReaderAllController extends Controller
 	}
 
 		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+	
+	public function actionReadNews()
+	{
+			$model=new RssReaderAll('search');
+			$model->unsetAttributes();  // clear any default values
+
+		if(isset($_GET['RssReaderAll']))
+			$model->attributes=$_GET['RssReaderAll'];
+	if (isset($_GET['RssReaderAll']))
+	{
+		echo $_GET['RssReaderAll'];
+	}
+
+		$choosed_tags = array();
+
+		if (is_array($_REQUEST['tags'])) {
+			$choosed_tags = $_REQUEST['tags'];
+		}
+		
+		
+			
+		$this->render('ReadNews',array(
 			'model'=>$model,
 		));
 	}

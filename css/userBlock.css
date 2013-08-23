@@ -1,0 +1,30 @@
+.b-user a, .b-user a:visited {
+  color: #333333;
+  text-decoration: none; }
+  .b-user a:hover ._name, .b-user a:hover ._org, .b-user a:visited:hover ._name, .b-user a:visited:hover ._org {
+    text-decoration: underline; }
+.b-user ._pic {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  vertical-align: middle;
+  border: 1px solid #cccccc;
+  margin-top: -10px; }
+.b-user ._org {
+  margin-left: 5px; }
+.b-user ._name {
+  font-size: 16px; }
+.b-user ._status {
+  background: #85ad85;
+  text-decoration: none;
+  color: white;
+  font-size: 8px;
+  padding: 0 5px 2px;
+  position: relative;
+  top: -10px;
+  left: -5px;
+  margin-left: 5px;
+  display: none; }
+.b-user._status-online ._status {
+  display: inline; }

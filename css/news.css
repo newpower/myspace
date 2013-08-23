@@ -1,0 +1,213 @@
+h1.page-title {
+  margin-top: -22px; }
+
+#friend-news-list33 > ul {
+  position: relative;
+  margin-left: 0;
+  padding-left: 0; }
+  #friend-news-list33 > ul > li.item {
+    display: block;
+    margin-bottom: 40px;
+    width: 100%;
+    float: left;
+    clear: both; }
+  #friend-news-list33 > ul > li .userpic {
+    display: block;
+    float: left;
+    margin-right: 20px; }
+  #friend-news-list33 > ul > li .message .event {
+    margin-top: 10px; }
+    #friend-news-list33 > ul > li .message .event .image {
+      padding: 6px;
+      background: white;
+      border: 1px solid silver;
+      display: block;
+      float: left;
+      margin-right: 20px; }
+    #friend-news-list33 > ul > li .message .event .text {
+      float: left;
+      clear: right; }
+    #friend-news-list33 > ul > li .message .event:after {
+      display: block;
+      content: ".";
+      font-size: 1px;
+      visibility: hidden;
+      clear: both;
+      float: none;
+      width: 100%; }
+  #friend-news-list33 > ul > li a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    display: block; }
+  #friend-news-list33 > ul > li .comment, #friend-news-list33 > ul > li .message {
+    margin-left: 80px; }
+  #friend-news-list33 > ul > li .datetime {
+    margin: 5px 0 10px 80px;
+    color: gray; }
+  #friend-news-list33 > ul > li .comment input[type=text] {
+    width: 100%; }
+
+.news-list > .list {
+  width: 700px; }
+  .news-list > .list > .item {
+    -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    -o-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+    -o-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px; }
+    .news-list > .list > .item .user .img {
+      width: 50px;
+      height: 50px;
+      background: silver;
+      float: left;
+      margin: 0 10px 0px 0;
+      text-align: center;
+      overflow: hidden;
+      border: 1px solid #dddddd; }
+    .news-list > .list > .item .user .name {
+      font-weight: bold;
+      color: black; }
+    .news-list > .list > .item .user:after {
+      content: ".";
+      display: block;
+      height: 1px;
+      clear: both;
+      visibility: hidden; }
+    .news-list > .list > .item .user .b-user ._pic {
+      display: none; }
+    .news-list > .list > .item .datetime {
+      color: #999999; }
+    .news-list > .list > .item .content {
+      margin-left: 60px; }
+      .news-list > .list > .item .content .b-comment input {
+        width: 554px; }
+      .news-list > .list > .item .content div.b-usertext.editable {
+        display: block;
+        cursor: pointer; }
+      .news-list > .list > .item .content div.b-usertext {
+        display: block;
+        font-size: 14px;
+        padding: 3px; }
+      .news-list > .list > .item .content div.tags {
+        padding-top: 10px; }
+      .news-list > .list > .item .content.hasImage .b-usertext {
+        min-height: 82px; }
+      .news-list > .list > .item .content.hasImage form.editNewsItem {
+        float: left;
+        width: 440px;
+        min-height: 82px; }
+        .news-list > .list > .item .content.hasImage form.editNewsItem textarea {
+          width: 430px; }
+      .news-list > .list > .item .content .image {
+        float: left;
+        width: 80px;
+        height: 80px;
+        overflow: hidden;
+        margin-right: 15px;
+        border: 1px solid #999999; }
+        .news-list > .list > .item .content .image img {
+          margin: 0px 10px 0px 0; }
+    .news-list > .list > .item .edit {
+      position: absolute;
+      right: 40px;
+      text-decoration: none;
+      background: darkGreen;
+      padding: 3px 8px;
+      color: white; }
+    .news-list > .list > .item .b-comment {
+      margin-top: 15px; }
+      .news-list > .list > .item .b-comment div.count-comments {
+        width: 100%;
+        float: left;
+        padding: 0px 0px 10px 0px; }
+        .news-list > .list > .item .b-comment div.count-comments span.lastComments {
+          float: left; }
+        .news-list > .list > .item .b-comment div.count-comments div.show-all {
+          float: right; }
+          .news-list > .list > .item .b-comment div.count-comments div.show-all a {
+            color: #228822;
+            text-decoration: none; }
+          .news-list > .list > .item .b-comment div.count-comments div.show-all a:hover {
+            text-decoration: underline; }
+    .news-list > .list > .item .b-comment.no-comments form.add-comment {
+      display: none; }
+    .news-list > .list > .item .content.underedit div.post-content {
+      overflow: auto; }
+      .news-list > .list > .item .content.underedit div.post-content div.b-usertext {
+        display: none; }
+    .news-list > .list > .item form {
+      width: 100%;
+      display: inline-block;
+      position: relative; }
+      .news-list > .list > .item form textarea {
+        width: 560px;
+        resize: vertical;
+        font-size: 14px;
+        padding: 2px;
+        color: #555555;
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+        margin-top: 0; }
+      .news-list > .list > .item form select {
+        padding: 0 0 0 0;
+        font-size: 12px; }
+      .news-list > .list > .item form .row.publicity {
+        font-size: 12px;
+        position: absolute;
+        right: 0px;
+        top: -25px;
+        z-index: 15; }
+        .news-list > .list > .item form .row.publicity label {
+          z-index: 15;
+          position: relative; }
+    .news-list > .list > .item .complaint {
+      float: right;
+      white-space: nowrap;
+      display: none;
+      margin-right: 5px; }
+    .news-list > .list > .item:hover .complaint {
+      display: block; }
+.news-list .next-page-ajax {
+  display: none; }
+
+#news-newitem {
+  position: relative; }
+  #news-newitem div.row.one_media {
+    width: 80%;
+    float: right;
+    margin: 0px; }
+    #news-newitem div.row.one_media .b-checkbox {
+      float: right; }
+    #news-newitem div.row.one_media input.showPhoto {
+      display: inline-block; }
+    #news-newitem div.row.one_media label {
+      display: inline-block; }
+    #news-newitem div.row.one_media fieldset {
+      float: left;
+      width: 350px; }
+    #news-newitem div.row.one_media div.fileupload {
+      float: left;
+      width: 350px;
+      display: none; }
+  #news-newitem div.row.publicity {
+    float: right;
+    width: 20%;
+    text-align: right;
+    margin: 0px; }
+  #news-newitem div.row.text {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+  #news-newitem form {
+    padding: 0px 20px 5px 0px;
+    border: none;
+    overflow: auto;
+    line-height: 1; }
+
+#newsItemEditTemplate {
+  display: none; }

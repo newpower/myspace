@@ -16,7 +16,7 @@
 	</div>
 	
 		<div class="span-19">
-		<div id="content">RRRRRRRR
+		<div id="content">RRRRRRRR1
 			<?php echo $content; ?>
 		</div><!-- content -->
 	</div>

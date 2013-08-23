@@ -1,0 +1,189 @@
+.image_annonce_row
+    width: 100%
+    display: inline-block
+
+    .big_image
+        margin: 0 10px 10px 0
+        float: left
+.section
+    h3 + .date
+        margin-top: 1em
+        margin-bottom: 1em
+        font-size: .9em
+        color: #828282
+
+    .text
+        p
+            margin-bottom: .8em
+            line-height: 1.6
+            max-width: 45em
+
+            &:last-child
+                margin-bottom: 0
+
+    // layout
+    .col12, .col22
+        display: table-cell
+        width: 49%
+
+
+    .list
+        margin: 1em 0 0 0
+
+    .item
+        padding-bottom: 1.5em
+        padding-right: 2em
+
+        .date
+            font-size: .9em
+            color: #828282
+
+    .source
+        font-style: italic
+        margin-top: 2px
+
+    .tags
+        margin-bottom: 1.3em
+
+    &.list
+        ul
+            list-style-type: none
+            padding: 0
+            margin: 0
+
+
+//block
+
+.search-materials
+    form
+        margin: 0 0 20px 0
+
+        input.text
+            width: 100%
+            box-sizing: border-box
+
+        input.submit
+
+    .datepicker
+        .ui-datepicker
+            box-sizing: border-box
+            width: 100%
+
+
+
+// page
+
+.news-item
+    .announce
+        h4
+            font-size: 13px
+            margin: 0
+            color: #555
+            line-height: 1.6
+            font-weight: bold
+            max-width: 45em
+
+.news-list, .news-item,
+.analytics-list, .analytics-item
+    .section
+        &.main
+            width: 54em
+
+        &.list
+            .text p
+                width: 35em
+                line-height: 1.2
+                margin-bottom: 0
+
+
+.news-list, .analytics-list
+    .search-materials
+        top: 40px
+        position: absolute
+        right: 18px
+        width: 250px
+
+    .section
+        .item
+            //overflow: hidden
+            padding-bottom: 8px
+            .img
+                float: left
+                margin-right: 10px
+            .ttl
+                margin-bottom: 2px
+                //height: 1.2em
+                //width: 530px
+                text-overflow: ellipsis
+                //overflow: hidden
+                position: relative
+            a
+                span
+                    display: inline-block
+                    vertical-align: middle
+                    margin: 0 2px
+                    &.agro2b
+                        background: url('/img/logo_small_news.png') no-repeat center
+                        width: 21px
+                        height: 16px
+                    &.agrotv
+                        width: 23px
+                        height: 16px
+                        background: url('/img/agrotv_logo_small_news.png') no-repeat center
+                    &.pdf
+                        width: 16px
+                        height: 16px
+                        background: url('/img/icons/ext/pdf_small_news.png') no-repeat center
+            .doc-icon
+                position: absolute
+                top: 0px
+                left: -17px
+                width: 16px
+                height: 16px
+                &.pdf
+                    background: url('/img/pdf.ico.gif') 0 0 no-repeat
+                &.doc
+                    background: url('/img/icons/ext/doc_small.png') 0 0 no-repeat
+                &.docx
+                    background: url('/img/icons/ext/doc_small.png') 0 0 no-repeat
+                &.rtf
+                    background: url('/img/icons/ext/doc_small.png') 0 0 no-repeat
+                &.xls
+                    background: url('/img/icons/ext/xls_small.png') 0 0 no-repeat
+                &.xlsx
+                    background: url('/img/icons/ext/xls_small.png') 0 0 no-repeat
+            .date
+                //display: inline-block
+                //margin-right: 3px
+            .title
+                margin-bottom: 0
+            .text
+                margin-bottom: 0
+            //&.main_item
+            //    .ttl
+            //        font-size: 14px
+            &.highlighted
+                .ttl
+                    a
+                        font-weight: bold
+
+.news-item, .analytics-item
+    .section.main
+        margin-bottom: 3em
+
+    .photos
+
+
+        .itm
+            display: inline-block
+            vertical-align: top
+            margin: 0 20px 20px 0
+            max-width: 150px
+
+    .text
+        ul
+            li
+                margin-bottom: 0.5em
+        ol
+            li
+                margin-bottom: 0.5em

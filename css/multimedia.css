@@ -1,0 +1,227 @@
+fieldset.attachements {
+    margin-top: 20px;
+}
+
+.fileContainer{
+	margin: 10px 0px 10px 0px;
+	padding: 0;
+	float: left;
+	width: 100%;
+}
+
+.fileContainer li {
+	position: relative;
+	/*height: 130px;*/
+	text-align: left;
+	padding: 0px;
+	margin-right: 10px;
+    float: left;
+	list-style: none;
+	margin-left: 10px;
+}
+
+.row .fileContainer li.uploading{
+	display: inline-block;
+	height: 72px;
+	width: 72px;
+	position: relative;
+	margin-bottom: 36px;
+	background: #fff;
+	border: 1px solid #F0F0F0;
+	margin-right: 138px;
+	margin-left: 10px;
+
+}
+.row.one_media .fileContainer li.uploading{
+	height: 72px;
+	width:72px;
+	margin-bottom: 0px;
+	margin-right: 10px;
+	padding-bottom: 0px;
+
+}
+.fileContainer li.hidden{
+	display: none;
+}
+.row .fileContainer li.uploading .percents{
+	position: absolute;
+	bottom: 14px;
+	font-size: 11px;
+	left: 6px;
+	color: #ccc;
+}
+
+.fileContainer li:hover a.delete {
+	visibility: visible;
+}
+.fileContainer li .progress{
+	height: 5px;
+	width: 30px;
+	position: absolute;
+	border: 1px solid #bbb;
+	bottom: 5px;
+	left: 5px;
+
+}
+
+.fileContainer li .progress .bar{
+	width:0px;
+	height: 5px;
+	background: #91BD09;;
+	display: inline-block;
+}
+
+
+.fileContainer li a.icon {
+	display: table-cell;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #F0F0F0;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #fff;
+}
+
+.fileContainer li a.icon img {
+	display: inline-block;
+}
+
+.fileContainer li span.comment {
+	display: block;
+	text-align: left;
+	margin-top: 10px;
+}
+
+.fileContainer li a.delete {
+	width: 23px;
+	height: 20px;
+	background: url("/img/icons/delete.png") center no-repeat;
+	visibility: hidden;
+	display:block;
+	float:right;
+	margin-top: -9px;
+	margin-left: 60px;
+	vertical-align: top;
+	cursor: pointer;
+	position: absolute;
+}
+
+
+.photos fieldset.attachements {
+	border: none;
+	padding: 0px;
+}
+
+.photos fieldset.attachements .fileContainer li {
+	width: auto;
+	height: 70px;
+	margin-right: 20px;
+	list-style: none;
+}
+
+.photos fieldset.attachements .fileContainer a.icon {
+	width: auto;
+	height: auto;
+	border: none;
+	padding: 0px;
+}
+
+.photos fieldset.attachements .fileContainer li span.comment {
+	font-size: 11px;
+	margin-top: 3px;
+}
+.fileupload{
+	/*float:left;*/
+	/*width:100%;*/
+	position: relative;
+	z-index: 3;
+	padding: 10px 0px 10px;
+}
+.fileupload legend{
+	font-size: 14px;
+	font-weight: bold;
+}
+.fileupload .upload-span{
+	width: 110px;
+	height: 20px;
+	display: inline-block;
+	color:#282;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	padding-top: 15px;
+	font-size: 12px;
+}
+.fileupload .drag_text{
+	display: none;
+	width: 250px;
+	height: 40px;
+	padding: 20px 0px;
+	font-size: 14px;
+	border: 1px solid black;
+	vertical-align: middle;
+	background: #fff;
+	color:black;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	margin-left: -125px;
+	top:50%;
+	margin-top: -40px;
+	z-index: 2;
+}
+#news-newitem .fileupload .drag_text{
+	width: 250px;
+	height: 30px;
+	padding: 17px 0px;
+	font-size: 13px;
+	border: 1px solid black;
+	vertical-align: middle;
+	background: #fff;
+	left: 50%;
+	margin-left: -125px;
+	top:50%;
+	margin-top: -32px;
+	z-index: 2;
+}
+.fileupload.dragged .drag_text{
+	/*display: table-cell;*/
+}
+.fileupload.dragged{
+	background: #d9d9d9;
+}
+
+.fileupload .upload-span span{
+	position: absolute;
+	cursor: pointer;
+	margin-left: -1000px;
+}
+
+.fileupload .upload-span span:before {
+	content: "Загрузить файл";
+	margin-left: 1000px;
+	display: block;
+}
+
+body.en .fileupload .upload-span span:before {
+	content: "Upload file";
+}
+
+.fileupload .upload-span:hover{
+	color: #555;
+
+}
+.fileupload input.upload{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	border: solid transparent;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-moz-transform: translate(-300px, 0) scale(4);
+	direction: ltr;
+	cursor: pointer;
+	border-width: 0 0 100px 200px;
+}
