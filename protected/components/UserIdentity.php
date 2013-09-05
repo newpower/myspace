@@ -8,8 +8,9 @@ class UserIdentity extends CUserIdentity {
     public function authenticate(){
         // Производим стандартную аутентификацию, описанную в руководстве.
         $user = Users::model()->find('LOWER(username)=?', array(strtolower($this->username)));
-		if($user->flag_ban==0){$this->errorCode = "Пользователь заблокирован! ";}
-		else if(($user===null) || (md5('jjsjdjfbbb477dfgjjs'.$this->password)!==$user->password)) {
+		//if($user->flag_ban==0){$this->errorCode = self::ERROR_NONE; }
+		//else
+			 if(($user===null) || (md5('jjsjdjfbbb477dfgjjs'.$this->password)!==$user->password)) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             // В качестве идентификатора будем использовать id, а не username,

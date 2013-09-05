@@ -23,6 +23,7 @@
  * @property integer $parse_per_end
  * @property integer $parse_active
  * @property integer $parse_per_argument
+ * @property integer $catalog_id
  * 
  */
 class RssReaderSources extends CActiveRecord
@@ -52,13 +53,13 @@ class RssReaderSources extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ttl_time, parse_active, parse_per_argument', 'numerical', 'integerOnly'=>true),
+			array('ttl_time, parse_active, parse_per_argument, catalog_id', 'numerical', 'integerOnly'=>true),
 			array('name, link_main, link_rss, link_image, managing_editor_name, managing_editor_mail, link_news, parse_method, parse_per_begin, parse_per_end', 'length', 'max'=>255),
 			array('lang', 'length', 'max'=>45),
 			array('descrition, date_add, date_edit, date_rss_read', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time, parse_active', 'safe', 'on'=>'search'),
+			array('id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time, catalog_id, parse_active', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,8 +71,10 @@ class RssReaderSources extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-		'sources_news' =>  array(self::HAS_MANY , 'RssReaderAll','id_sources'),
-		'manttl' =>  array(self::BELONGS_TO , 'RssManTtl','ttl_time'),
+			'sources_news' =>  array(self::HAS_MANY , 'RssReaderAll','id_sources'),
+			'manttl' =>  array(self::BELONGS_TO , 'RssManTtl','ttl_time'),
+			'catalog' =>  array(self::BELONGS_TO , 'RssReaderSourcesCatalog','catalog_id'),
+			
 		);
 	}
 
@@ -94,6 +97,8 @@ class RssReaderSources extends CActiveRecord
 			'date_edit' => 'Date Edit',
 			'date_rss_read' => 'Date Rss Read',
 			'ttl_time' => 'Интервал обновление (мин)',
+			'catalog_id' => 'Входит в группу',
+			'catalog' => 'Входит в группу',
 			'sources_news' => 'Источник новостей',
 			'link_news'=> 'Ссылка на список новостей',
 			'parse_method'=> 'Метод парсера',
@@ -157,5 +162,9 @@ class RssReaderSources extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+		public static function tableName_my()
+	{
+		return '{{_rss_reader_sources}}';
 	}
 }

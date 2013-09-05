@@ -113,7 +113,7 @@ class PageCategory extends CActiveRecord
 		}
 		if ($position == 'top')
 		{
-			$array[]=array('label'=>'Новости ', 'url'=>array('/RssReaderAll/admin'),);
+			$array[]=array('label'=>'Новости ', 'url'=>array('/RssReaderAll/readnews'),);
 			
 			$array[]=array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest);
 			$array[]=array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest);

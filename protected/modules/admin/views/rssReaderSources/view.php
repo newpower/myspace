@@ -45,6 +45,5 @@ $this->menu=array(
 <?php foreach ($model->sources_news as $key1) {
 	echo "<br />";
 	echo $key1->pubDate." ";
-	echo chtml::link($key1->title,array('RssReaderAll/view','id'=> $key1->link )) ;
-	
+	echo chtml::link($key1->title,array('/RssReaderAll/view','id'=> $key1->link )) ;
 }

@@ -20,7 +20,11 @@
 		<?php echo $form->textArea($model,'descrition',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'descrition'); ?>
 	</div>
-
+	<div class="row">
+		<?php echo $form->labelEx($model,'catalog_id'); ?>
+		<?php echo $form->DropDownList($model,'catalog_id',RssReaderSourcesCatalog::All()); ?>
+		<?php echo $form->error($model,'catalog_id'); ?>
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'link_main'); ?>
 		<?php echo $form->textField($model,'link_main',array('size'=>60,'maxlength'=>255)); ?>

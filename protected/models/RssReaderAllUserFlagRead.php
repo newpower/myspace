@@ -1,21 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "{{_rss_reader_sources_catalog_tag}}".
+ * This is the model class for table "{{_rss_reader_all_user_flag_read}}".
  *
- * The followings are the available columns in table '{{_rss_reader_sources_catalog_tag}}':
+ * The followings are the available columns in table '{{_rss_reader_all_user_flag_read}}':
  * @property integer $id
- * @property integer $reader_all_id
- * @property string $text
+ * @property integer $user_id
+ * @property integer $news_id
  * @property string $date_add
- * @property string $date_edit
+ * @property string $date_edit 
+ * @property string $date_edit 
+ * @property string $flag_read
  */
-class RssReaderSourcesCatalogTag extends CActiveRecord
+class RssReaderAllUserFlagRead extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return RssReaderSourcesCatalogTag the static model class
+	 * @return RssReaderAllUserFlagRead the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -27,7 +29,7 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return '{{_rss_reader_sources_catalog_tag}}';
+		return '{{_rss_reader_all_user_flag_read}}';
 	}
 
 	/**
@@ -38,12 +40,11 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('reader_all_id, text, date_add, date_edit', 'required'),
-			array('reader_all_id', 'numerical', 'integerOnly'=>true),
-			array('text', 'length', 'max'=>255),
+			array('user_id, news_id', 'required'),
+			array('user_id, news_id, flag_read', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, reader_all_id, text, date_add, date_edit', 'safe', 'on'=>'search'),
+			array('user_id, news_id, date_add, date_edit', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +56,8 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+	//		'news' =>  array(self::BELONGS_TO , 'RssReaderAll','id',),
+		
 		);
 	}
 
@@ -64,9 +67,9 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'reader_all_id' => 'Reader All',
-			'text' => 'Text',
+		//	'id' => 'ID',
+			'user_id' => 'User',
+			'news_id' => 'News',
 			'date_add' => 'Date Add',
 			'date_edit' => 'Date Edit',
 		);
@@ -83,9 +86,9 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('reader_all_id',$this->reader_all_id);
-		$criteria->compare('text',$this->text,true);
+		//$criteria->compare('id',$this->id);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('news_id',$this->news_id);
 		$criteria->compare('date_add',$this->date_add,true);
 		$criteria->compare('date_edit',$this->date_edit,true);
 
@@ -96,21 +99,13 @@ class RssReaderSourcesCatalogTag extends CActiveRecord
 	
 	public function BeforeSave()
 	{
-
-			
-						if ($this->isNewRecord)
-						{
-							$this->date_add=date("Y-m-d H:i:s");
-						}
+		if ($this->isNewRecord)
+		{
+			$this->date_add=date("Y-m-d H:i:s");
+		}
 						
 						$this->date_edit=date("Y-m-d H:i:s");
-						
-						
-		
-		
 
-		
-		
 		return parent::BeforeSave();
 		
 	}

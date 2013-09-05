@@ -27,7 +27,7 @@ class RssReaderAllController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','create','update','admin','delete','ReadNews'),
+				'actions'=>array('index','view','create','update','admin','delete','ReadNews','check_shingls'),
 				'users'=>array('*'),
 				'roles'=>array('1'),
 			),
@@ -45,11 +45,85 @@ class RssReaderAllController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$my_news_model = $this->loadModel($id);
+		
+		$count_link=RssReaderAllUserFlagRead::model()->count(array('condition'=>'user_id=:userID and news_id =:newsID', 'params'=>array(':userID'=>Yii::app()->user->id,'newsID'=>$my_news_model->id), ));
+		if ($count_link == 0){
+			$mod= new RssReaderAllUserFlagRead;
+			$mod->news_id=$my_news_model->id;
+			//$mod->user_id=1;
+			$mod->user_id=Yii::app()->user->id;
+			
+			if (!$mod->save())
+			{
+				echo "error 100203".rand(10, 1000);
+				exit;
+			}
+		}
+		
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=>$my_news_model,
+	//		'model_read'=> ,
 		));
 	}
 
+	public function actioncheck_shingls($id)
+	{
+		$model = $this->loadModel($id);
+		if(isset($_POST['RssReaderAll']))
+		{
+			$model->attributes=$_POST['RssReaderAll'];
+		}
+		
+	
+			if (!isset($_POST['RssReaderAll']['text_news2'])) {
+				$model->text_news2=$model->text_news;
+			}
+			else {
+				$model->text_news2=$_POST['RssReaderAll']['text_news2'];
+			
+		}
+		$this->render('check_shingls',array(
+			'model'=>$model,
+	//		'model_read'=> ,
+		));
+	}
+	/**
+	 * Функция отображения картинок, выбирает необходимые
+	 * @param string json format utf
+	 * @return text
+	 */
+	public function actionViewImage($url_link_json)
+	{
+		$text_img='';
+		if ($url_link_json)
+		{
+			$mas=json_decode($url_link_json,TRUE);
+				//CHtml::link($data->title,array('controller/action',  'param1'=>'value1'))
+			foreach ($mas as $key => $value) {
+				if ((substr_count($value["src"],'24x24')> 0) or (substr_count($value["src"],'captcha')> 0) or (substr_count($value["src"],'share-lj')> 0) or (substr_count($value["src"],'/ne_/ne_')> 0))
+				{
+	//share-lj
+				}
+				else {
+					$text_img=$text_img.CHtml::image($value["src"],$value["alt"], array('align'=>'left','width'=>'150',)).'';
+				}
+			}
+		}
+		return $text_img;
+	}
+	
+	public function actionViewSmallNews($data)
+	{
+		$new_link=CHtml::link('Продолжение Открыть в новом окне', Yii::app()->controller->createUrl("view", array("id" => $data->link)),array("target"=>"_blank"));
+		$text="<font size='+2'>".CHtml::link(CHtml::encode($data->title), Yii::app()->controller->createUrl("view", array("id" => $data->link)))."</font><br>".$data->pubDate." ".$new_link."  ".CHtml::encode($data->link)."<br><br>";
+		
+		$text=$text.RssReaderAllController::actionViewImage($data->url_link_json);
+
+		
+		$text=$text.substr($data->text_news,0,1500).$new_link."<br><br>";
+		return $text;
+	}
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -160,24 +234,20 @@ class RssReaderAllController extends Controller
 	
 	public function actionReadNews()
 	{
-			$model=new RssReaderAll('search');
-			$model->unsetAttributes();  // clear any default values
+		$model=new RssReaderAll('search');
+		$model->unsetAttributes();  // clear any default values
 
 		if(isset($_GET['RssReaderAll']))
 			$model->attributes=$_GET['RssReaderAll'];
-	if (isset($_GET['RssReaderAll']))
-	{
-		echo $_GET['RssReaderAll'];
-	}
+		if (isset($_GET['RssReaderAll']))
+		{
+			echo $_GET['RssReaderAll'];
+		}
 
 		$choosed_tags = array();
+		$tags_tree = Tag::newsTree();
+		
 
-		if (is_array($_REQUEST['tags'])) {
-			$choosed_tags = $_REQUEST['tags'];
-		}
-		
-		
-			
 		$this->render('ReadNews',array(
 			'model'=>$model,
 		));
@@ -200,12 +270,29 @@ class RssReaderAllController extends Controller
 	 * Performs the AJAX validation.
 	 * @param CModel the model to be validated
 	 */
-	protected function performAjaxValidation($model)
-	{
+	protected function performAjaxValidation($model){
 		if(isset($_POST['ajax']) && $_POST['ajax']==='rss-reader-all-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	public static function getChoosed($tree, $tag) {
+	$result = null;
+	
+	foreach ($tree as $el){
+			if ($el->name == $tag) 	{
+				$result = array($el->id);
+				break;
+			} elseif ($el->childrenCount > 0) {
+				$children = self::getChoosed($el->children, $tag);
+				if ($children != null) {
+					$children [] = $el->id;
+					$result = $children;
+					break;
+				}
+			}
+		}
+		return $result;
 	}
 }

@@ -12,7 +12,10 @@ $this->breadcrumbs=array(
 	
 	<?php 
 	
-	echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
+echo CHtml::link('Парсер новостей/Источники новостей',array('/admin/RssReaderSources')); 
+
+echo "<br />";
+echo CHtml::link('Парсер новостей/Группы Источников новостей',array('/admin/RssReaderSourcesCatalog')); 
 
 echo "<br />";
 echo CHtml::link('Парсер новостей/Новости',array('/RssReaderAll/admin')); 
@@ -33,11 +36,15 @@ echo "<br />";
 	echo "<br />";
 	
 	if (Yii::app()->user->checkAccess('3')){
+		echo "<br />";
+		echo CHtml::link('Парсер страниц, обработки',array('/admin/rssReaderParseText')); 
+		echo "<br />";
 		echo CHtml::link('PhpMy_admin','http://agro2b.nawww.ru/phpMyAdmin/index.php',array('target'=>'_blank')); 
 		echo "<br />";
 		echo CHtml::link('Хостинг MIRAHUB','https://shared2.mirahub.com/manager/ispmgr',array('target'=>'_blank')); 
-		echo "<br />";
-		echo CHtml::link('Парсер страниц, обработки',array('/admin/rssReaderParseText')); 
+
+		echo "<br />";	
+		echo CHtml::link('GII генератор',array('/gii')); 
 		echo "<br />";
 	}
 	

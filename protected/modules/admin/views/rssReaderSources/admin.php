@@ -48,6 +48,7 @@ or <b>=</b>) .
 		'descrition',
 		'link_main',
 		'link_rss',
+		'catalog_id',
 		/*	'link_image',
 
 		'lang',

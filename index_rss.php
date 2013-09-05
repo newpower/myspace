@@ -276,7 +276,7 @@ function set_news_text()
 		set_news($arr_fields,array("id"=>"link","value"=>$line["link"]));
 		//echo "<meta http-equiv=\"refresh\" content=\"601\">";
 		//echo "<iframe src=\"".$line["link"]."\" height='900' width='1200'></iframe> ";
-	//exit;
+	//	exit;
 	}
 
 }
@@ -333,7 +333,7 @@ function get_news_text_from_site($model_parse)
 		
 		if (is_object($html))
 		{
-			echo "OBJECTTTTTTTTTTTTTTTTT";
+			//echo "OBJECTTTTTTTTTTTTTTTTT";
 		}
 		
 		$error_line='';
@@ -374,8 +374,6 @@ function get_news_text_from_site($model_parse)
 						
 						$error_active=0;
 
-						
-						
 						$text_img=$text;
 
 						//Получение картинок если есть размеченная область
@@ -396,9 +394,14 @@ function get_news_text_from_site($model_parse)
 						foreach($html->find('img') as $div2)
 						{
 							$cl = new RestClient();
-							array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
-							if ($per_debug) { echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";}
-							 echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";
+							if ((substr_count($value["src"],'24x24')== 0) or (substr_count($value["src"],'captcha')== 0) or (substr_count($value["src"],'share-lj')== 0) or (substr_count($value["src"],'/ne_/ne_')== 0))
+							{
+
+								array_push($arr_img_url,array("src"=> $cl->url_to_absolute($url, $div2->src),"alt"=>$div2->alt,"title"=>$div2->title));
+						
+								if ($per_debug) { echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";}
+							 	echo "Изображение: ".$cl->url_to_absolute($url, $div2->src)."<br>";
+							}
 						}
 		
 						
@@ -525,13 +528,21 @@ function reader_rss_my($arraydata)
 		//id, name, descrition, link_main, link_rss, link_image, lang, managing_editor_name, managing_editor_mail, date_add, date_edit, date_rss_read, ttl_time
 	$array_page=get_page($arraydata["link_rss"]);
 	$count_new=0;
-	
+	//echo $array_page["html"]."string".$array_page["http_code"];
 	//Запускаем скачивание если астановлен флаг активности
 	if ($arraydata["parse_active"])
 	{
 		$bodytag = str_replace("yandex:full-text", "yandex_full_text", $array_page["html"]);
+				libxml_use_internal_errors(true);
 		$xml= simplexml_load_string($bodytag);
+
 		
+		if (!$xml) {
+		    echo "Ошибка загрузки XML\n <br>";
+		    foreach(libxml_get_errors() as $error) {
+		        echo "<hr color=red>\t", $error->message."<br><br>";
+		    }
+		}
 		//foreach ($xml->channel as $news)
 		//{
 		//	echo '<B><u>'.$news->title.'</u></b> ';

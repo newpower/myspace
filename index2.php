@@ -20,6 +20,36 @@
 //echo "$rss";
 
 
+function get_rating_word($target_url='https://api.hh.ru/specializations')
+{
+	$fp = fopen('D:\web\tools\myspace\protected\data\direct.txt', 'rt');
+	$my_mas1=array();
+	if ($fp)
+	{
+		while (!feof($fp))
+		{
+			$mytext = fgets($fp, 999);
+			$arr_sp=explode('	', $mytext);
+			$word =$arr_sp[0];
+			$value=(int) str_replace (' ','',$arr_sp[1]);
+			
+			$my_mas1[$word]=$value;
+			echo "".$word.";".$my_mas1[$word]."<br>";
+		}
+	}
+	else echo "Ошибка при открытии файла";
+	
+	asort ($my_mas1);
+	while (list ($product, $price) = each ($my_mas1) )
+	echo "$product - $price <br>"; 
+	
+	fclose($fp);
+	
+	exit;
+}
+
+
+
 
 function get_page($target_url='https://api.hh.ru/specializations')
 {
@@ -92,14 +122,11 @@ function get_hh_api_cpecializations()
 }
 
 
-
 /**
  * view recursive function areas hh.ru from table api_hh_areas
  * @param hash data areas
  * 
  */
-
-
 function recurs_view_areas($arrayName=array())
 	{
 		echo "-".$arrayName['id']." - ".$arrayName['name']." <br /> ";
