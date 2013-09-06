@@ -1,15 +1,32 @@
-<?php
-/**
- * This is the bootstrap file for test application.
- * This file should be removed when the application is deployed for production.
- */
+<?php ## Подключение к БД.
 
-// change the following paths if necessary
-$yii=dirname(__FILE__).'/../../phpprojects/frameworks/yii-1.1.8.r3324/framework/yii.php';
-$config=dirname(__FILE__).'/protected/config/test.php';
+//$base_dir=dirname(__FILE__);
+require_once "./my_lib/config.php";
+require_once "./my_lib/DbSimple/Generic.php";
 
-// remove the following line when in production mode
-defined('YII_DEBUG') or define('YII_DEBUG',true);
+// Подключаемся к БД.
+$DATABASE = DbSimple_Generic::connect('mysql://user2324_nawww:1234567aA@93.171.202.18/user2324_main');
 
-require_once($yii);
-Yii::createWebApplication($config)->run(); 
+// Устанавливаем обработчик ошибок.
+$DATABASE->setErrorHandler('databaseErrorHandler');
+
+
+
+
+// Код обработчика ошибок SQL.
+function databaseErrorHandler($message, $info)
+{
+	// Если использовалась @, ничего не делать.
+	if (!error_reporting()) return;
+	// Выводим подробную информацию об ошибке.
+	echo "SQL Error: $message<br><pre>"; 
+	print_r($info);
+	echo "</pre>";
+	exit();
+}
+
+
+
+
+echo "vse ok";
+?>
