@@ -7,6 +7,8 @@
 
 <tr><td>
 	<input type="text" name="tags[]" value="агро"><br>
+	<input type="checkbox" name="tags[]" value="сельхоз:-дайджест">Сельхоз направленость<br>
+	<input type="checkbox" name="tags[]" value="животноводство:-дайджест">Животноводство<br>
 </td><td>
 	<input type="radio" name="only_not_read" value="0" checked="">Показывать прочитанные 
 	<input type="radio" name="only_not_read" value="1">Не Показывать прочитанные

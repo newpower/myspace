@@ -593,6 +593,7 @@ function set_news($news=array(),$iddata=array())
 	$count=0;
 	$srparat="";
 	
+	
 	foreach ($news as $key => $value)
 	{
 			$count=$count+1;

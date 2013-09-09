@@ -2,28 +2,37 @@
 
 //$base_dir=dirname(__FILE__);
 require_once "./my_lib/config.php";
-require_once "./my_lib/DbSimple/Generic.php";
+
+new Debug_HackerConsole_Main(true);
+// Output to default group.
+Debug_HackerConsole_Main::out("Usual message");
+// Dump random structure.
+//Debug_HackerConsole_Main::out($_SERVER, "Input");
+
 
 // Подключаемся к БД.
-$DATABASE = DbSimple_Generic::connect('mysql://user2324_nawww:1234567aA@93.171.202.18/user2324_main');
+$arr_ident["db1"] = DbSimple_Generic::connect('mysql://user2324_nawww:1234567aA@93.171.202.18/user2324_main');
+//$DATABASE =  DbSimple_Generic::connect('mysql://user2324_nawww:1234567aA@93.171.202.18/user2324_main');
+$arr_ident["db1"]->setIdentPrefix(TABLE_PREFIX); 
 
 // Устанавливаем обработчик ошибок.
-$DATABASE->setErrorHandler('databaseErrorHandler');
-
-
-
-
-// Код обработчика ошибок SQL.
-function databaseErrorHandler($message, $info)
+//$DATABASE->setErrorHandler('databaseErrorHandler');
+$arr_ident["db1"]->setLogger('myLogger');
+function myLogger($db, $sql)
 {
-	// Если использовалась @, ничего не делать.
-	if (!error_reporting()) return;
-	// Выводим подробную информацию об ошибке.
-	echo "SQL Error: $message<br><pre>"; 
-	print_r($info);
-	echo "</pre>";
-	exit();
+  // Находим контекст вызова этого запроса.
+  $caller = $db->findLibraryCaller();
+  $tip = "at ".@$caller['file'].' line '.@$caller['line'];
+  // Печатаем запрос (конечно, Debug_HackerConsole лучше).
+   call_user_func(array('Debug_HackerConsole_Main', 'out'), "<xmp title=\"$tip\">\n\n".$sql."\n\n</xmp>");
+  //echo "<xmp title=\"$tip\">"; 
+ // print_r($sql); 
+  //echo "</xmp>";
 }
+
+$arr_task=get_task($arr_ident);
+
+
 
 
 
